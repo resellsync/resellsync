@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -34,17 +35,15 @@
 
     --radius: 0.5rem;
   }
+}
 
+@layer base {
   * {
     @apply border-border;
   }
 
-  html {
-    @apply scroll-smooth antialiased;
-  }
-
   body {
-    @apply bg-background text-foreground overflow-x-hidden;
+    @apply bg-background text-foreground;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -74,61 +73,10 @@
   }
   
   .feature-card {
-    @apply p-6 rounded-xl bg-white shadow-md hover:shadow-lg transition-all duration-300 border border-border hover:scale-105;
+    @apply p-6 rounded-xl bg-white shadow-md hover:shadow-lg transition-shadow duration-300 border border-border;
   }
   
   .pricing-card {
-    @apply p-8 rounded-xl bg-white shadow-lg border border-border flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+    @apply p-8 rounded-xl bg-white shadow-lg border border-border flex flex-col h-full;
   }
-
-  .scroll-reveal {
-    @apply opacity-0 translate-y-8 transition-all duration-700;
-  }
-
-  .scroll-reveal.visible {
-    @apply opacity-100 translate-y-0;
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-.animate-float {
-  animation: float 4s ease-in-out infinite;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out forwards;
-}
-
-@keyframes scale-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.animate-scale-in {
-  animation: scale-in 0.3s ease-out forwards;
 }
