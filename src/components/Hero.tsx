@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, BarChart2, Package, DollarSign } from 'lucide-react';
+import { BarChart2, Package, DollarSign } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -22,31 +22,6 @@ const Hero = () => {
             Manage inventory, sync listings, and scale your business across 
             multiple marketplaces from a single dashboard. Save time and boost sales.
           </p>
-
-          <div className="flex flex-wrap gap-4 items-center py-4">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-lg bg-muted flex items-center justify-center animate-float opacity-70">
-                <span className="font-bold text-sm text-brand-blue">EB</span>
-              </div>
-              <ArrowRight className="w-4 h-4 text-muted-foreground animate-pulse" />
-              <div className="w-12 h-12 rounded-lg bg-brand-blue/10 flex items-center justify-center animate-float delay-100">
-                <span className="font-bold text-lg text-brand-blue">RS</span>
-              </div>
-              <ArrowRight className="w-4 h-4 text-muted-foreground animate-pulse" />
-              <div className="w-12 h-12 rounded-lg bg-muted flex items-center justify-center animate-float delay-200">
-                <span className="font-bold text-sm text-brand-teal">BM</span>
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-lg bg-muted flex items-center justify-center animate-float delay-300">
-                <span className="font-bold text-sm text-brand-green">RB</span>
-              </div>
-              <ArrowRight className="w-4 h-4 text-muted-foreground animate-pulse" />
-              <div className="w-12 h-12 rounded-lg bg-muted flex items-center justify-center animate-float delay-400">
-                <span className="font-bold text-sm text-brand-blue">SS</span>
-              </div>
-            </div>
-          </div>
           
           <div className="flex flex-col sm:flex-row gap-4 mt-2">
             <Button size="lg" className="group">
