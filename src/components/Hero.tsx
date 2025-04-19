@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, BarChart2, Package, DollarSign } from 'lucide-react';
@@ -46,75 +47,76 @@ const Hero = () => {
             <span>14-day free trial</span>
           </div>
         </div>
-      
-      <div className="relative">
-        <div className="absolute -top-10 -left-10 w-40 h-40 bg-brand-blue/5 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-teal/5 rounded-full blur-3xl"></div>
         
-        <div className="relative bg-white rounded-xl shadow-2xl border p-4 animate-float">
-          <div className="bg-muted rounded-lg p-4">
-            <div className="flex items-center justify-between mb-4">
-              <div className="text-lg font-semibold">Business Overview</div>
-              <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-              </div>
-            </div>
-            
-            <div className="space-y-4">
-              <div className="grid grid-cols-3 gap-4">
-                <div className="bg-white p-3 rounded-md shadow-sm flex flex-col">
-                  <div className="text-sm text-muted-foreground">Total Sales</div>
-                  <div className="text-2xl font-bold">$52.4k</div>
-                </div>
-                <div className="bg-white p-3 rounded-md shadow-sm flex flex-col">
-                  <div className="text-sm text-muted-foreground">Growth</div>
-                  <div className="text-2xl font-bold">+24%</div>
-                </div>
-                <div className="bg-white p-3 rounded-md shadow-sm flex flex-col">
-                  <div className="text-sm text-muted-foreground">Orders</div>
-                  <div className="text-2xl font-bold">164</div>
+        <div className="relative">
+          <div className="absolute -top-10 -left-10 w-40 h-40 bg-brand-blue/5 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-teal/5 rounded-full blur-3xl"></div>
+          
+          <div className="relative bg-white rounded-xl shadow-2xl border p-4 animate-float">
+            <div className="bg-muted rounded-lg p-4">
+              <div className="flex items-center justify-between mb-4">
+                <div className="text-lg font-semibold">Business Overview</div>
+                <div className="flex gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
               </div>
               
-              <div className="flex items-center justify-between bg-white p-3 rounded-md shadow-sm">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-brand-blue/20 rounded-md flex items-center justify-center">
-                    <BarChart2 className="text-brand-blue w-5 h-5" />
+              <div className="space-y-4">
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="bg-white p-3 rounded-md shadow-sm flex flex-col">
+                    <div className="text-sm text-muted-foreground">Total Sales</div>
+                    <div className="text-2xl font-bold">$52.4k</div>
                   </div>
-                  <div>
-                    <div className="font-medium">Business Analytics</div>
-                    <div className="text-sm text-muted-foreground">Real-time insights</div>
+                  <div className="bg-white p-3 rounded-md shadow-sm flex flex-col">
+                    <div className="text-sm text-muted-foreground">Growth</div>
+                    <div className="text-2xl font-bold">+24%</div>
                   </div>
-                </div>
-                <Button size="sm" variant="outline">View</Button>
-              </div>
-              
-              <div className="flex items-center justify-between bg-white p-3 rounded-md shadow-sm">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-brand-teal/20 rounded-md flex items-center justify-center">
-                    <Package className="text-brand-teal w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="font-medium">Inventory Management</div>
-                    <div className="text-sm text-muted-foreground">238 items in stock</div>
+                  <div className="bg-white p-3 rounded-md shadow-sm flex flex-col">
+                    <div className="text-sm text-muted-foreground">Orders</div>
+                    <div className="text-2xl font-bold">164</div>
                   </div>
                 </div>
-                <Button size="sm" variant="outline">Manage</Button>
-              </div>
-              
-              <div className="flex items-center justify-between bg-white p-3 rounded-md shadow-sm">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-brand-green/20 rounded-md flex items-center justify-center">
-                    <DollarSign className="text-brand-green w-5 h-5" />
+                
+                <div className="flex items-center justify-between bg-white p-3 rounded-md shadow-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-brand-blue/20 rounded-md flex items-center justify-center">
+                      <BarChart2 className="text-brand-blue w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="font-medium">Business Analytics</div>
+                      <div className="text-sm text-muted-foreground">Real-time insights</div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="font-medium">Sales Overview</div>
-                    <div className="text-sm text-muted-foreground">64 sales this month</div>
-                  </div>
+                  <Button size="sm" variant="outline">View</Button>
                 </div>
-                <Button size="sm" variant="outline">Details</Button>
+                
+                <div className="flex items-center justify-between bg-white p-3 rounded-md shadow-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-brand-teal/20 rounded-md flex items-center justify-center">
+                      <Package className="text-brand-teal w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="font-medium">Inventory Management</div>
+                      <div className="text-sm text-muted-foreground">238 items in stock</div>
+                    </div>
+                  </div>
+                  <Button size="sm" variant="outline">Manage</Button>
+                </div>
+                
+                <div className="flex items-center justify-between bg-white p-3 rounded-md shadow-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-brand-green/20 rounded-md flex items-center justify-center">
+                      <DollarSign className="text-brand-green w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="font-medium">Sales Overview</div>
+                      <div className="text-sm text-muted-foreground">64 sales this month</div>
+                    </div>
+                  </div>
+                  <Button size="sm" variant="outline">Details</Button>
+                </div>
               </div>
             </div>
           </div>
