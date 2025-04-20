@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Check, BarChart, Users, Database, Calendar } from 'lucide-react';
+import { ArrowRight, Check, BarChart, Users, Database, Calendar, Inventory, ShoppingCart } from 'lucide-react';
 import { 
   Carousel,
   CarouselContent,
@@ -110,18 +110,20 @@ const Hero = () => {
             </div>
             {/* Features & Analytics Section */}
             <div className="px-3 py-4 space-y-4">
+              {/* Inventory Management Feature */}
               <div className="flex gap-2 items-center">
-                <Users className="w-6 h-6 text-brand-teal"/>
+                <Inventory className="w-6 h-6 text-brand-blue"/>
                 <div>
-                  <div className="text-sm font-medium">2-way Marketplace Sync</div>
-                  <div className="text-xs text-muted-foreground">Keep listings and orders up to date</div>
+                  <div className="text-sm font-medium">Inventory Management</div>
+                  <div className="text-xs text-muted-foreground">Track phone stock, conditions, and values</div>
                 </div>
               </div>
+              {/* Sale Orders Overview Feature */}
               <div className="flex gap-2 items-center">
-                <Database className="w-6 h-6 text-brand-blue"/>
+                <ShoppingCart className="w-6 h-6 text-brand-teal"/>
                 <div>
-                  <div className="text-sm font-medium">Bulk Import Devices</div>
-                  <div className="text-xs text-muted-foreground">Upload spreadsheets & IMEI lists</div>
+                  <div className="text-sm font-medium">Sale Orders Overview</div>
+                  <div className="text-xs text-muted-foreground">View and manage recent orders efficiently</div>
                 </div>
               </div>
               {/* Analytics Chart */}
