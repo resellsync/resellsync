@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, Check, BarChart, Users, Database, Calendar } from 'lucide-react';
 import { 
   Carousel,
   CarouselContent,
@@ -10,6 +10,7 @@ import {
   CarouselNext
 } from '@/components/ui/carousel';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { BarChart as ReBarChart, Bar, XAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const trustPoints = [
   "No credit card required",
@@ -23,6 +24,16 @@ const marketplaces = [
   { name: "Reebelo", logo: "RB" },
   { name: "Swappa", logo: "SW" },
   { name: "Mercari", logo: "MC" }
+];
+
+const analyticsData = [
+  { name: 'Mon', Listings: 30, Sales: 10 },
+  { name: 'Tue', Listings: 45, Sales: 16 },
+  { name: 'Wed', Listings: 38, Sales: 13 },
+  { name: 'Thu', Listings: 52, Sales: 21 },
+  { name: 'Fri', Listings: 61, Sales: 28 },
+  { name: 'Sat', Listings: 48, Sales: 22 },
+  { name: 'Sun', Listings: 36, Sales: 15 },
 ];
 
 const Hero = () => {
@@ -69,66 +80,70 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right Content - Animated Dashboard */}
-        <div className="relative">
+        {/* Right Content - Modern Dashboard Preview Mobile Friendly */}
+        <div className="relative flex justify-center items-center">
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-brand-blue/5 rounded-full blur-3xl"></div>
           <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-teal/5 rounded-full blur-3xl"></div>
-
-          <div className="relative rounded-xl overflow-hidden shadow-2xl border bg-white">
-            {/* Main Dashboard View */}
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10"></div>
-              <div className="grid grid-cols-3 gap-4 p-6">
-                {/* Stats Cards */}
-                <div className="col-span-3 grid grid-cols-3 gap-4 mb-4">
-                  <div className="bg-muted/30 p-4 rounded-lg">
-                    <div className="text-sm text-muted-foreground">Active Listings</div>
-                    <div className="text-2xl font-semibold">247</div>
-                  </div>
-                  <div className="bg-muted/30 p-4 rounded-lg">
-                    <div className="text-sm text-muted-foreground">Phones in Stock</div>
-                    <div className="text-2xl font-semibold">182</div>
-                  </div>
-                  <div className="bg-muted/30 p-4 rounded-lg">
-                    <div className="text-sm text-muted-foreground">This Month</div>
-                    <div className="text-2xl font-semibold">$24.5k</div>
-                  </div>
+          <div className="relative w-full max-w-[370px] rounded-2xl overflow-hidden shadow-2xl border bg-white">
+            {/* Dashboard Header */}
+            <div className="px-6 py-4 border-b flex items-center justify-between">
+              <span className="font-semibold text-[18px] flex items-center gap-2">
+                <BarChart className="w-5 h-5 text-brand-blue" />
+                Dashboard
+              </span>
+              <Calendar className="w-5 h-5 text-muted-foreground" />
+            </div>
+            {/* Stats Row */}
+            <div className="flex flex-wrap justify-between gap-3 px-6 py-4 bg-muted/40">
+              <div className="flex flex-col items-start">
+                <span className="text-xs text-muted-foreground">Active Listings</span>
+                <span className="font-semibold text-lg">247</span>
+              </div>
+              <div className="flex flex-col items-start">
+                <span className="text-xs text-muted-foreground">Phones in Stock</span>
+                <span className="font-semibold text-lg">182</span>
+              </div>
+              <div className="flex flex-col items-start">
+                <span className="text-xs text-muted-foreground">Revenue</span>
+                <span className="font-semibold text-lg">$7,850</span>
+              </div>
+            </div>
+            {/* Features & Analytics Section */}
+            <div className="px-3 py-4 space-y-4">
+              <div className="flex gap-2 items-center">
+                <Users className="w-6 h-6 text-brand-teal"/>
+                <div>
+                  <div className="text-sm font-medium">2-way Marketplace Sync</div>
+                  <div className="text-xs text-muted-foreground">Keep listings and orders up to date</div>
                 </div>
-
-                {/* IMEI List */}
-                <div className="col-span-2 bg-muted/30 p-4 rounded-lg">
-                  <div className="flex justify-between items-center mb-4">
-                    <h3 className="font-medium">Recent IMEIs</h3>
-                    <Button variant="outline" size="sm">Add New</Button>
-                  </div>
-                  <div className="space-y-2">
-                    {[
-                      "354651234567890",
-                      "354651234567891",
-                      "354651234567892"
-                    ].map((imei, i) => (
-                      <div key={i} className="flex justify-between items-center p-2 bg-background rounded">
-                        <span className="font-mono text-sm">{imei}</span>
-                        <span className="text-sm text-green-500">Listed</span>
-                      </div>
-                    ))}
-                  </div>
+              </div>
+              <div className="flex gap-2 items-center">
+                <Database className="w-6 h-6 text-brand-blue"/>
+                <div>
+                  <div className="text-sm font-medium">Bulk Import Devices</div>
+                  <div className="text-xs text-muted-foreground">Upload spreadsheets & IMEI lists</div>
                 </div>
-
-                {/* Quick Actions */}
-                <div className="bg-muted/30 p-4 rounded-lg">
-                  <h3 className="font-medium mb-4">Quick Actions</h3>
-                  <div className="space-y-2">
-                    <Button variant="outline" className="w-full justify-start" size="sm">
-                      Bulk Import
-                    </Button>
-                    <Button variant="outline" className="w-full justify-start" size="sm">
-                      Sync Orders
-                    </Button>
-                    <Button variant="outline" className="w-full justify-start" size="sm">
-                      New Listing
-                    </Button>
-                  </div>
+              </div>
+              {/* Analytics Chart */}
+              <div className="rounded-xl bg-muted/70 p-2">
+                <span className="block font-medium mb-2 text-sm text-muted-foreground">Weekly Listings & Sales</span>
+                <div className="h-32 w-full">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <ReBarChart data={analyticsData} barSize={18}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="#ececec" vertical={false} />
+                      <XAxis dataKey="name" tick={{ fontSize: 10 }} axisLine={false} tickLine={false} />
+                      <Tooltip 
+                        contentStyle={{
+                          background: "#fff",
+                          border: "1px solid #e5e7eb",
+                          borderRadius: 8,
+                          fontSize: 12
+                        }}
+                      />
+                      <Bar dataKey="Listings" fill="#35b7e7" radius={[4, 4, 0, 0]} />
+                      <Bar dataKey="Sales" fill="#47f4b1" radius={[4, 4, 0, 0]} />
+                    </ReBarChart>
+                  </ResponsiveContainer>
                 </div>
               </div>
             </div>
