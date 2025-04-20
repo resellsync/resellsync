@@ -30,7 +30,6 @@ const Hero = () => {
   
   return (
     <div className="container-section pb-8">
-      {/* Hero section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
         <div className="flex flex-col gap-6">
           <div className="inline-flex items-center rounded-full px-4 py-1 text-sm bg-muted text-muted-foreground">
@@ -71,13 +70,64 @@ const Hero = () => {
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-brand-blue/5 rounded-full blur-3xl"></div>
           <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-teal/5 rounded-full blur-3xl"></div>
           
-          <div className="relative rounded-xl overflow-hidden shadow-2xl border">
-            <img 
-              src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=2070" 
-              alt="Person using ResellSync dashboard" 
-              className="w-full h-auto object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent"></div>
+          <div className="relative rounded-xl overflow-hidden shadow-2xl border bg-white">
+            {/* Main Dashboard View */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10"></div>
+              <div className="grid grid-cols-3 gap-4 p-6">
+                {/* Stats Cards */}
+                <div className="col-span-3 grid grid-cols-3 gap-4 mb-4">
+                  <div className="bg-muted/30 p-4 rounded-lg">
+                    <div className="text-sm text-muted-foreground">Active Listings</div>
+                    <div className="text-2xl font-semibold">247</div>
+                  </div>
+                  <div className="bg-muted/30 p-4 rounded-lg">
+                    <div className="text-sm text-muted-foreground">Phones in Stock</div>
+                    <div className="text-2xl font-semibold">182</div>
+                  </div>
+                  <div className="bg-muted/30 p-4 rounded-lg">
+                    <div className="text-sm text-muted-foreground">This Month</div>
+                    <div className="text-2xl font-semibold">$24.5k</div>
+                  </div>
+                </div>
+                
+                {/* IMEI List */}
+                <div className="col-span-2 bg-muted/30 p-4 rounded-lg">
+                  <div className="flex justify-between items-center mb-4">
+                    <h3 className="font-medium">Recent IMEIs</h3>
+                    <Button variant="outline" size="sm">Add New</Button>
+                  </div>
+                  <div className="space-y-2">
+                    {[
+                      "354651234567890",
+                      "354651234567891",
+                      "354651234567892"
+                    ].map((imei, i) => (
+                      <div key={i} className="flex justify-between items-center p-2 bg-background rounded">
+                        <span className="font-mono text-sm">{imei}</span>
+                        <span className="text-sm text-green-500">Listed</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Quick Actions */}
+                <div className="bg-muted/30 p-4 rounded-lg">
+                  <h3 className="font-medium mb-4">Quick Actions</h3>
+                  <div className="space-y-2">
+                    <Button variant="outline" className="w-full justify-start" size="sm">
+                      Bulk Import
+                    </Button>
+                    <Button variant="outline" className="w-full justify-start" size="sm">
+                      Sync Orders
+                    </Button>
+                    <Button variant="outline" className="w-full justify-start" size="sm">
+                      New Listing
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
