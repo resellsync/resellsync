@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from "react";
-import { Import, Database, FileUp } from "lucide-react";
+import { Database, FileUp } from "lucide-react";
 
 const dummyRows = [
   {
@@ -43,14 +43,8 @@ export default function BulkImportAnimatedVisual() {
 
   return (
     <div className="relative w-[95vw] max-w-[330px] md:max-w-[380px] mx-auto h-[225px] md:h-[240px] bg-gradient-to-br from-brand-blue/5 to-brand-teal/10 rounded-2xl flex flex-col p-4 shadow-[0_1px_6px_0_rgba(10,93,117,0.05)] overflow-hidden">
-      {/* Animated Import Area */}
-      <div className="absolute z-10 left-0 top-2 w-full flex justify-center pointer-events-none">
-        <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-lg shadow-lg w-[200px] animate-fade-in">
-          <Import className="text-brand-teal animate-pulse w-5 h-5" aria-hidden="true" />
-          <span className="font-semibold text-brand-teal text-sm">CSV Import</span>
-          <FileUp className="text-gray-400 ml-auto w-4 h-4" aria-hidden="true" />
-        </div>
-      </div>
+      {/* Removed the top Animated Import Area with icon */}
+
       {/* Shorter Arrow indicating import flow */}
       <div className="absolute left-1/2 top-[55px] -translate-x-1/2 z-10">
         <svg width="30" height="24" viewBox="0 0 30 24" fill="none" className="animate-bounce" aria-hidden="true">
@@ -109,3 +103,4 @@ export default function BulkImportAnimatedVisual() {
     </div>
   );
 }
+
