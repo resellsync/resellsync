@@ -1,6 +1,6 @@
 
 import React from "react";
-import { FileInput, Database, Search } from "lucide-react";
+import { FileInput, Database, Search, RefreshCw, Package, Inbox, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const BulkImportVisual = () => (
