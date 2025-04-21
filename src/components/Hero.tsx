@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Check, BarChart, Users, Database, Calendar, Package, ShoppingCart } from 'lucide-react';
@@ -11,10 +10,11 @@ import {
 } from '@/components/ui/carousel';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { BarChart as ReBarChart, Bar, XAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import SectionFeatures from "./SectionFeatures";
 
 const trustPoints = [
   "No credit card required",
-  "14-day free trial",
+  "14-day free trial", 
   "Minimal learning curve"
 ];
 
@@ -158,7 +158,6 @@ const Hero = () => {
         <h2 className="text-xl md:text-2xl text-center mb-8 text-muted-foreground font-medium">
           Trusted by Industry Leaders
         </h2>
-
         <Carousel
           opts={{
             align: "start",
@@ -190,6 +189,9 @@ const Hero = () => {
           )}
         </Carousel>
       </div>
+
+      {/* NEW SECTION 2 – Features/What You Can Do With Resellsync */}
+      <SectionFeatures />
     </div>
   );
 };
