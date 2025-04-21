@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Check, BarChart, Users, Database, Calendar, Inventory, ShoppingCart } from 'lucide-react';
+import { ArrowRight, Check, BarChart, Users, Database, Calendar, Package, ShoppingCart } from 'lucide-react';
 import { 
   Carousel,
   CarouselContent,
@@ -112,7 +112,7 @@ const Hero = () => {
             <div className="px-3 py-4 space-y-4">
               {/* Inventory Management Feature */}
               <div className="flex gap-2 items-center">
-                <Inventory className="w-6 h-6 text-brand-blue"/>
+                <Package className="w-6 h-6 text-brand-blue"/>
                 <div>
                   <div className="text-sm font-medium">Inventory Management</div>
                   <div className="text-xs text-muted-foreground">Track phone stock, conditions, and values</div>
