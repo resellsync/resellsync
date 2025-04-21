@@ -1,13 +1,13 @@
 
 import React from "react";
-import { Sync, Upload, Package, Inbox, ArrowRight } from "lucide-react";
+import { RefreshCw, Upload, Package, Inbox, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
   {
     title: "Sync Listings Across Marketplaces",
     desc: "Automatically sync your phone listings across platforms in real time, reducing manual work and preventing overselling.",
-    icon: <Sync className="w-16 h-16 text-brand-blue mx-auto" aria-hidden="true" />,
+    icon: <RefreshCw className="w-16 h-16 text-brand-blue mx-auto" aria-hidden="true" />,
     alt: "Marketplace Sync Illustration",
     imgClass: "bg-gradient-to-br from-brand-blue/10 to-brand-teal/20",
   },
@@ -20,7 +20,7 @@ const features = [
   },
   {
     title: "IMEI Tracking & Device Management",
-    desc: "Stay organized with real-time IMEI tracking and full visibility of every device’s status — from intake to shipment.",
+    desc: "Stay organized with real-time IMEI tracking and full visibility of every device's status — from intake to shipment.",
     icon: <Package className="w-16 h-16 text-brand-blue mx-auto" aria-hidden="true" />,
     alt: "IMEI Tracking Mockup",
     imgClass: "bg-gradient-to-br from-brand-blue/20 to-brand-green/10",
