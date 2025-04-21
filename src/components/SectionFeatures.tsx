@@ -1,22 +1,95 @@
 
 import React from "react";
-import { RefreshCw, Upload, Package, Inbox, ArrowRight } from "lucide-react";
+import { FileInput, Database, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+const BulkImportVisual = () => (
+  <div className="relative w-[300px] h-[200px] md:w-[360px] md:h-[230px] p-4 rounded-2xl bg-gradient-to-br from-brand-teal/10 to-brand-blue/10 shadow-md flex flex-col justify-between overflow-hidden">
+    {/* CSV or Scanner Import Interface */}
+    <div className="flex items-center gap-2 bg-white rounded-lg shadow p-2 w-2/3 mx-auto mb-3">
+      <FileInput className="text-brand-teal w-7 h-7" aria-hidden="true" />
+      <input
+        disabled
+        aria-label="CSV or IMEI input"
+        className="bg-transparent text-sm text-muted-foreground placeholder:text-gray-400 flex-1 outline-none"
+        placeholder="Scan or import IMEI/CSV..."
+        style={{ minWidth: 0 }}
+      />
+      <Button variant="secondary" size="sm" className="ml-2 px-3 py-0.5 rounded">
+        Import
+      </Button>
+    </div>
+    {/* Search Bar */}
+    <div className="flex items-center gap-2 bg-gray-50 rounded-full p-2 px-3 text-xs shadow-sm w-3/4 mx-auto mb-2">
+      <Search className="text-brand-blue w-4 h-4" aria-hidden="true" />
+      <span className="text-gray-600">Search IMEI, Model, Brand...</span>
+    </div>
+    {/* Inventory Table Preview */}
+    <div className="bg-white rounded-lg shadow w-full text-xs overflow-x-auto">
+      <table className="table-auto w-full min-w-[250px]">
+        <thead>
+          <tr className="bg-gray-50">
+            <th className="p-1 font-medium text-brand-blue">IMEI</th>
+            <th className="p-1 font-medium text-brand-blue">Brand</th>
+            <th className="p-1 font-medium text-brand-blue">Model</th>
+            <th className="p-1 font-medium text-brand-blue">Grade</th>
+            <th className="p-1 font-medium text-brand-blue">Network</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="p-1">35370...0241</td>
+            <td className="p-1">Apple</td>
+            <td className="p-1">iPhone 13</td>
+            <td className="p-1">A</td>
+            <td className="p-1">Unlocked</td>
+          </tr>
+          <tr className="bg-gray-50">
+            <td className="p-1">86832...2215</td>
+            <td className="p-1">Samsung</td>
+            <td className="p-1">Galaxy S21</td>
+            <td className="p-1">B</td>
+            <td className="p-1">T-Mobile</td>
+          </tr>
+          <tr>
+            <td className="p-1">01452...8299</td>
+            <td className="p-1">Google</td>
+            <td className="p-1">Pixel 6</td>
+            <td className="p-1">A</td>
+            <td className="p-1">Verizon</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div className="absolute bottom-3 right-4 opacity-20">
+      <Database className="w-12 h-12 text-brand-blue" aria-hidden="true" />
+    </div>
+  </div>
+);
+
 const features = [
+  {
+    // Block 1: Bulk Import Inventory (new content)
+    title: "Import Your Phone Inventory Fast",
+    desc: (
+      <>
+        <div>
+          Upload your devices with key details like <strong>IMEI, brand, model, grade, and network</strong>.<br />
+          Keep your inventory organized, searchable, and ready to track — all in one place.
+        </div>
+      </>
+    ),
+    // Custom visual component:
+    icon: <BulkImportVisual />,
+    alt: "CSV or scanner import interface and inventory dashboard mockup for Resellsync",
+    imgClass: "", // Already styled in BulkImportVisual
+  },
   {
     title: "Sync Listings Across Marketplaces",
     desc: "Automatically sync your phone listings across platforms in real time, reducing manual work and preventing overselling.",
     icon: <RefreshCw className="w-16 h-16 text-brand-blue mx-auto" aria-hidden="true" />,
     alt: "Marketplace Sync Illustration",
     imgClass: "bg-gradient-to-br from-brand-blue/10 to-brand-teal/20",
-  },
-  {
-    title: "Bulk Import Inventory",
-    desc: "Upload large batches of devices with pricing, model details, and IMEIs in seconds — no spreadsheets required.",
-    icon: <Upload className="w-16 h-16 text-brand-teal mx-auto" aria-hidden="true" />,
-    alt: "Bulk Import Illustration",
-    imgClass: "bg-gradient-to-br from-brand-teal/10 to-brand-blue/10",
   },
   {
     title: "IMEI Tracking & Device Management",
@@ -54,12 +127,12 @@ const SectionFeatures = () => (
             className={`flex-shrink-0 w-full md:w-1/2 flex justify-center items-center mb-4 md:mb-0`}
           >
             <div
-              className={`rounded-2xl shadow-md ${feat.imgClass} flex flex-col items-center justify-center w-[300px] h-[200px] md:w-[360px] md:h-[230px]`}
+              className={`rounded-2xl shadow-md ${feat.imgClass ? feat.imgClass : ""} flex flex-col items-center justify-center w-[300px] h-[200px] md:w-[360px] md:h-[230px]`}
               aria-label={feat.alt}
               role="img"
             >
               {feat.icon}
-              {/* Use a visually hidden span for accessibility */}
+              {/* Accessibility: visually hidden span */}
               <span className="sr-only">{feat.alt}</span>
             </div>
           </div>
