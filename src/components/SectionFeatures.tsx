@@ -1,75 +1,11 @@
-
 import React from "react";
 import { FileInput, Database, Search, RefreshCw, Package, Inbox, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const BulkImportVisual = () => (
-  <div className="relative w-[300px] h-[200px] md:w-[360px] md:h-[230px] p-4 rounded-2xl bg-gradient-to-br from-brand-teal/10 to-brand-blue/10 shadow-md flex flex-col justify-between overflow-hidden">
-    {/* CSV or Scanner Import Interface */}
-    <div className="flex items-center gap-2 bg-white rounded-lg shadow p-2 w-2/3 mx-auto mb-3">
-      <FileInput className="text-brand-teal w-7 h-7" aria-hidden="true" />
-      <input
-        disabled
-        aria-label="CSV or IMEI input"
-        className="bg-transparent text-sm text-muted-foreground placeholder:text-gray-400 flex-1 outline-none"
-        placeholder="Scan or import IMEI/CSV..."
-        style={{ minWidth: 0 }}
-      />
-      <Button variant="secondary" size="sm" className="ml-2 px-3 py-0.5 rounded">
-        Import
-      </Button>
-    </div>
-    {/* Search Bar */}
-    <div className="flex items-center gap-2 bg-gray-50 rounded-full p-2 px-3 text-xs shadow-sm w-3/4 mx-auto mb-2">
-      <Search className="text-brand-blue w-4 h-4" aria-hidden="true" />
-      <span className="text-gray-600">Search IMEI, Model, Brand...</span>
-    </div>
-    {/* Inventory Table Preview */}
-    <div className="bg-white rounded-lg shadow w-full text-xs overflow-x-auto">
-      <table className="table-auto w-full min-w-[250px]">
-        <thead>
-          <tr className="bg-gray-50">
-            <th className="p-1 font-medium text-brand-blue">IMEI</th>
-            <th className="p-1 font-medium text-brand-blue">Brand</th>
-            <th className="p-1 font-medium text-brand-blue">Model</th>
-            <th className="p-1 font-medium text-brand-blue">Grade</th>
-            <th className="p-1 font-medium text-brand-blue">Network</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className="p-1">35370...0241</td>
-            <td className="p-1">Apple</td>
-            <td className="p-1">iPhone 13</td>
-            <td className="p-1">A</td>
-            <td className="p-1">Unlocked</td>
-          </tr>
-          <tr className="bg-gray-50">
-            <td className="p-1">86832...2215</td>
-            <td className="p-1">Samsung</td>
-            <td className="p-1">Galaxy S21</td>
-            <td className="p-1">B</td>
-            <td className="p-1">T-Mobile</td>
-          </tr>
-          <tr>
-            <td className="p-1">01452...8299</td>
-            <td className="p-1">Google</td>
-            <td className="p-1">Pixel 6</td>
-            <td className="p-1">A</td>
-            <td className="p-1">Verizon</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div className="absolute bottom-3 right-4 opacity-20">
-      <Database className="w-12 h-12 text-brand-blue" aria-hidden="true" />
-    </div>
-  </div>
-);
+import BulkImportAnimatedVisual from "./BulkImportAnimatedVisual";
 
 const features = [
   {
-    // Block 1: Bulk Import Inventory (new content)
+    // Block 1: Bulk Import Inventory (with animated visual)
     title: "Import Your Phone Inventory Fast",
     desc: (
       <>
@@ -79,10 +15,10 @@ const features = [
         </div>
       </>
     ),
-    // Custom visual component:
-    icon: <BulkImportVisual />,
-    alt: "CSV or scanner import interface and inventory dashboard mockup for Resellsync",
-    imgClass: "", // Already styled in BulkImportVisual
+    // New animated visual:
+    icon: <BulkImportAnimatedVisual />,
+    alt: "Animated CSV or scanner import interface and inventory dashboard mockup for Resellsync",
+    imgClass: "",
   },
   {
     title: "Sync Listings Across Marketplaces",
