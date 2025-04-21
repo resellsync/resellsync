@@ -4,21 +4,21 @@ import { Import, Database, FileUp } from "lucide-react";
 
 const dummyRows = [
   {
-    imei: "35370...0241",
+    imei: "353700024123456",
     brand: "Apple",
     model: "iPhone 13",
     grade: "A",
     network: "Unlocked",
   },
   {
-    imei: "86832...2215",
+    imei: "868322215987654",
     brand: "Samsung",
     model: "Galaxy S21",
     grade: "B",
     network: "T-Mobile",
   },
   {
-    imei: "01452...8299",
+    imei: "014528299123789",
     brand: "Google",
     model: "Pixel 6",
     grade: "A",
@@ -51,10 +51,10 @@ export default function BulkImportAnimatedVisual() {
           <FileUp className="text-gray-400 ml-auto w-4 h-4" aria-hidden="true" />
         </div>
       </div>
-      {/* Arrow indicating import flow */}
+      {/* Shorter Arrow indicating import flow */}
       <div className="absolute left-1/2 top-[55px] -translate-x-1/2 z-10">
-        <svg width="30" height="36" viewBox="0 0 30 36" fill="none" className="animate-bounce" aria-hidden="true">
-          <path d="M15 2v28M15 30l6-6M15 30l-6-6" stroke="#0D9488" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+        <svg width="30" height="24" viewBox="0 0 30 24" fill="none" className="animate-bounce" aria-hidden="true">
+          <path d="M15 2v16M15 18l4-4M15 18l-4-4" stroke="#0D9488" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </div>
       {/* Animated Table */}

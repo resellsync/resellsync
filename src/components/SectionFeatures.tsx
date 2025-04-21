@@ -1,5 +1,5 @@
 import React from "react";
-import { FileInput, Database, Search, RefreshCw, Package, Inbox, ArrowRight } from "lucide-react";
+import { FileInput, Database, RefreshCw, Package, Inbox, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BulkImportAnimatedVisual from "./BulkImportAnimatedVisual";
 
@@ -10,7 +10,7 @@ const features = [
     desc: (
       <>
         <div>
-          Upload your devices with key details like <strong>IMEI, brand, model, grade, and network</strong>.<br />
+          Upload your devices with key details like <strong>IMEI, brand, model, grade, and network</strong>.
           Keep your inventory organized, searchable, and ready to track — all in one place.
         </div>
       </>
