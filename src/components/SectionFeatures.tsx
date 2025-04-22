@@ -1,11 +1,11 @@
 import React from "react";
-import { FileInput, Database, RefreshCw, Package, Inbox, ArrowRight } from "lucide-react";
+import { FileInput, Database, Package, Inbox, ArrowRight, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BulkImportAnimatedVisual from "./BulkImportAnimatedVisual";
+import InventoryTrackingSection from "./InventoryTrackingSection";
 
 const features = [
   {
-    // Block 1: Bulk Import Inventory (with animated visual)
     title: "Import Your Phone Inventory Fast",
     desc: (
       <>
@@ -15,22 +15,14 @@ const features = [
         </div>
       </>
     ),
-    // New animated visual:
     icon: <BulkImportAnimatedVisual />,
     alt: "Animated CSV or scanner import interface and inventory dashboard mockup for Resellsync",
     imgClass: "",
   },
   {
-    title: "Sync Listings Across Marketplaces",
-    desc: "Automatically sync your phone listings across platforms in real time, reducing manual work and preventing overselling.",
-    icon: <RefreshCw className="w-16 h-16 text-brand-blue mx-auto" aria-hidden="true" />,
-    alt: "Marketplace Sync Illustration",
-    imgClass: "bg-gradient-to-br from-brand-blue/10 to-brand-teal/20",
-  },
-  {
     title: "IMEI Tracking & Device Management",
     desc: "Stay organized with real-time IMEI tracking and full visibility of every device's status — from intake to shipment.",
-    icon: <Package className="w-16 h-16 text-brand-blue mx-auto" aria-hidden="true" />,
+    icon: <InventoryTrackingSection />,
     alt: "IMEI Tracking Mockup",
     imgClass: "bg-gradient-to-br from-brand-blue/20 to-brand-green/10",
   },
