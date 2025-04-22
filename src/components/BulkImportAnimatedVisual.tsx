@@ -42,7 +42,7 @@ export default function BulkImportAnimatedVisual() {
   }, []);
 
   return (
-    <div className="relative w-[95vw] max-w-[330px] md:max-w-[380px] mx-auto h-[225px] md:h-[240px] bg-gradient-to-br from-brand-blue/5 to-brand-teal/10 rounded-2xl flex flex-col p-4 shadow-[0_1px_6px_0_rgba(10,93,117,0.05)] overflow-hidden">
+    <div className="relative w-[95vw] max-w-[480px] md:max-w-[580px] mx-auto h-[325px] md:h-[380px] bg-gradient-to-br from-brand-blue/5 to-brand-teal/10 rounded-2xl flex flex-col p-4 shadow-[0_1px_6px_0_rgba(10,93,117,0.05)] overflow-hidden">
       {/* Animated Import Area with icon */}
       <div className="relative flex items-center justify-center gap-2 w-full max-w-[260px] mx-auto p-3 rounded-lg bg-white/80 shadow-sm border border-brand-teal/10 animate-fade-in">
         <FileInput className="w-5 h-5 text-brand-blue" />
@@ -103,10 +103,7 @@ export default function BulkImportAnimatedVisual() {
           </table>
         </div>
       </div>
-      {/* Subtle floating db icon */}
-      <div className="absolute bottom-2 right-3 opacity-15 pointer-events-none animate-float hidden md:block">
-        <Database className="w-11 h-11 text-brand-blue" aria-hidden="true" />
-      </div>
     </div>
   );
 }
+
