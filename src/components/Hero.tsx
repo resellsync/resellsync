@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Check, BarChart, Users, Database, Calendar, Package, ShoppingCart } from 'lucide-react';
@@ -82,13 +83,19 @@ const Hero = () => {
         </div>
 
         <div className="relative">
-          <img 
-            src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" 
-            alt="Person using laptop"
-            className="absolute -left-12 top-1/2 -translate-y-1/2 w-[280px] h-[420px] object-cover rounded-2xl hidden lg:block shadow-2xl"
-          />
+          <div className="absolute z-10 -left-12 -top-16 w-[300px] h-[300px] lg:block hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" 
+              alt="Happy person using phone business software"
+              className="w-full h-full object-cover rounded-full shadow-xl"
+              style={{
+                objectPosition: "center top",
+                objectFit: "cover"
+              }}
+            />
+          </div>
           
-          <div className="bg-white rounded-2xl shadow-xl border ml-auto max-w-[420px]">
+          <div className="bg-white rounded-2xl shadow-xl border ml-auto max-w-[420px] z-20 relative">
             <div className="px-6 py-4 border-b flex items-center justify-between">
               <span className="font-medium text-[18px] flex items-center gap-2">
                 <BarChart className="w-5 h-5 text-brand-blue" />
