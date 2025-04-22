@@ -1,3 +1,4 @@
+
 import React from "react";
 import { FileInput, Database, RefreshCw, Package, Inbox, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -108,6 +109,7 @@ const SectionFeatures = () => (
           key={feat.title}
           className={`flex flex-col ${idx % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} items-center md:gap-8 gap-6`}
         >
+          {/* Image side */}
           <div className="flex-shrink-0 w-full md:w-1/2 flex justify-center items-center mb-4 md:mb-0">
             <div
               className={`rounded-2xl shadow-md ${feat.imgClass ? feat.imgClass : ""} flex flex-col items-center justify-center w-[300px] h-[200px] md:w-[360px] md:h-[230px]`}
@@ -118,6 +120,8 @@ const SectionFeatures = () => (
               <span className="sr-only">{feat.alt}</span>
             </div>
           </div>
+          
+          {/* Content side with headline and description */}
           <div className="w-full md:w-1/2">
             <h3 className="text-xl md:text-2xl font-semibold mb-2">{feat.title}</h3>
             <div className="text-muted-foreground text-base">{feat.desc}</div>
