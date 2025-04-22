@@ -82,66 +82,75 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="relative flex justify-center items-center">
+        <div className="relative">
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-brand-blue/5 rounded-full blur-3xl"></div>
           <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-teal/5 rounded-full blur-3xl"></div>
-          <div className="relative w-full max-w-[370px] rounded-2xl overflow-hidden shadow-2xl border bg-white hover:shadow-xl transition-shadow duration-300">
-            <div className="px-6 py-4 border-b flex items-center justify-between bg-gradient-to-r from-background to-muted">
-              <span className="font-semibold text-[18px] flex items-center gap-2">
-                <BarChart className="w-5 h-5 text-brand-blue" />
-                Dashboard
-              </span>
-              <Calendar className="w-5 h-5 text-muted-foreground" />
-            </div>
-            <div className="flex flex-wrap justify-between gap-3 px-6 py-4 bg-muted/40">
-              <div className="flex flex-col items-start">
-                <span className="text-xs text-muted-foreground">Active Listings</span>
-                <span className="font-semibold text-lg">247</span>
+          
+          <div className="relative">
+            <img 
+              src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" 
+              alt="Person using laptop"
+              className="absolute -left-4 top-1/2 -translate-y-1/2 w-[200px] h-[300px] object-cover rounded-2xl hidden lg:block"
+            />
+            
+            <div className="relative w-full max-w-[370px] ml-auto rounded-2xl overflow-hidden shadow-2xl border bg-white hover:shadow-xl transition-shadow duration-300">
+              <div className="px-6 py-4 border-b flex items-center justify-between bg-gradient-to-r from-background to-muted">
+                <span className="font-semibold text-[18px] flex items-center gap-2">
+                  <BarChart className="w-5 h-5 text-brand-blue" />
+                  Dashboard
+                </span>
+                <Calendar className="w-5 h-5 text-muted-foreground" />
               </div>
-              <div className="flex flex-col items-start">
-                <span className="text-xs text-muted-foreground">Phones in Stock</span>
-                <span className="font-semibold text-lg">182</span>
-              </div>
-              <div className="flex flex-col items-start">
-                <span className="text-xs text-muted-foreground">Revenue</span>
-                <span className="font-semibold text-lg">$7,850</span>
-              </div>
-            </div>
-            <div className="px-3 py-4 space-y-4">
-              <div className="flex gap-2 items-center">
-                <Package className="w-6 h-6 text-brand-blue"/>
-                <div>
-                  <div className="text-sm font-medium">Inventory Management</div>
-                  <div className="text-xs text-muted-foreground">Track phone stock, conditions, and values</div>
+              <div className="flex flex-wrap justify-between gap-3 px-6 py-4 bg-muted/40">
+                <div className="flex flex-col items-start">
+                  <span className="text-xs text-muted-foreground">Active Listings</span>
+                  <span className="font-semibold text-lg">247</span>
+                </div>
+                <div className="flex flex-col items-start">
+                  <span className="text-xs text-muted-foreground">Phones in Stock</span>
+                  <span className="font-semibold text-lg">182</span>
+                </div>
+                <div className="flex flex-col items-start">
+                  <span className="text-xs text-muted-foreground">Revenue</span>
+                  <span className="font-semibold text-lg">$7,850</span>
                 </div>
               </div>
-              <div className="flex gap-2 items-center">
-                <ShoppingCart className="w-6 h-6 text-brand-teal"/>
-                <div>
-                  <div className="text-sm font-medium">Sale Orders Overview</div>
-                  <div className="text-xs text-muted-foreground">View and manage recent orders efficiently</div>
+              <div className="px-3 py-4 space-y-4">
+                <div className="flex gap-2 items-center">
+                  <Package className="w-6 h-6 text-brand-blue"/>
+                  <div>
+                    <div className="text-sm font-medium">Inventory Management</div>
+                    <div className="text-xs text-muted-foreground">Track phone stock, conditions, and values</div>
+                  </div>
                 </div>
-              </div>
-              <div className="rounded-xl bg-muted/70 p-2 hover:bg-muted/80 transition-colors">
-                <span className="block font-medium mb-2 text-sm text-muted-foreground">Weekly Listings & Sales</span>
-                <div className="h-32 w-full">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <ReBarChart data={analyticsData} barSize={18}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#ececec" vertical={false} />
-                      <XAxis dataKey="name" tick={{ fontSize: 10 }} axisLine={false} tickLine={false} />
-                      <Tooltip 
-                        contentStyle={{
-                          background: "#fff",
-                          border: "1px solid #e5e7eb",
-                          borderRadius: 8,
-                          fontSize: 12,
-                          boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)"
-                        }}
-                      />
-                      <Bar dataKey="Listings" fill="#35b7e7" radius={[4, 4, 0, 0]} />
-                      <Bar dataKey="Sales" fill="#47f4b1" radius={[4, 4, 0, 0]} />
-                    </ReBarChart>
-                  </ResponsiveContainer>
+                <div className="flex gap-2 items-center">
+                  <ShoppingCart className="w-6 h-6 text-brand-teal"/>
+                  <div>
+                    <div className="text-sm font-medium">Sale Orders Overview</div>
+                    <div className="text-xs text-muted-foreground">View and manage recent orders efficiently</div>
+                  </div>
+                </div>
+                <div className="rounded-xl bg-muted/70 p-2 hover:bg-muted/80 transition-colors">
+                  <span className="block font-medium mb-2 text-sm text-muted-foreground">Weekly Listings & Sales</span>
+                  <div className="h-32 w-full">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <ReBarChart data={analyticsData} barSize={18}>
+                        <CartesianGrid strokeDasharray="3 3" stroke="#ececec" vertical={false} />
+                        <XAxis dataKey="name" tick={{ fontSize: 10 }} axisLine={false} tickLine={false} />
+                        <Tooltip 
+                          contentStyle={{
+                            background: "#fff",
+                            border: "1px solid #e5e7eb",
+                            borderRadius: 8,
+                            fontSize: 12,
+                            boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)"
+                          }}
+                        />
+                        <Bar dataKey="Listings" fill="#35b7e7" radius={[4, 4, 0, 0]} />
+                        <Bar dataKey="Sales" fill="#47f4b1" radius={[4, 4, 0, 0]} />
+                      </ReBarChart>
+                    </ResponsiveContainer>
+                  </div>
                 </div>
               </div>
             </div>
