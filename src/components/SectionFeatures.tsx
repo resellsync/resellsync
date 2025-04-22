@@ -28,10 +28,10 @@ const features = [
     imgClass: "",
   },
   {
-    title: "IMEI Tracking & Device Management",
-    desc: "Stay organized with real-time IMEI tracking and full visibility of every device's status — from intake to shipment.",
+    title: "Sync Your Inventory Across Marketplaces",
+    desc: "Resellsync keeps your stock levels updated in real time across every connected platform. Avoid double-selling, manual edits, and inventory mistakes with one reliable system.",
     icon: <Package className="w-16 h-16 text-brand-blue mx-auto" aria-hidden="true" />,
-    alt: "IMEI Tracking Mockup",
+    alt: "Marketplace Inventory Sync Mockup",
     imgClass: "bg-gradient-to-br from-brand-blue/20 to-brand-green/10",
   },
   {
