@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { Database, FileInput } from "lucide-react";
 
@@ -59,8 +58,8 @@ export default function BulkImportAnimatedVisual() {
       </div>
 
       {/* Animated Table */}
-      <div className="relative mt-auto">
-        <div className="bg-white rounded-xl shadow-lg w-full min-h-[110px] px-2 py-3 border border-brand-teal/10 animate-fade-in">
+      <div className="relative mt-auto px-2">
+        <div className="bg-white rounded-xl shadow-lg w-full min-h-[110px] px-4 py-3 border border-brand-teal/10 animate-fade-in">
           <div className="flex justify-between items-center mb-1">
             <div className="flex items-center text-xs text-gray-400">
               <Database className="w-4 h-4 text-brand-blue mr-1" />
@@ -106,4 +105,3 @@ export default function BulkImportAnimatedVisual() {
     </div>
   );
 }
-
