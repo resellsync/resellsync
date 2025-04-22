@@ -2,10 +2,10 @@ import React from "react";
 import { FileInput, Database, RefreshCw, Package, Inbox, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BulkImportAnimatedVisual from "./BulkImportAnimatedVisual";
+import DashboardPreview from "./DashboardPreview";
 
 const features = [
   {
-    // Block 1: Bulk Import Inventory (with animated visual)
     title: "Import Your Phone Inventory Fast",
     desc: (
       <>
@@ -15,7 +15,6 @@ const features = [
         </div>
       </>
     ),
-    // New animated visual:
     icon: <BulkImportAnimatedVisual />,
     alt: "Animated CSV or scanner import interface and inventory dashboard mockup for Resellsync",
     imgClass: "",
@@ -23,9 +22,9 @@ const features = [
   {
     title: "Full Control Over Every Phone",
     desc: "Bulk update statuses, check device details, track workflows, and view everything in one dashboard. Stay organized, move faster, and never lose track of a single phone.",
-    icon: <RefreshCw className="w-16 h-16 text-brand-blue mx-auto" aria-hidden="true" />,
+    visual: <DashboardPreview />,
     alt: "Phone Control Dashboard",
-    imgClass: "bg-gradient-to-br from-brand-blue/10 to-brand-teal/20",
+    imgClass: "",
   },
   {
     title: "IMEI Tracking & Device Management",
@@ -62,15 +61,16 @@ const SectionFeatures = () => (
           <div
             className={`flex-shrink-0 w-full md:w-1/2 flex justify-center items-center mb-4 md:mb-0`}
           >
-            <div
-              className={`rounded-2xl shadow-md ${feat.imgClass ? feat.imgClass : ""} flex flex-col items-center justify-center w-[300px] h-[200px] md:w-[360px] md:h-[230px]`}
-              aria-label={feat.alt}
-              role="img"
-            >
-              {feat.icon}
-              {/* Accessibility: visually hidden span */}
-              <span className="sr-only">{feat.alt}</span>
-            </div>
+            {feat.visual ? feat.visual : (
+              <div
+                className={`rounded-2xl shadow-md ${feat.imgClass ? feat.imgClass : ""} flex flex-col items-center justify-center w-[300px] h-[200px] md:w-[360px] md:h-[230px]`}
+                aria-label={feat.alt}
+                role="img"
+              >
+                {feat.icon}
+                <span className="sr-only">{feat.alt}</span>
+              </div>
+            )}
           </div>
           <div className="w-full md:w-1/2">
             <h3 className="text-xl md:text-2xl font-semibold mb-2">{feat.title}</h3>
