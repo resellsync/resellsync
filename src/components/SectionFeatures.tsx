@@ -51,7 +51,7 @@ const SectionFeatures = () => (
     <p className="text-muted-foreground text-center text-lg mb-16 max-w-2xl mx-auto">
       Discover how Resellsync simplifies inventory management, automates listings, and helps phone resellers grow faster by connecting every part of their sales workflow in one intuitive platform.
     </p>
-    <div className="flex flex-col gap-20">
+    <div className="flex flex-col gap-32">
       {features.map((feat, idx) => (
         <div
           key={feat.title}
@@ -60,7 +60,7 @@ const SectionFeatures = () => (
           }`}
         >
           <div
-            className={`flex-shrink-0 w-full md:w-1/2 flex justify-center items-center mb-4 md:mb-0 overflow-hidden`}
+            className="flex-shrink-0 w-full md:w-1/2 flex justify-center items-center mb-4 md:mb-0"
           >
             {feat.visual ? feat.visual : (
               <div
