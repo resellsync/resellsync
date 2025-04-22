@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Database, FileInput } from "lucide-react";
+import { FileInput } from "lucide-react";
 
 const dummyRows = [
   {
@@ -26,12 +26,10 @@ const dummyRows = [
 ];
 
 export default function BulkImportAnimatedVisual() {
-  // Animate sliding-in of rows
   const [shownRows, setShownRows] = useState(0);
 
   useEffect(() => {
     setShownRows(0);
-    // Animate the "import" process row by row
     const timeouts: NodeJS.Timeout[] = [];
     dummyRows.forEach((row, i) => {
       const to = setTimeout(() => setShownRows(r => Math.max(r, i + 1)), 900 + i * 450);
@@ -41,8 +39,7 @@ export default function BulkImportAnimatedVisual() {
   }, []);
 
   return (
-    <div className="relative w-[95vw] max-w-[480px] md:max-w-[580px] mx-auto h-[325px] md:h-[380px] bg-gradient-to-br from-brand-blue/5 to-brand-teal/10 rounded-2xl flex flex-col p-4 shadow-[0_1px_6px_0_rgba(10,93,117,0.05)] overflow-hidden">
-      {/* Animated Import Area with icon */}
+    <div className="relative w-[95vw] max-w-[480px] md:max-w-[580px] mx-auto h-[325px] md:h-[380px] bg-gradient-to-br from-brand-blue/5 to-brand-teal/10 rounded-2xl flex flex-col gap-8 p-4 shadow-[0_1px_6px_0_rgba(10,93,117,0.05)] overflow-hidden">
       <div className="relative flex items-center justify-center gap-2 w-full max-w-[260px] mx-auto p-3 rounded-lg bg-white/80 shadow-sm border border-brand-teal/10 animate-fade-in">
         <FileInput className="w-5 h-5 text-brand-blue" />
         <div className="text-sm text-muted-foreground">
@@ -50,56 +47,54 @@ export default function BulkImportAnimatedVisual() {
         </div>
       </div>
 
-      {/* Arrow indicating import flow */}
-      <div className="absolute left-1/2 top-[55px] -translate-x-1/2 z-10">
+      <div className="absolute left-1/2 top-[75px] -translate-x-1/2 z-10">
         <svg width="30" height="24" viewBox="0 0 30 24" fill="none" className="animate-bounce" aria-hidden="true">
           <path d="M15 2v16M15 18l4-4M15 18l-4-4" stroke="#0D9488" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </div>
 
-      {/* Animated Table */}
-      <div className="relative mt-auto px-2">
-        <div className="bg-white rounded-xl shadow-lg w-full min-h-[110px] px-4 py-3 border border-brand-teal/10 animate-fade-in">
-          <div className="flex justify-between items-center mb-1">
-            <div className="flex items-center text-xs text-gray-400">
-              <Database className="w-4 h-4 text-brand-blue mr-1" />
-              <span className="font-medium">Inventory Dashboard</span>
+      <div className="relative mt-auto w-full">
+        <div className="bg-white rounded-xl shadow-lg w-full overflow-hidden border border-gray-200 animate-fade-in">
+          <div className="flex justify-between items-center px-4 py-3 border-b border-gray-100">
+            <div className="flex items-center text-xs">
+              <span className="font-medium text-gray-700">Inventory Dashboard</span>
             </div>
-            <div className="bg-gray-50 rounded-full px-2 py-1 flex items-center gap-1 text-gray-600 text-xs shadow-inner">
-              <span className="text-brand-blue font-semibold">Search:</span>
-              <span className="italic opacity-80">IMEI / Model</span>
+            <div className="bg-gray-50 rounded-full px-3 py-1 flex items-center gap-1.5 text-xs">
+              <span className="text-gray-600">Search:</span>
+              <span className="text-gray-500">IMEI / Model</span>
             </div>
           </div>
-          <table className="table-auto w-full text-xs overflow-x-auto">
-            <thead>
-              <tr className="bg-gray-50 text-brand-blue text-[13px]">
-                <th className="p-1 font-medium">IMEI</th>
-                <th className="p-1 font-medium">Brand</th>
-                <th className="p-1 font-medium">Model</th>
-                <th className="p-1 font-medium">Grade</th>
-                <th className="p-1 font-medium">Network</th>
-              </tr>
-            </thead>
-            <tbody>
-              {dummyRows.slice(0, shownRows).map((row, i) => (
-                <tr
-                  key={row.imei}
-                  className={`transition-all duration-500 ${i % 2 === 1 ? "bg-gray-50" : ""} ${shownRows > i ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-6"}`}
-                  style={{ animation: `fade-in 0.6s cubic-bezier(0.4,0,0.6,1)` }}
-                >
-                  <td className="p-1 font-mono">{row.imei}</td>
-                  <td className="p-1">{row.brand}</td>
-                  <td className="p-1">{row.model}</td>
-                  <td className="p-1">{row.grade}</td>
-                  <td className="p-1">{row.network}</td>
+          <div className="px-4">
+            <table className="w-full text-xs">
+              <thead>
+                <tr className="border-b border-gray-100">
+                  <th className="py-2 px-1 font-medium text-left text-gray-600">IMEI</th>
+                  <th className="py-2 px-1 font-medium text-left text-gray-600">Brand</th>
+                  <th className="py-2 px-1 font-medium text-left text-gray-600">Model</th>
+                  <th className="py-2 px-1 font-medium text-left text-gray-600">Grade</th>
+                  <th className="py-2 px-1 font-medium text-left text-gray-600">Network</th>
                 </tr>
-              ))}
-              {/* If no rows animated in, show a min height row as placeholder */}
-              {shownRows === 0 && (
-                <tr><td colSpan={5} className="p-1 text-muted-foreground text-center">&nbsp;</td></tr>
-              )}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {dummyRows.slice(0, shownRows).map((row, i) => (
+                  <tr
+                    key={row.imei}
+                    className={`transition-all duration-500 ${i % 2 === 1 ? "bg-gray-50" : ""} ${shownRows > i ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-6"}`}
+                    style={{ animation: `fade-in 0.6s cubic-bezier(0.4,0,0.6,1)` }}
+                  >
+                    <td className="py-2 px-1 font-mono">{row.imei}</td>
+                    <td className="py-2 px-1">{row.brand}</td>
+                    <td className="py-2 px-1">{row.model}</td>
+                    <td className="py-2 px-1">{row.grade}</td>
+                    <td className="py-2 px-1">{row.network}</td>
+                  </tr>
+                ))}
+                {shownRows === 0 && (
+                  <tr><td colSpan={5} className="p-2 text-center">&nbsp;</td></tr>
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
