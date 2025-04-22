@@ -106,13 +106,9 @@ const SectionFeatures = () => (
       {features.map((feat, idx) => (
         <div
           key={feat.title}
-          className={`flex flex-col md:flex-row items-center md:gap-8 gap-6 ${
-            idx % 2 === 1 ? "md:flex-row-reverse" : ""
-          }`}
+          className={`flex flex-col ${idx % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} items-center md:gap-8 gap-6`}
         >
-          <div
-            className={`flex-shrink-0 w-full md:w-1/2 flex justify-center items-center mb-4 md:mb-0`}
-          >
+          <div className="flex-shrink-0 w-full md:w-1/2 flex justify-center items-center mb-4 md:mb-0">
             <div
               className={`rounded-2xl shadow-md ${feat.imgClass ? feat.imgClass : ""} flex flex-col items-center justify-center w-[300px] h-[200px] md:w-[360px] md:h-[230px]`}
               aria-label={feat.alt}
@@ -124,7 +120,7 @@ const SectionFeatures = () => (
           </div>
           <div className="w-full md:w-1/2">
             <h3 className="text-xl md:text-2xl font-semibold mb-2">{feat.title}</h3>
-            <p className="text-muted-foreground text-base mb-1">{feat.desc}</p>
+            <div className="text-muted-foreground text-base">{feat.desc}</div>
           </div>
         </div>
       ))}
