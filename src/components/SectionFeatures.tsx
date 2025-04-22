@@ -2,10 +2,10 @@ import React from "react";
 import { FileInput, Database, RefreshCw, Package, Inbox, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BulkImportAnimatedVisual from "./BulkImportAnimatedVisual";
+import { Card } from "./ui/card";
 
 const features = [
   {
-    // Block 1: Bulk Import Inventory (with animated visual)
     title: "Import Your Phone Inventory Fast",
     desc: (
       <>
@@ -15,17 +15,68 @@ const features = [
         </div>
       </>
     ),
-    // New animated visual:
     icon: <BulkImportAnimatedVisual />,
     alt: "Animated CSV or scanner import interface and inventory dashboard mockup for Resellsync",
     imgClass: "",
+  },
+  {
+    title: "Full Control Over Every Phone",
+    desc: (
+      <>
+        <div className="space-y-3">
+          <p>
+            Bulk update statuses, check device details, track workflows, and view everything in one dashboard.
+            Stay organized, move faster, and never lose track of a single phone.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mt-2">
+            <Card className="p-2 bg-muted/50 border border-border/50">
+              <div className="text-xs font-medium text-muted-foreground">Ready to Ship</div>
+              <div className="text-lg font-semibold text-brand-blue">24</div>
+            </Card>
+            <Card className="p-2 bg-muted/50 border border-border/50">
+              <div className="text-xs font-medium text-muted-foreground">In Review</div>
+              <div className="text-lg font-semibold text-brand-teal">12</div>
+            </Card>
+            <Card className="p-2 bg-muted/50 border border-border/50">
+              <div className="text-xs font-medium text-muted-foreground">Sold Today</div>
+              <div className="text-lg font-semibold text-brand-green">8</div>
+            </Card>
+          </div>
+          <div className="bg-card rounded-lg border border-border/50 p-3">
+            <div className="flex items-center justify-between mb-2">
+              <div className="text-sm font-medium">Recent Updates</div>
+              <Button variant="outline" size="sm" className="h-7">Bulk Update</Button>
+            </div>
+            <div className="space-y-2">
+              <div className="flex items-center justify-between text-sm p-1.5 rounded-md hover:bg-muted/50">
+                <div className="flex items-center gap-2">
+                  <Package className="h-4 w-4 text-brand-blue" />
+                  <span>iPhone 13 Pro - A Grade</span>
+                </div>
+                <span className="text-xs bg-brand-blue/10 text-brand-blue px-2 py-0.5 rounded-full">Ready to Ship</span>
+              </div>
+              <div className="flex items-center justify-between text-sm p-1.5 rounded-md hover:bg-muted/50">
+                <div className="flex items-center gap-2">
+                  <Package className="h-4 w-4 text-brand-teal" />
+                  <span>Samsung S21 - B Grade</span>
+                </div>
+                <span className="text-xs bg-brand-teal/10 text-brand-teal px-2 py-0.5 rounded-full">In Review</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    ),
+    icon: <Database className="w-16 h-16 text-brand-blue mx-auto" aria-hidden="true" />,
+    alt: "Inventory Management Dashboard",
+    imgClass: "bg-gradient-to-br from-brand-blue/10 to-brand-teal/10",
   },
   {
     title: "Sync Listings Across Marketplaces",
     desc: "Automatically sync your phone listings across platforms in real time, reducing manual work and preventing overselling.",
     icon: <RefreshCw className="w-16 h-16 text-brand-blue mx-auto" aria-hidden="true" />,
     alt: "Marketplace Sync Illustration",
-    imgClass: "bg-gradient-to-br from-brand-blue/10 to-brand-teal/20",
+    imgClass: "bg-gradient-to-br from-brand-blue/20 to-brand-teal/10",
   },
   {
     title: "IMEI Tracking & Device Management",
@@ -68,7 +119,6 @@ const SectionFeatures = () => (
               role="img"
             >
               {feat.icon}
-              {/* Accessibility: visually hidden span */}
               <span className="sr-only">{feat.alt}</span>
             </div>
           </div>
