@@ -1,3 +1,4 @@
+
 import React from "react";
 import { FileInput, Database, RefreshCw, Package, Inbox, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -43,23 +44,23 @@ const features = [
 ];
 
 const SectionFeatures = () => (
-  <section className="container-section max-w-7xl mx-auto pb-12" aria-label="Resellsync features">
+  <section className="container-section max-w-7xl mx-auto pb-20" aria-label="Resellsync features">
     <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 gradient-heading">
       What You Can Do With Resellsync
     </h2>
-    <p className="text-muted-foreground text-center text-lg mb-12 max-w-2xl mx-auto">
+    <p className="text-muted-foreground text-center text-lg mb-16 max-w-2xl mx-auto">
       Discover how Resellsync simplifies inventory management, automates listings, and helps phone resellers grow faster by connecting every part of their sales workflow in one intuitive platform.
     </p>
-    <div className="flex flex-col gap-14">
+    <div className="flex flex-col gap-20">
       {features.map((feat, idx) => (
         <div
           key={feat.title}
-          className={`flex flex-col md:flex-row items-center md:gap-8 gap-6 ${
+          className={`flex flex-col md:flex-row items-center md:gap-14 gap-8 ${
             idx % 2 === 1 ? "md:flex-row-reverse" : ""
           }`}
         >
           <div
-            className={`flex-shrink-0 w-full md:w-1/2 flex justify-center items-center mb-4 md:mb-0`}
+            className={`flex-shrink-0 w-full md:w-1/2 flex justify-center items-center mb-4 md:mb-0 overflow-hidden`}
           >
             {feat.visual ? feat.visual : (
               <div
