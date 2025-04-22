@@ -1,4 +1,3 @@
-
 import React from "react";
 import { FileInput, Database, RefreshCw, Package, Inbox, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -55,16 +54,14 @@ const SectionFeatures = () => (
       {features.map((feat, idx) => (
         <div
           key={feat.title}
-          className={`flex flex-col md:flex-row items-center md:gap-14 gap-8 ${
+          className={`flex flex-col md:flex-row items-start md:gap-20 gap-12 ${
             idx % 2 === 1 ? "md:flex-row-reverse" : ""
           }`}
         >
-          <div
-            className="flex-shrink-0 w-full md:w-1/2 flex justify-center items-center mb-4 md:mb-0"
-          >
+          <div className="flex-1 w-full min-w-0">
             {feat.visual ? feat.visual : (
               <div
-                className={`rounded-2xl shadow-md ${feat.imgClass ? feat.imgClass : ""} flex flex-col items-center justify-center w-[300px] h-[200px] md:w-[360px] md:h-[230px]`}
+                className={`rounded-2xl shadow-md ${feat.imgClass ? feat.imgClass : ""} flex flex-col items-center justify-center w-full aspect-[4/3]`}
                 aria-label={feat.alt}
                 role="img"
               >
@@ -73,9 +70,9 @@ const SectionFeatures = () => (
               </div>
             )}
           </div>
-          <div className="w-full md:w-1/2">
-            <h3 className="text-xl md:text-2xl font-semibold mb-2">{feat.title}</h3>
-            <p className="text-muted-foreground text-base mb-1">{feat.desc}</p>
+          <div className="flex-1 w-full min-w-0">
+            <h3 className="text-xl md:text-2xl font-semibold mb-4">{feat.title}</h3>
+            <p className="text-muted-foreground text-base">{feat.desc}</p>
           </div>
         </div>
       ))}

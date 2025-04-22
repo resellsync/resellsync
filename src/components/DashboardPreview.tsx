@@ -1,4 +1,3 @@
-
 import React from "react";
 import {
   Table,
@@ -56,7 +55,7 @@ const statusColors = {
 
 const DashboardPreview = () => {
   return (
-    <div className="w-full max-w-3xl mx-auto bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+    <div className="w-full h-full bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
       <div className="p-4 border-b border-gray-200 flex items-center justify-between bg-gray-50">
         <div className="flex items-center gap-3">
           <DropdownMenu>
