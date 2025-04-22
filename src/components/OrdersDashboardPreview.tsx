@@ -1,12 +1,19 @@
 
 import React from "react";
-import { Ebay, Box, Truck } from "lucide-react";
+import { Box, Truck } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 type Marketplace = "ebay" | "backmarket" | "reebelo";
 
 const MARKETPLACE_LOGO: Record<Marketplace, React.ReactNode> = {
-  ebay: <Ebay className="w-5 h-5 text-[#0fa0ce]" aria-label="eBay" />,
+  ebay: (
+    <div className="w-5 h-5 flex items-center justify-center text-[#0fa0ce] font-bold text-xs" aria-label="eBay">
+      <span className="text-[#e53238]">e</span>
+      <span className="text-[#0064d2]">B</span>
+      <span className="text-[#f5af02]">a</span>
+      <span className="text-[#86b817]">y</span>
+    </div>
+  ),
   backmarket: (
     <span className="inline-block w-5 h-5 bg-black text-white rounded-md text-xs font-bold flex items-center justify-center" aria-label="Backmarket">
       BM
@@ -87,7 +94,6 @@ const OrdersDashboardPreview = () => (
         </div>
       ))}
     </div>
-    {/* Responsive Stack (optional): handled by flex direction above */}
   </div>
 );
 
