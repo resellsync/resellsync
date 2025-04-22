@@ -21,10 +21,10 @@ const features = [
     imgClass: "",
   },
   {
-    title: "Sync Listings Across Marketplaces",
-    desc: "Automatically sync your phone listings across platforms in real time, reducing manual work and preventing overselling.",
+    title: "Full Control Over Every Phone",
+    desc: "Bulk update statuses, check device details, track workflows, and view everything in one dashboard. Stay organized, move faster, and never lose track of a single phone.",
     icon: <RefreshCw className="w-16 h-16 text-brand-blue mx-auto" aria-hidden="true" />,
-    alt: "Marketplace Sync Illustration",
+    alt: "Phone Control Dashboard",
     imgClass: "bg-gradient-to-br from-brand-blue/10 to-brand-teal/20",
   },
   {
