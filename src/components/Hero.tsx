@@ -20,7 +20,7 @@ const Hero = () => {
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand-blue/5 rounded-full blur-3xl -z-10" />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-        {/* Left Content - Person Image + Content */}
+        {/* Left Content */}
         <div className="relative">
           <div className="relative z-10">
             <div className="inline-flex items-center rounded-full px-4 py-1 text-sm bg-muted text-muted-foreground mb-6">
@@ -56,14 +56,6 @@ const Hero = () => {
               ))}
             </div>
           </div>
-
-          {/* Person Image with Background */}
-          <div className="absolute left-1/2 -translate-x-1/2 lg:translate-x-0 lg:left-0 bottom-0 w-72 h-72 bg-gradient-to-br from-brand-teal/20 to-brand-blue/20 rounded-full blur-xl -z-10" />
-          <img
-            src="/lovable-uploads/35553380-ef49-418f-96ea-98dd39547420.png"
-            alt="Happy phone reseller using ResellSync"
-            className="absolute left-1/2 -translate-x-1/2 lg:translate-x-0 lg:left-0 -bottom-24 w-64 hidden lg:block object-cover"
-          />
         </div>
 
         {/* Right Content - Dashboard Preview */}
