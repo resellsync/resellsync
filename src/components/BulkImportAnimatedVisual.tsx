@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { FileInput, Square } from "lucide-react";
 import {
@@ -55,7 +54,7 @@ export default function BulkImportAnimatedVisual() {
   }, []);
   
   return (
-    <div className="w-full max-w-3xl mx-auto bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+    <div className="w-full bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
       <div className="p-4 border-b border-gray-200 flex items-center justify-between bg-gray-50">
         <div className="flex items-center gap-3">
           <DropdownMenu>
@@ -77,7 +76,7 @@ export default function BulkImportAnimatedVisual() {
         </div>
       </div>
 
-      <div className="w-full">
+      <div className="overflow-x-auto">
         <Table>
           <TableHeader>
             <TableRow>
