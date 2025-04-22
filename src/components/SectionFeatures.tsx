@@ -1,9 +1,9 @@
-
 import React from "react";
 import { FileInput, Database, RefreshCw, Package, Inbox, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BulkImportAnimatedVisual from "./BulkImportAnimatedVisual";
 import DashboardPreview from "./DashboardPreview";
+import OrdersDashboardPreview from "./OrdersDashboardPreview";
 
 const features = [
   {
@@ -30,8 +30,8 @@ const features = [
   {
     title: "Sync Your Inventory Across Marketplaces",
     desc: "Resellsync keeps your stock levels updated in real time across every connected platform. Avoid double-selling, manual edits, and inventory mistakes with one reliable system.",
-    icon: <Package className="w-16 h-16 text-brand-blue mx-auto" aria-hidden="true" />,
-    alt: "Marketplace Inventory Sync Mockup",
+    visual: <OrdersDashboardPreview />,
+    alt: "Orders and Sales Overview Dashboard Mockup",
     imgClass: "bg-gradient-to-br from-brand-blue/20 to-brand-green/10",
   },
   {
