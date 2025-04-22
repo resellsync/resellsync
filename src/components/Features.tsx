@@ -1,6 +1,6 @@
+
 import React from 'react';
 import { Package, BarChart, RefreshCw, Globe, ShieldCheck, Clock } from 'lucide-react';
-import InventoryTrackingSection from './InventoryTrackingSection';
 
 const features = [
   {
@@ -58,8 +58,6 @@ const Features = () => {
           </div>
         ))}
       </div>
-
-      <InventoryTrackingSection />
     </div>
   );
 };
