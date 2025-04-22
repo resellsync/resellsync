@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { FileInput } from "lucide-react";
 
@@ -39,8 +40,8 @@ export default function BulkImportAnimatedVisual() {
   }, []);
   
   return (
-    <div className="relative w-full max-w-[460px] mx-auto h-[325px] md:h-[380px] bg-gradient-to-br from-brand-blue/5 to-brand-teal/10 flex flex-col gap-8 p-4 shadow-[0_1px_6px_0_rgba(10,93,117,0.05)] overflow-hidden rounded-xl bg-white px-0 py-0">
-      <div className="relative flex items-center justify-center gap-2 w-full max-w-[260px] mx-auto p-3 rounded-lg bg-white/80 shadow-sm border border-brand-teal/10 animate-fade-in">
+    <div className="relative w-full max-w-3xl mx-auto h-[400px] md:h-[450px] bg-white rounded-xl shadow-lg border border-gray-200">
+      <div className="relative flex items-center justify-center gap-2 w-full max-w-[260px] mx-auto p-3 mt-4 rounded-lg bg-white/80 shadow-sm border border-brand-teal/10 animate-fade-in">
         <FileInput className="w-5 h-5 text-brand-blue" />
         <div className="text-sm text-muted-foreground">
           Import Phone Inventory
@@ -53,10 +54,10 @@ export default function BulkImportAnimatedVisual() {
         </svg>
       </div>
 
-      <div className="relative mt-auto w-full">
-        <div className="bg-white rounded-xl shadow-lg w-full overflow-hidden border border-gray-200 animate-fade-in">
+      <div className="relative mt-auto w-full p-4">
+        <div className="overflow-x-auto">
           <div className="flex justify-between items-center px-4 py-3 border-b border-gray-100">
-            <div className="flex items-center text-xs">
+            <div className="flex items-center text-sm">
               <span className="font-medium text-gray-700">Inventory Dashboard</span>
             </div>
             <div className="bg-gray-50 rounded-full px-3 py-1 flex items-center gap-1.5 text-xs">
@@ -64,37 +65,35 @@ export default function BulkImportAnimatedVisual() {
               <span className="text-gray-500">IMEI / Model</span>
             </div>
           </div>
-          <div className="px-4">
-            <table className="w-full text-xs table-fixed">
-              <thead>
-                <tr className="border-b border-gray-100">
-                  <th className="py-2 px-1 font-medium text-left text-gray-600 w-1/4">IMEI</th>
-                  <th className="py-2 px-1 font-medium text-left text-gray-600 w-1/5">Brand</th>
-                  <th className="py-2 px-1 font-medium text-left text-gray-600 w-1/5">Model</th>
-                  <th className="py-2 px-1 font-medium text-left text-gray-600 w-1/6">Grade</th>
-                  <th className="py-2 px-1 font-medium text-left text-gray-600 w-1/6">Network</th>
+          <table className="w-full">
+            <thead>
+              <tr className="border-b border-gray-100">
+                <th className="py-3 px-4 text-left text-sm font-medium text-gray-600">IMEI</th>
+                <th className="py-3 px-4 text-left text-sm font-medium text-gray-600">Brand</th>
+                <th className="py-3 px-4 text-left text-sm font-medium text-gray-600">Model</th>
+                <th className="py-3 px-4 text-left text-sm font-medium text-gray-600">Grade</th>
+                <th className="py-3 px-4 text-left text-sm font-medium text-gray-600">Network</th>
+              </tr>
+            </thead>
+            <tbody>
+              {dummyRows.slice(0, shownRows).map((row, i) => (
+                <tr 
+                  key={row.imei} 
+                  className={`transition-all duration-500 ${i % 2 === 1 ? "bg-gray-50" : ""} ${shownRows > i ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-6"}`} 
+                  style={{
+                    animation: `fade-in 0.6s cubic-bezier(0.4,0,0.6,1)`
+                  }}
+                >
+                  <td className="py-3 px-4 font-mono text-sm">{row.imei}</td>
+                  <td className="py-3 px-4 text-sm">{row.brand}</td>
+                  <td className="py-3 px-4 text-sm">{row.model}</td>
+                  <td className="py-3 px-4 text-sm">{row.grade}</td>
+                  <td className="py-3 px-4 text-sm">{row.network}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {dummyRows.slice(0, shownRows).map((row, i) => (
-                  <tr 
-                    key={row.imei} 
-                    className={`transition-all duration-500 ${i % 2 === 1 ? "bg-gray-50" : ""} ${shownRows > i ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-6"}`} 
-                    style={{
-                      animation: `fade-in 0.6s cubic-bezier(0.4,0,0.6,1)`
-                    }}
-                  >
-                    <td className="py-2 px-1 font-mono truncate">{row.imei}</td>
-                    <td className="py-2 px-1 truncate">{row.brand}</td>
-                    <td className="py-2 px-1 truncate">{row.model}</td>
-                    <td className="py-2 px-1 truncate">{row.grade}</td>
-                    <td className="py-2 px-1 truncate">{row.network}</td>
-                  </tr>
-                ))}
-                {shownRows === 0 && <tr><td colSpan={5} className="p-2 text-center">&nbsp;</td></tr>}
-              </tbody>
-            </table>
-          </div>
+              ))}
+              {shownRows === 0 && <tr><td colSpan={5} className="p-4 text-center">&nbsp;</td></tr>}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
