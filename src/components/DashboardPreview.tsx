@@ -1,31 +1,17 @@
 
 import React, { useState } from "react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Square, SquareCheck, Tag, Workflow, Search, ChevronLeft, ChevronRight } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-  DropdownMenuItem,
-} from "@/components/ui/dropdown-menu";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
   Pagination,
   PaginationContent,
   PaginationItem,
   PaginationLink,
 } from "@/components/ui/pagination";
+import { Device } from "@/types/device";
+import { DevicesToolbar } from "./devices/DevicesToolbar";
+import { DevicesTable } from "./devices/DevicesTable";
 
-const mockDevices = [
+const mockDevices: Device[] = [
   {
     id: 1,
     imei: "359876543210987",
@@ -55,12 +41,6 @@ const mockDevices = [
   }
 ];
 
-const statusColors = {
-  Testing: "bg-yellow-500",
-  Ready: "bg-green-500",
-  Listed: "bg-blue-500",
-};
-
 const DashboardPreview = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -71,87 +51,13 @@ const DashboardPreview = () => {
 
   return (
     <div className="w-full h-full bg-white rounded-xl shadow-lg border border-gray-200 flex flex-col">
-      <div className="p-3 border-b border-gray-200 flex items-center justify-between bg-gray-50/80">
-        <div className="flex items-center gap-2">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm" className="gap-1.5">
-                <SquareCheck className="h-3.5 w-3.5" />
-                Bulk Update
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem>Mark as Ready</DropdownMenuItem>
-              <DropdownMenuItem>Mark as Testing</DropdownMenuItem>
-              <DropdownMenuItem>Mark as Listed</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          <Button variant="outline" size="sm" className="gap-1.5">
-            <Workflow className="h-3.5 w-3.5" />
-            Workflow
-          </Button>
-
-          <Button variant="outline" size="sm" className="gap-1.5">
-            <Tag className="h-3.5 w-3.5" />
-            Labels
-          </Button>
-        </div>
-        
-        <div className="relative w-64">
-          <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
-          <Input
-            type="text"
-            placeholder="Search IMEI or Model"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-8 h-8 text-xs"
-          />
-        </div>
-      </div>
+      <DevicesToolbar 
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
+      />
       
       <div className="flex-1 flex flex-col overflow-x-hidden">
-        <div className="flex-1">
-          <Table>
-            <TableHeader>
-              <TableRow className="hover:bg-transparent">
-                <TableHead className="w-8">
-                  <Square className="h-3.5 w-3.5" />
-                </TableHead>
-                <TableHead className="text-xs w-32">IMEI</TableHead>
-                <TableHead className="text-xs">Model</TableHead>
-                <TableHead className="text-xs w-24">Status</TableHead>
-                <TableHead className="text-xs w-28">SKU</TableHead>
-                <TableHead className="text-xs w-16">Grade</TableHead>
-                <TableHead className="text-xs w-24">Date Added</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {mockDevices.map((device) => (
-                <TableRow 
-                  key={device.id}
-                  className="hover:bg-transparent"
-                >
-                  <TableCell className="py-2 px-2">
-                    <Square className="h-3.5 w-3.5" />
-                  </TableCell>
-                  <TableCell className="font-mono text-xs py-2 px-2">{device.imei}</TableCell>
-                  <TableCell className="text-xs py-2 px-2">{device.model}</TableCell>
-                  <TableCell className="py-2 px-2">
-                    <Badge
-                      className={`${statusColors[device.status as keyof typeof statusColors]} text-white text-xs`}
-                    >
-                      {device.status}
-                    </Badge>
-                  </TableCell>
-                  <TableCell className="font-mono text-xs py-2 px-2">{device.sku}</TableCell>
-                  <TableCell className="text-xs py-2 px-2">{device.grade}</TableCell>
-                  <TableCell className="text-xs py-2 px-2">{device.dateAdded}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
+        <DevicesTable devices={mockDevices} />
         
         <div className="border-t border-gray-100 p-2 flex items-center justify-between bg-gray-50/50">
           <div className="text-xs text-muted-foreground">
@@ -183,4 +89,3 @@ const DashboardPreview = () => {
 };
 
 export default DashboardPreview;
-
