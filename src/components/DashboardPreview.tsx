@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import {
   Table,
@@ -35,30 +36,12 @@ const mockDevices = [
     dateAdded: "2025-04-20",
   },
   {
-    id: 2,
-    imei: "359876543210988",
-    model: "iPhone 12",
-    status: "Ready",
-    sku: "IP12-128-VZ",
-    grade: "B+",
-    dateAdded: "2025-04-21",
-  },
-  {
     id: 3,
     imei: "359876543210989",
     model: "Samsung S21",
     status: "Listed",
     sku: "SS21-256-ATT",
     grade: "A-",
-    dateAdded: "2025-04-22",
-  },
-  {
-    id: 4,
-    imei: "359876543210990",
-    model: "iPhone 14 Pro",
-    status: "Testing",
-    sku: "IP14P-256-VZ",
-    grade: "A",
     dateAdded: "2025-04-22",
   },
   {
@@ -200,3 +183,4 @@ const DashboardPreview = () => {
 };
 
 export default DashboardPreview;
+
