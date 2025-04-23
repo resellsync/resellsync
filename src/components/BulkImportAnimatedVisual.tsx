@@ -1,6 +1,7 @@
 
-import React from "react";
-import { FileInput, Square, ChevronLeft, ChevronRight } from "lucide-react";
+import React, { useState } from "react";
+import { FileInput, Square, ChevronLeft, ChevronRight, Search } from "lucide-react";
+import { Input } from "@/components/ui/input";
 import {
   Table,
   TableBody,
@@ -85,6 +86,8 @@ const dummyRows = [
 ];
 
 export default function BulkImportAnimatedVisual() {
+  const [searchQuery, setSearchQuery] = useState("");
+
   // Function to handle pagination clicks
   const handlePaginationClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -109,8 +112,15 @@ export default function BulkImportAnimatedVisual() {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-        <div className="text-xs text-muted-foreground">
-          Search: IMEI / Model
+        <div className="relative w-64">
+          <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+          <Input
+            type="text"
+            placeholder="Search IMEI or Model"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-8 h-8 text-xs"
+          />
         </div>
       </div>
 
