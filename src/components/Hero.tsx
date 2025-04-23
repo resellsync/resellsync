@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Check, BarChart, Users, Database, Calendar, Package, ShoppingCart } from 'lucide-react';
@@ -41,9 +42,9 @@ const Hero = () => {
 
   return (
     <>
-      <div className="container-section pb-8">
+      <div className="container-section min-h-[calc(100vh-5rem)] flex items-center pb-8">
         {/* Hero Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center py-12">
           {/* Left Content */}
           <div className="flex flex-col gap-6">
             <div className="inline-flex items-center rounded-full px-4 py-1 text-sm bg-muted text-muted-foreground">
