@@ -20,7 +20,7 @@ const DashboardInsights = () => {
   const [timeRange, setTimeRange] = useState("7d");
   
   return (
-    <div className="w-full">
+    <div className="w-full max-w-3xl mx-auto">
       <Card className="w-full shadow-lg border border-border/50">
         {/* Header Section */}
         <CardHeader className="pb-2">
@@ -39,15 +39,15 @@ const DashboardInsights = () => {
         
         <CardContent className="space-y-2 pt-0">
           {/* Chart Section - Further reduced height */}
-          <div className="h-[130px] w-full mb-2">
+          <div className="h-[100px] w-full mb-2">
             <ChartContainer config={{
               sales: { theme: { light: '#0891b2', dark: '#0891b2' } },
             }}>
               <ResponsiveContainer>
-                <LineChart data={salesData} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
-                  <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
-                  <XAxis dataKey="date" tick={{ fontSize: 10 }} tickMargin={5} />
-                  <YAxis tick={{ fontSize: 10 }} width={30} />
+                <LineChart data={salesData} margin={{ top: 0, right: 8, left: -15, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
+                  <XAxis dataKey="date" tick={{ fontSize: 9 }} tickMargin={3} />
+                  <YAxis tick={{ fontSize: 9 }} width={25} />
                   <Tooltip content={({ active, payload }) => {
                     if (active && payload && payload.length) {
                       return (
@@ -63,42 +63,42 @@ const DashboardInsights = () => {
                     type="monotone" 
                     dataKey="sales" 
                     stroke="var(--color-sales)" 
-                    strokeWidth={2}
-                    dot={{ strokeWidth: 2, r: 3 }}
-                    activeDot={{ r: 4, strokeWidth: 2 }}
+                    strokeWidth={1.5}
+                    dot={{ strokeWidth: 1.5, r: 2 }}
+                    activeDot={{ r: 3, strokeWidth: 1.5 }}
                   />
                 </LineChart>
               </ResponsiveContainer>
             </ChartContainer>
           </div>
 
-          {/* Key Metrics Grid - Repositioned */}
-          <div className="grid grid-cols-3 gap-2 pt-4 border-t border-border/30 mt-2">
+          {/* Key Metrics Grid */}
+          <div className="grid grid-cols-3 gap-2 pt-3 border-t border-border/30">
             {/* Revenue */}
             <div className="text-center">
-              <div className="flex items-center justify-center gap-1 text-xs text-muted-foreground">
+              <div className="flex items-center justify-center gap-1 text-[10px] text-muted-foreground">
                 <DollarSign className="w-3 h-3 text-brand-teal" />
                 Revenue
               </div>
-              <div className="font-semibold text-sm">$120K</div>
+              <div className="font-semibold text-xs">$120K</div>
             </div>
 
             {/* Units */}
             <div className="text-center">
-              <div className="flex items-center justify-center gap-1 text-xs text-muted-foreground">
+              <div className="flex items-center justify-center gap-1 text-[10px] text-muted-foreground">
                 <Package className="w-3 h-3 text-brand-blue" />
                 Units
               </div>
-              <div className="font-semibold text-sm">347</div>
+              <div className="font-semibold text-xs">347</div>
             </div>
 
             {/* Inventory */}
             <div className="text-center">
-              <div className="flex items-center justify-center gap-1 text-xs text-muted-foreground">
+              <div className="flex items-center justify-center gap-1 text-[10px] text-muted-foreground">
                 <Box className="w-3 h-3 text-brand-green" />
                 In Stock
               </div>
-              <div className="font-semibold text-sm">234</div>
+              <div className="font-semibold text-xs">234</div>
             </div>
           </div>
         </CardContent>
