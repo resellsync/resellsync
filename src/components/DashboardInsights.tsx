@@ -23,7 +23,7 @@ const DashboardInsights = () => {
     <div className="w-full">
       <Card className="w-full shadow-lg border border-border/50">
         {/* Header Section */}
-        <CardHeader>
+        <CardHeader className="pb-2">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <CardTitle className="text-sm font-medium flex items-center gap-2">
               <BarChart4 className="w-4 h-4 text-brand-blue" />
@@ -37,22 +37,22 @@ const DashboardInsights = () => {
           </div>
         </CardHeader>
         
-        <CardContent className="space-y-3">
-          {/* Chart Section - Reduced height and adjusted margins */}
-          <div className="h-[160px] w-full">
+        <CardContent className="space-y-2 pt-0">
+          {/* Chart Section - Further reduced height */}
+          <div className="h-[130px] w-full mb-2">
             <ChartContainer config={{
               sales: { theme: { light: '#0891b2', dark: '#0891b2' } },
             }}>
               <ResponsiveContainer>
-                <LineChart data={salesData} margin={{ top: 2, right: 2, left: 2, bottom: 2 }}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="date" tick={{ fontSize: 11 }} />
-                  <YAxis tick={{ fontSize: 11 }} />
+                <LineChart data={salesData} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
+                  <XAxis dataKey="date" tick={{ fontSize: 10 }} tickMargin={5} />
+                  <YAxis tick={{ fontSize: 10 }} width={30} />
                   <Tooltip content={({ active, payload }) => {
                     if (active && payload && payload.length) {
                       return (
-                        <div className="bg-background border rounded-lg p-2 shadow-lg">
-                          <p className="font-medium text-sm">${payload[0].value.toLocaleString()}</p>
+                        <div className="bg-background border rounded-lg p-1 shadow-lg">
+                          <p className="font-medium text-xs">${payload[0].value.toLocaleString()}</p>
                           <p className="text-xs text-muted-foreground">{payload[0].payload.date}</p>
                         </div>
                       );
@@ -64,7 +64,7 @@ const DashboardInsights = () => {
                     dataKey="sales" 
                     stroke="var(--color-sales)" 
                     strokeWidth={2}
-                    dot={{ strokeWidth: 2 }}
+                    dot={{ strokeWidth: 2, r: 3 }}
                     activeDot={{ r: 4, strokeWidth: 2 }}
                   />
                 </LineChart>
@@ -72,8 +72,8 @@ const DashboardInsights = () => {
             </ChartContainer>
           </div>
 
-          {/* Key Metrics Grid - Adjusted padding and spacing */}
-          <div className="grid grid-cols-3 gap-3">
+          {/* Key Metrics Grid - Repositioned */}
+          <div className="grid grid-cols-3 gap-2 pt-4 border-t border-border/30 mt-2">
             {/* Revenue */}
             <div className="text-center">
               <div className="flex items-center justify-center gap-1 text-xs text-muted-foreground">
