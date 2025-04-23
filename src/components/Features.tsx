@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Package, BarChart, RefreshCw, Globe, ShieldCheck, Clock } from 'lucide-react';
 import DashboardInsights from './DashboardInsights';
@@ -49,14 +50,14 @@ const Features = () => {
         {features.map((feature, index) => (
           <div 
             key={index} 
-            className="feature-card"
+            className={`feature-card ${feature.title === "Grow Smarter With a Powerful Dashboard" ? "lg:col-span-3" : ""}`}
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             <div className="mb-4">{feature.icon}</div>
             <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
             <p className="text-muted-foreground">{feature.description}</p>
             {feature.title === "Grow Smarter With a Powerful Dashboard" && (
-              <div className="mt-6">
+              <div className="mt-8">
                 <DashboardInsights />
               </div>
             )}
