@@ -1,8 +1,13 @@
 import React from 'react';
-import { Package, BarChart, RefreshCw, Globe, ShieldCheck, Clock } from 'lucide-react';
+import { Package, BarChart, RefreshCw, Globe, ShieldCheck, Clock, LayoutDashboard } from 'lucide-react';
 import DashboardInsights from './DashboardInsights';
 
 const features = [
+  {
+    icon: <LayoutDashboard className="h-8 w-8 text-brand-blue" />,
+    title: "Grow Smarter With a Powerful Dashboard",
+    description: "Make data-driven decisions with real-time insights into sales, inventory, and marketplace performance across your business."
+  },
   {
     icon: <Package className="h-8 w-8 text-brand-blue" />,
     title: "Inventory Management",
