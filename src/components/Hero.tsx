@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Check, BarChart, Users, Database, Calendar, Package, ShoppingCart, ZoomIn, Bell, Percent, TrendingUp, ScanLine, Zap, Clock } from 'lucide-react';
@@ -245,10 +244,10 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Updated Trusted by Industry Leaders section */}
-      <div className="w-full bg-gradient-to-r from-[#E5DEFF] via-white to-[#D3E4FD] py-12 md:py-16">
+      {/* Updated Trusted by Industry Leaders section with solid background */}
+      <div className="w-full bg-[#F1F0FB] py-8 md:py-12">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl text-center mb-8 text-foreground font-semibold">
+          <h2 className="text-2xl md:text-3xl text-center mb-6 text-foreground font-semibold">
             Resellsync Integrates With Trusted Marketplaces
           </h2>
           <Carousel
@@ -284,7 +283,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* NEW SECTION 2 – Features/What You Can Do With Resellsync */}
+      {/* Features Section */}
       <SectionFeatures />
     </>
   );
