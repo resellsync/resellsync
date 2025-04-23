@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { FileInput, Square, ChevronLeft, ChevronRight, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -61,34 +60,12 @@ const dummyRows = [
     model: "Pixel 7",
     grade: "B",
     network: "T-Mobile"
-  },
-  {
-    imei: "123456789012345",
-    brand: "Apple",
-    model: "iPhone 14",
-    grade: "A",
-    network: "Unlocked"
-  },
-  {
-    imei: "456789012345678",
-    brand: "Samsung",
-    model: "Galaxy S23",
-    grade: "A",
-    network: "Verizon"
-  },
-  {
-    imei: "987654321098765",
-    brand: "Google",
-    model: "Pixel 7 Pro",
-    grade: "A",
-    network: "Unlocked"
   }
 ];
 
 export default function BulkImportAnimatedVisual() {
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Function to handle pagination clicks
   const handlePaginationClick = (e: React.MouseEvent) => {
     e.preventDefault();
     // In a real app, you would handle actual pagination logic here
@@ -124,8 +101,8 @@ export default function BulkImportAnimatedVisual() {
         </div>
       </div>
 
-      <div className="flex-1 flex flex-col">
-        <div className="flex-1">
+      <div className="flex-1 flex flex-col min-h-0">
+        <div className="flex-1 overflow-y-auto">
           <Table>
             <TableHeader>
               <TableRow className="hover:bg-transparent">
