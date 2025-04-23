@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Check, BarChart, Users, Database, Calendar, Package, ShoppingCart, ZoomIn, Bell, Percent, TrendingUp, ScanLine, Zap, Clock } from 'lucide-react';
@@ -203,7 +204,6 @@ const Hero = () => {
                         <Zap className="w-4 h-4 mr-1 text-amber-500" />
                         Recent Sales
                       </span>
-                      <Badge variant="outline" className="h-5 text-xs bg-green-50 text-green-700 border-green-200">Live Updates</Badge>
                     </div>
                     <div className="space-y-2 max-h-24 overflow-y-auto">
                       {recentSales.map((sale) => (
@@ -216,7 +216,8 @@ const Hero = () => {
                             <div className="font-semibold">{sale.price}</div>
                             <div className="text-muted-foreground">{sale.time}</div>
                           </div>
-                        ))}
+                        </div>
+                      ))}
                     </div>
                   </CardContent>
                 </Card>
