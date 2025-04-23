@@ -1,4 +1,5 @@
-import React from "react";
+
+import React, { useState } from "react";
 import {
   Table,
   TableBody,
@@ -9,14 +10,22 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Square, SquareCheck, Tag, Workflow } from "lucide-react";
+import { Square, SquareCheck, Tag, Workflow, Search, ChevronLeft, ChevronRight } from "lucide-react";
+import { Input } from "@/components/ui/input";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+} from "@/components/ui/pagination";
 
+// Expanded mock data to match the number of rows
 const mockDevices = [
   {
     id: 1,
@@ -45,6 +54,60 @@ const mockDevices = [
     grade: "A-",
     dateAdded: "2025-04-22",
   },
+  {
+    id: 4,
+    imei: "359876543210990",
+    model: "iPhone 14 Pro",
+    status: "Testing",
+    sku: "IP14P-256-VZ",
+    grade: "A",
+    dateAdded: "2025-04-22",
+  },
+  {
+    id: 5,
+    imei: "359876543210991",
+    model: "Google Pixel 7",
+    status: "Ready",
+    sku: "GP7-128-UN",
+    grade: "A",
+    dateAdded: "2025-04-23",
+  },
+  {
+    id: 6,
+    imei: "359876543210992",
+    model: "Samsung S23",
+    status: "Listed",
+    sku: "SS23-256-TMO",
+    grade: "A+",
+    dateAdded: "2025-04-23",
+  },
+  {
+    id: 7,
+    imei: "359876543210993",
+    model: "iPhone 13",
+    status: "Testing",
+    sku: "IP13-256-ATT",
+    grade: "B",
+    dateAdded: "2025-04-23",
+  },
+  {
+    id: 8,
+    imei: "359876543210994",
+    model: "Google Pixel 6a",
+    status: "Ready",
+    sku: "GP6A-128-VZ",
+    grade: "A",
+    dateAdded: "2025-04-23",
+  },
+  {
+    id: 9,
+    imei: "359876543210995",
+    model: "Samsung S22",
+    status: "Listed",
+    sku: "SS22-256-UN",
+    grade: "A",
+    dateAdded: "2025-04-23",
+  }
 ];
 
 const statusColors = {
@@ -54,14 +117,21 @@ const statusColors = {
 };
 
 const DashboardPreview = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handlePaginationClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // In a real app, you would handle actual pagination logic here
+  };
+
   return (
-    <div className="w-full h-full bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-      <div className="p-4 border-b border-gray-200 flex items-center justify-between bg-gray-50">
-        <div className="flex items-center gap-3">
+    <div className="w-full h-full bg-white rounded-xl shadow-lg border border-gray-200 flex flex-col">
+      <div className="p-3 border-b border-gray-200 flex items-center justify-between bg-gray-50/80">
+        <div className="flex items-center gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm" className="gap-2">
-                <SquareCheck className="h-4 w-4" />
+              <Button variant="outline" size="sm" className="gap-1.5">
+                <SquareCheck className="h-3.5 w-3.5" />
                 Bulk Update
               </Button>
             </DropdownMenuTrigger>
@@ -71,60 +141,97 @@ const DashboardPreview = () => {
               <DropdownMenuItem>Mark as Listed</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          
-          <Button variant="outline" size="sm" className="gap-2">
-            <Workflow className="h-4 w-4" />
+
+          <Button variant="outline" size="sm" className="gap-1.5">
+            <Workflow className="h-3.5 w-3.5" />
             Workflow
           </Button>
-          
-          <Button variant="outline" size="sm" className="gap-2">
-            <Tag className="h-4 w-4" />
+
+          <Button variant="outline" size="sm" className="gap-1.5">
+            <Tag className="h-3.5 w-3.5" />
             Labels
           </Button>
         </div>
         
-        <div className="text-sm text-muted-foreground">
-          Showing 3 of 1,458 devices
+        <div className="relative w-64">
+          <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+          <Input
+            type="text"
+            placeholder="Search IMEI or Model"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-8 h-8 text-xs"
+          />
         </div>
       </div>
       
-      <div className="overflow-x-auto">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-12">
-                <Square className="h-4 w-4" />
-              </TableHead>
-              <TableHead>IMEI</TableHead>
-              <TableHead>Model</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>SKU</TableHead>
-              <TableHead>Grade</TableHead>
-              <TableHead>Date Added</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {mockDevices.map((device) => (
-              <TableRow key={device.id}>
-                <TableCell>
-                  <Square className="h-4 w-4" />
-                </TableCell>
-                <TableCell className="font-mono">{device.imei}</TableCell>
-                <TableCell>{device.model}</TableCell>
-                <TableCell>
-                  <Badge
-                    className={`${statusColors[device.status as keyof typeof statusColors]} text-white`}
-                  >
-                    {device.status}
-                  </Badge>
-                </TableCell>
-                <TableCell className="font-mono">{device.sku}</TableCell>
-                <TableCell>{device.grade}</TableCell>
-                <TableCell>{device.dateAdded}</TableCell>
+      <div className="flex-1 flex flex-col">
+        <div className="flex-1">
+          <Table>
+            <TableHeader>
+              <TableRow className="hover:bg-transparent">
+                <TableHead className="w-10">
+                  <Square className="h-3.5 w-3.5" />
+                </TableHead>
+                <TableHead className="text-xs">IMEI</TableHead>
+                <TableHead className="text-xs">Model</TableHead>
+                <TableHead className="text-xs">Status</TableHead>
+                <TableHead className="text-xs">SKU</TableHead>
+                <TableHead className="text-xs">Grade</TableHead>
+                <TableHead className="text-xs">Date Added</TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+            <TableBody>
+              {mockDevices.map((device) => (
+                <TableRow 
+                  key={device.id}
+                  className="hover:bg-transparent"
+                >
+                  <TableCell className="py-2">
+                    <Square className="h-3.5 w-3.5" />
+                  </TableCell>
+                  <TableCell className="font-mono text-xs py-2">{device.imei}</TableCell>
+                  <TableCell className="text-xs py-2">{device.model}</TableCell>
+                  <TableCell className="py-2">
+                    <Badge
+                      className={`${statusColors[device.status as keyof typeof statusColors]} text-white text-xs`}
+                    >
+                      {device.status}
+                    </Badge>
+                  </TableCell>
+                  <TableCell className="font-mono text-xs py-2">{device.sku}</TableCell>
+                  <TableCell className="text-xs py-2">{device.grade}</TableCell>
+                  <TableCell className="text-xs py-2">{device.dateAdded}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+        
+        <div className="border-t border-gray-100 p-2 flex items-center justify-between bg-gray-50/50">
+          <div className="text-xs text-muted-foreground">
+            Showing {mockDevices.length} devices
+          </div>
+          <Pagination>
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationLink onClick={handlePaginationClick} className="h-8 w-8 p-0">
+                  <ChevronLeft className="h-4 w-4" />
+                </PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink onClick={handlePaginationClick} className="h-8 w-8 p-0">
+                  1
+                </PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink onClick={handlePaginationClick} className="h-8 w-8 p-0">
+                  <ChevronRight className="h-4 w-4" />
+                </PaginationLink>
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        </div>
       </div>
     </div>
   );
