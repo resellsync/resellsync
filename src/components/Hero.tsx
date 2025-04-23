@@ -156,7 +156,7 @@ const Hero = () => {
       </div>
 
       {/* Updated Trusted by Industry Leaders section */}
-      <div className="w-full bg-gradient-to-r from-[#EEF2FF] via-white to-[#EEF2FF] py-12 md:py-16">
+      <div className="w-full bg-gradient-to-r from-[#E5DEFF] via-white to-[#D3E4FD] py-12 md:py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl text-center mb-8 text-foreground font-semibold">
             Resellsync Integrates With Trusted Marketplaces
