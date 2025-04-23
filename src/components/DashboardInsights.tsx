@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
@@ -28,21 +29,41 @@ const DashboardInsights = () => {
         {/* Chart Section */}
         <div className="h-48 w-full mb-4">
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={salesData} margin={{ top: 5, right: 5, left: -20, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" opacity={0.15} />
+            <LineChart 
+              data={salesData} 
+              margin={{ 
+                top: 10, 
+                right: 10, 
+                left: 10, 
+                bottom: 5 
+              }}
+            >
+              <CartesianGrid 
+                strokeDasharray="3 3" 
+                opacity={0.15} 
+                horizontal={true}
+                vertical={false}
+              />
               <XAxis 
                 dataKey="date" 
-                tick={{ fontSize: 12 }} 
-                tickMargin={4}
+                tick={{ 
+                  fontSize: 12,
+                  fill: '#8E9196' 
+                }} 
+                tickMargin={8}
                 tickLine={false}
                 axisLine={false}
               />
               <YAxis 
-                tick={{ fontSize: 12 }} 
-                width={40}
-                tickFormatter={(value) => `$${value/1000}k`}
+                width={60}
+                tick={{ 
+                  fontSize: 12,
+                  fill: '#8E9196'
+                }} 
+                tickFormatter={(value) => `$${(value/1000).toFixed(0)}k`}
                 tickLine={false}
                 axisLine={false}
+                tickMargin={8}
               />
               <Tooltip 
                 formatter={(value) => [`$${Number(value).toLocaleString()}`, 'Sales']}
@@ -105,3 +126,4 @@ const DashboardInsights = () => {
 };
 
 export default DashboardInsights;
+
