@@ -259,18 +259,20 @@ const Hero = () => {
               skipSnaps: true,
               inViewThreshold: 0.7,
             }}
-            className="w-full max-w-5xl mx-auto group"
+            className="w-full max-w-6xl mx-auto group"
           >
-            <CarouselContent className="py-4 animate-[slide_60s_linear_infinite]">
+            <CarouselContent className="py-4 animate-[slide_120s_linear_infinite]">
               {[...marketplaces, ...marketplaces].map((marketplace, index) => (
-                <CarouselItem key={index} className={isMobile ? "basis-1/2" : "basis-1/5"}>
-                  <div className="h-20 flex items-center justify-start gap-3 p-4 rounded-xl bg-white/80 border border-border/50 shadow-sm backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-border group">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-blue to-brand-teal text-white font-bold text-sm flex items-center justify-center group-hover:shadow-md transition-shadow">
-                      {marketplace.logo}
+                <CarouselItem key={index} className="basis-full">
+                  <div className="px-8 py-6 mx-4 rounded-xl bg-white/80 border border-border/50 shadow-sm backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:border-border group">
+                    <div className="flex items-center justify-center gap-6">
+                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-brand-blue to-brand-teal text-white font-bold text-lg flex items-center justify-center group-hover:shadow-md transition-shadow">
+                        {marketplace.logo}
+                      </div>
+                      <span className="text-muted-foreground font-medium text-xl">
+                        {marketplace.name}
+                      </span>
                     </div>
-                    <span className="text-muted-foreground font-medium text-sm">
-                      {marketplace.name}
-                    </span>
                   </div>
                 </CarouselItem>
               ))}
