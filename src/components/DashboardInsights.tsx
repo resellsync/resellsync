@@ -34,7 +34,7 @@ const DashboardInsights = () => {
               margin={{ 
                 top: 10, 
                 right: 10, 
-                left: 10, 
+                left: 0,  // Changed from 10 to 0 to shift chart left
                 bottom: 5 
               }}
             >
