@@ -22,6 +22,7 @@ const DashboardInsights = () => {
   return (
     <div className="w-full">
       <Card className="w-full shadow-lg border border-border/50">
+        {/* Header Section */}
         <CardHeader>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <CardTitle className="text-sm font-medium flex items-center gap-2">
@@ -35,17 +36,18 @@ const DashboardInsights = () => {
             </ToggleGroup>
           </div>
         </CardHeader>
-        <CardContent className="space-y-4">
-          {/* Chart Section */}
-          <div className="h-[180px] w-full">
+        
+        <CardContent className="space-y-3">
+          {/* Chart Section - Reduced height and adjusted margins */}
+          <div className="h-[160px] w-full">
             <ChartContainer config={{
               sales: { theme: { light: '#0891b2', dark: '#0891b2' } },
             }}>
               <ResponsiveContainer>
-                <LineChart data={salesData} margin={{ top: 5, right: 5, left: 5, bottom: 5 }}>
+                <LineChart data={salesData} margin={{ top: 2, right: 2, left: 2, bottom: 2 }}>
                   <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="date" tick={{ fontSize: 12 }} />
-                  <YAxis tick={{ fontSize: 12 }} />
+                  <XAxis dataKey="date" tick={{ fontSize: 11 }} />
+                  <YAxis tick={{ fontSize: 11 }} />
                   <Tooltip content={({ active, payload }) => {
                     if (active && payload && payload.length) {
                       return (
@@ -70,33 +72,33 @@ const DashboardInsights = () => {
             </ChartContainer>
           </div>
 
-          {/* Key Metrics Grid */}
-          <div className="grid grid-cols-3 gap-4 pt-2">
+          {/* Key Metrics Grid - Adjusted padding and spacing */}
+          <div className="grid grid-cols-3 gap-3">
             {/* Revenue */}
             <div className="text-center">
-              <div className="flex items-center justify-center gap-1 text-xs text-muted-foreground mb-1">
+              <div className="flex items-center justify-center gap-1 text-xs text-muted-foreground">
                 <DollarSign className="w-3 h-3 text-brand-teal" />
                 Revenue
               </div>
-              <div className="font-semibold">$120K</div>
+              <div className="font-semibold text-sm">$120K</div>
             </div>
 
             {/* Units */}
             <div className="text-center">
-              <div className="flex items-center justify-center gap-1 text-xs text-muted-foreground mb-1">
+              <div className="flex items-center justify-center gap-1 text-xs text-muted-foreground">
                 <Package className="w-3 h-3 text-brand-blue" />
                 Units
               </div>
-              <div className="font-semibold">347</div>
+              <div className="font-semibold text-sm">347</div>
             </div>
 
             {/* Inventory */}
             <div className="text-center">
-              <div className="flex items-center justify-center gap-1 text-xs text-muted-foreground mb-1">
+              <div className="flex items-center justify-center gap-1 text-xs text-muted-foreground">
                 <Box className="w-3 h-3 text-brand-green" />
                 In Stock
               </div>
-              <div className="font-semibold">234</div>
+              <div className="font-semibold text-sm">234</div>
             </div>
           </div>
         </CardContent>
@@ -106,4 +108,3 @@ const DashboardInsights = () => {
 };
 
 export default DashboardInsights;
-
