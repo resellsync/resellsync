@@ -32,9 +32,8 @@ const DashboardInsights = () => {
   const [timeRange, setTimeRange] = useState("7d");
   
   return (
-    <div className="grid grid-cols-1 gap-4 w-full">
-      {/* Sales Chart */}
-      <Card className="w-full">
+    <div className="w-full">
+      <Card className="w-full shadow-lg border border-border/50">
         <CardHeader>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <CardTitle className="flex items-center gap-2">
@@ -48,7 +47,8 @@ const DashboardInsights = () => {
             </ToggleGroup>
           </div>
         </CardHeader>
-        <CardContent>
+        <CardContent className="space-y-6">
+          {/* Chart Section */}
           <div className="h-[300px] w-full">
             <ChartContainer config={{
               sales: { theme: { light: '#0891b2', dark: '#0891b2' } },
@@ -81,108 +81,108 @@ const DashboardInsights = () => {
               </ResponsiveContainer>
             </ChartContainer>
           </div>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* Revenue Card */}
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-medium flex items-center gap-2">
+                  <DollarSign className="w-4 h-4 text-brand-teal" />
+                  Total Revenue
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">${(120000).toLocaleString()}</div>
+                <p className="text-xs text-muted-foreground">This {timeRange}</p>
+              </CardContent>
+            </Card>
+
+            {/* Units Sold Card */}
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-medium flex items-center gap-2">
+                  <Package className="w-4 h-4 text-brand-blue" />
+                  Units Sold
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">347</div>
+                <p className="text-xs text-muted-foreground">This {timeRange}</p>
+              </CardContent>
+            </Card>
+
+            {/* Inventory Status */}
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-medium flex items-center gap-2">
+                  <Box className="w-4 h-4 text-brand-green" />
+                  Inventory Status
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span>In Stock</span>
+                    <span className="font-medium">234</span>
+                  </div>
+                  <div className="flex justify-between text-yellow-600">
+                    <span>Low Stock</span>
+                    <span className="font-medium">45</span>
+                  </div>
+                  <div className="flex justify-between text-red-500">
+                    <span>Out of Stock</span>
+                    <span className="font-medium">12</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Bottom Row */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Top Selling Devices */}
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-medium flex items-center gap-2">
+                  <ShoppingBag className="w-4 h-4 text-brand-blue" />
+                  Top Selling Devices
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2">
+                  {topDevices.map((device, index) => (
+                    <div key={index} className="flex justify-between text-sm">
+                      <span>{device.name}</span>
+                      <span className="font-medium">{device.units} units</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Marketplace Performance */}
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-medium flex items-center gap-2">
+                  <BarChart4 className="w-4 h-4 text-brand-teal" />
+                  Marketplace Performance
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2">
+                  {marketplaceData.map((marketplace, index) => (
+                    <div key={index} className="flex justify-between text-sm">
+                      <span>{marketplace.name}</span>
+                      <span className="font-medium">${marketplace.revenue.toLocaleString()}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </CardContent>
       </Card>
-
-      {/* Stats Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {/* Revenue Card */}
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium flex items-center gap-2">
-              <DollarSign className="w-4 h-4 text-brand-teal" />
-              Total Revenue
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">${(120000).toLocaleString()}</div>
-            <p className="text-xs text-muted-foreground">This {timeRange}</p>
-          </CardContent>
-        </Card>
-
-        {/* Units Sold Card */}
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium flex items-center gap-2">
-              <Package className="w-4 h-4 text-brand-blue" />
-              Units Sold
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">347</div>
-            <p className="text-xs text-muted-foreground">This {timeRange}</p>
-          </CardContent>
-        </Card>
-
-        {/* Inventory Status */}
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium flex items-center gap-2">
-              <Box className="w-4 h-4 text-brand-green" />
-              Inventory Status
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between">
-                <span>In Stock</span>
-                <span className="font-medium">234</span>
-              </div>
-              <div className="flex justify-between text-yellow-600">
-                <span>Low Stock</span>
-                <span className="font-medium">45</span>
-              </div>
-              <div className="flex justify-between text-red-500">
-                <span>Out of Stock</span>
-                <span className="font-medium">12</span>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Bottom Row */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {/* Top Selling Devices */}
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium flex items-center gap-2">
-              <ShoppingBag className="w-4 h-4 text-brand-blue" />
-              Top Selling Devices
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-2">
-              {topDevices.map((device, index) => (
-                <div key={index} className="flex justify-between text-sm">
-                  <span>{device.name}</span>
-                  <span className="font-medium">{device.units} units</span>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Marketplace Performance */}
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium flex items-center gap-2">
-              <BarChart4 className="w-4 h-4 text-brand-teal" />
-              Marketplace Performance
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-2">
-              {marketplaceData.map((marketplace, index) => (
-                <div key={index} className="flex justify-between text-sm">
-                  <span>{marketplace.name}</span>
-                  <span className="font-medium">${marketplace.revenue.toLocaleString()}</span>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      </div>
     </div>
   );
 };
