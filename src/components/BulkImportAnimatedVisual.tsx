@@ -42,78 +42,61 @@ const dummyRows = [
 ];
 
 export default function BulkImportAnimatedVisual() {
-  const [shownRows, setShownRows] = useState(0);
-  
-  useEffect(() => {
-    setShownRows(0);
-    const timeouts: NodeJS.Timeout[] = [];
-    dummyRows.forEach((row, i) => {
-      const to = setTimeout(() => setShownRows(r => Math.max(r, i + 1)), 900 + i * 450);
-      timeouts.push(to);
-    });
-    return () => timeouts.forEach(clearTimeout);
-  }, []);
+  const [shownRows, setShownRows] = useState(3); // Show all rows by default
   
   return (
-    <div className="w-full h-full bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-      <div className="p-4 border-b border-gray-200 flex items-center justify-between bg-gray-50">
-        <div className="flex items-center gap-3">
+    <div className="w-full h-full bg-white rounded-xl shadow-lg border border-gray-200">
+      <div className="p-3 border-b border-gray-200 flex items-center justify-between bg-gray-50/80">
+        <div className="flex items-center gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm" className="gap-2">
-                <FileInput className="h-4 w-4" />
+              <Button variant="outline" size="sm" className="gap-1.5">
+                <FileInput className="h-3.5 w-3.5" />
                 Import Devices
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent>
+            <DropdownMenuContent align="start">
               <DropdownMenuItem>Import from CSV</DropdownMenuItem>
               <DropdownMenuItem>Import from Excel</DropdownMenuItem>
               <DropdownMenuItem>Scan Devices</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-        <div className="text-sm text-muted-foreground">
+        <div className="text-xs text-muted-foreground">
           Search: IMEI / Model
         </div>
       </div>
 
-      <div className="overflow-x-auto">
+      <div className="w-full">
         <Table>
           <TableHeader>
-            <TableRow>
-              <TableHead className="w-12">
-                <Square className="h-4 w-4" />
+            <TableRow className="hover:bg-transparent">
+              <TableHead className="w-10">
+                <Square className="h-3.5 w-3.5" />
               </TableHead>
-              <TableHead>IMEI</TableHead>
-              <TableHead>Brand</TableHead>
-              <TableHead>Model</TableHead>
-              <TableHead>Grade</TableHead>
-              <TableHead>Network</TableHead>
+              <TableHead className="text-xs">IMEI</TableHead>
+              <TableHead className="text-xs">Brand</TableHead>
+              <TableHead className="text-xs">Model</TableHead>
+              <TableHead className="text-xs">Grade</TableHead>
+              <TableHead className="text-xs">Network</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {dummyRows.slice(0, shownRows).map((row, i) => (
+            {dummyRows.map((row, i) => (
               <TableRow 
                 key={row.imei}
-                className={`transition-all duration-500 ${shownRows > i ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-6"}`}
+                className="hover:bg-transparent"
               >
-                <TableCell>
-                  <Square className="h-4 w-4" />
+                <TableCell className="py-2">
+                  <Square className="h-3.5 w-3.5" />
                 </TableCell>
-                <TableCell className="font-mono">{row.imei}</TableCell>
-                <TableCell>{row.brand}</TableCell>
-                <TableCell>{row.model}</TableCell>
-                <TableCell>{row.grade}</TableCell>
-                <TableCell>{row.network}</TableCell>
+                <TableCell className="font-mono text-xs py-2">{row.imei}</TableCell>
+                <TableCell className="text-xs py-2">{row.brand}</TableCell>
+                <TableCell className="text-xs py-2">{row.model}</TableCell>
+                <TableCell className="text-xs py-2">{row.grade}</TableCell>
+                <TableCell className="text-xs py-2">{row.network}</TableCell>
               </TableRow>
             ))}
-            {shownRows === 0 && (
-              <TableRow>
-                <TableCell colSpan={6} className="h-24 text-center">
-                  &nbsp;
-                </TableCell>
-              </TableRow>
-            )}
           </TableBody>
         </Table>
       </div>
