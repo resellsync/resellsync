@@ -35,10 +35,10 @@ const features = [
     imgClass: "bg-gradient-to-br from-brand-blue/20 to-brand-green/10",
   },
   {
-    title: "Centralized Order Management",
-    desc: "View and fulfill orders from all your connected marketplaces in one streamlined dashboard.",
+    title: "Grow Smarter With a Powerful Dashboard",
+    desc: "View sales trends, inventory levels, and top-performing devices by day, week, or month. Our dashboard gives you the clarity to take control and scale your phone business with confidence. Know what's working, what's moving, and where to focus next.",
     icon: <Inbox className="w-16 h-16 text-brand-teal mx-auto" aria-hidden="true" />,
-    alt: "Order Management Illustration",
+    alt: "Dashboard and Analytics Illustration",
     imgClass: "bg-gradient-to-br from-brand-teal/10 to-brand-blue/10",
   },
 ];
