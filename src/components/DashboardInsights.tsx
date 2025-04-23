@@ -71,7 +71,7 @@ const DashboardInsights = () => {
           </div>
 
           {/* Key Metrics Grid */}
-          <div className="grid grid-cols-3 gap-4 mt-4">
+          <div className="grid grid-cols-3 gap-4 pt-2">
             {/* Revenue */}
             <div className="text-center">
               <div className="flex items-center justify-center gap-1 text-xs text-muted-foreground mb-1">
@@ -106,3 +106,4 @@ const DashboardInsights = () => {
 };
 
 export default DashboardInsights;
+
