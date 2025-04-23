@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Check, BarChart, Users, Database, Calendar, Package, ShoppingCart, ZoomIn, Bell, Percent, TrendingUp, ScanLine, Zap, Clock } from 'lucide-react';
@@ -31,13 +30,13 @@ const marketplaces = [
 ];
 
 const analyticsData = [
-  { name: 'Mon', Listings: 30, Sales: 10, Profit: 1200 },
-  { name: 'Tue', Listings: 45, Sales: 16, Profit: 1800 },
-  { name: 'Wed', Listings: 38, Sales: 13, Profit: 1500 },
-  { name: 'Thu', Listings: 52, Sales: 21, Profit: 2300 },
-  { name: 'Fri', Listings: 61, Sales: 28, Profit: 3100 },
-  { name: 'Sat', Listings: 48, Sales: 22, Profit: 2500 },
-  { name: 'Sun', Listings: 36, Sales: 15, Profit: 1700 },
+  { name: 'Mon', Revenue: 12000, Profit: 4800 },
+  { name: 'Tue', Revenue: 15000, Profit: 6000 },
+  { name: 'Wed', Revenue: 18000, Profit: 7200 },
+  { name: 'Thu', Revenue: 14000, Profit: 5600 },
+  { name: 'Fri', Revenue: 20000, Profit: 8000 },
+  { name: 'Sat', Revenue: 22000, Profit: 8800 },
+  { name: 'Sun', Revenue: 19000, Profit: 7600 },
 ];
 
 const recentSales = [
@@ -98,13 +97,6 @@ const Hero = () => {
             
             {/* Enhanced Dashboard Card */}
             <div className="relative w-full max-w-[500px] rounded-2xl overflow-hidden shadow-2xl border bg-white">
-              {/* Live Demo Badge */}
-              <div className="absolute top-2 right-2 z-10">
-                <Badge variant="outline" className="bg-white/80 backdrop-blur-sm border-brand-teal/50 text-brand-teal animate-pulse">
-                  <span className="mr-1 h-2 w-2 rounded-full bg-brand-teal"></span> Live Demo
-                </Badge>
-              </div>
-              
               {/* Dashboard Header */}
               <div className="px-6 py-4 border-b flex items-center justify-between bg-gradient-to-r from-white via-brand-blue/5 to-white">
                 <span className="font-semibold text-[18px] flex items-center gap-2">
@@ -112,21 +104,13 @@ const Hero = () => {
                   Phone Business Dashboard
                 </span>
                 <div className="flex items-center gap-2">
-                  <HoverCard>
-                    <HoverCardTrigger>
-                      <Bell className="w-5 h-5 text-muted-foreground hover:text-brand-blue transition-colors cursor-pointer" />
-                    </HoverCardTrigger>
-                    <HoverCardContent className="w-80">
-                      <div className="text-sm font-medium">3 new notifications</div>
-                      <div className="text-xs text-muted-foreground mt-1">New order received, price alert, and inventory update</div>
-                    </HoverCardContent>
-                  </HoverCard>
+                  <Bell className="w-5 h-5 text-muted-foreground hover:text-brand-blue transition-colors cursor-pointer" />
                   <Calendar className="w-5 h-5 text-muted-foreground" />
                 </div>
               </div>
               
               {/* Enhanced Stats Row */}
-              <div className="grid grid-cols-4 gap-3 px-6 py-4 bg-muted/30">
+              <div className="grid grid-cols-4 gap-3 p-4 bg-muted/30">
                 <div className="flex flex-col items-start">
                   <span className="text-xs text-muted-foreground flex items-center">
                     <Package className="w-3 h-3 mr-1" /> Active Listings
@@ -168,7 +152,7 @@ const Hero = () => {
               </div>
               
               {/* Quick Actions Row */}
-              <div className="px-6 pt-3 pb-1 flex items-center justify-between border-b border-gray-100">
+              <div className="px-6 pt-2 pb-1 flex items-center justify-between border-b border-gray-100">
                 <div className="text-sm font-medium text-muted-foreground">Quick Actions</div>
                 <div className="flex gap-2">
                   <Button variant="outline" size="sm" className="h-7 text-xs group transition-all duration-300 hover:bg-brand-blue hover:text-white">
@@ -183,23 +167,14 @@ const Hero = () => {
               </div>
               
               {/* Features & Analytics Section */}
-              <div className="px-3 py-2 space-y-3">
+              <div className="px-3 py-2 space-y-2">
                 {/* Analytics Chart with Hover Effects */}
                 <Card className="border-none shadow-none bg-muted/40 hover:bg-muted/60 transition-colors">
                   <CardContent className="p-3">
                     <div className="flex justify-between items-center mb-2">
-                      <span className="block font-medium text-sm">Weekly Performance</span>
-                      <HoverCard>
-                        <HoverCardTrigger>
-                          <div className="text-xs text-brand-blue hover:underline cursor-help">See insights</div>
-                        </HoverCardTrigger>
-                        <HoverCardContent className="w-80">
-                          <div className="text-sm font-medium">Performance Insights</div>
-                          <div className="text-xs text-muted-foreground mt-1">Your sales conversion rate is 18% higher than last week. Listings on eBay perform best.</div>
-                        </HoverCardContent>
-                      </HoverCard>
+                      <span className="block font-medium text-sm">Performance Overview</span>
                     </div>
-                    <div className="h-36 w-full">
+                    <div className="h-28 w-full">
                       <ResponsiveContainer width="100%" height="100%">
                         <ReBarChart data={analyticsData} barSize={16}>
                           <CartesianGrid strokeDasharray="3 3" stroke="#ececec" vertical={false} />
@@ -212,9 +187,8 @@ const Hero = () => {
                               fontSize: 12
                             }}
                           />
-                          <Bar dataKey="Listings" fill="#35b7e7" radius={[4, 4, 0, 0]} />
-                          <Bar dataKey="Sales" fill="#47f4b1" radius={[4, 4, 0, 0]} />
-                          <Bar dataKey="Profit" fill="#8B5CF6" radius={[4, 4, 0, 0]} />
+                          <Bar dataKey="Revenue" fill="#35b7e7" radius={[4, 4, 0, 0]} />
+                          <Bar dataKey="Profit" fill="#47f4b1" radius={[4, 4, 0, 0]} />
                         </ReBarChart>
                       </ResponsiveContainer>
                     </div>
@@ -242,8 +216,7 @@ const Hero = () => {
                             <div className="font-semibold">{sale.price}</div>
                             <div className="text-muted-foreground">{sale.time}</div>
                           </div>
-                        </div>
-                      ))}
+                        ))}
                     </div>
                   </CardContent>
                 </Card>
