@@ -156,9 +156,9 @@ const Hero = () => {
       </div>
 
       {/* Updated Trusted by Industry Leaders section */}
-      <div className="w-full bg-gradient-to-b from-white via-white to-[#F7F7F7] py-16 md:py-24">
+      <div className="w-full bg-gradient-to-r from-[#EEF2FF] via-white to-[#EEF2FF] py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl text-center mb-12 text-foreground font-semibold">
+          <h2 className="text-2xl md:text-3xl text-center mb-8 text-foreground font-semibold">
             Resellsync Integrates With Trusted Marketplaces
           </h2>
           <Carousel
@@ -172,11 +172,11 @@ const Hero = () => {
             <CarouselContent className="py-4">
               {marketplaces.map((marketplace, index) => (
                 <CarouselItem key={index} className={isMobile ? "basis-1/2" : "basis-1/5"}>
-                  <div className="h-24 flex items-center justify-start gap-3 p-6 rounded-xl bg-white/80 border border-border/50 shadow-sm backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-border">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-blue to-brand-teal text-white font-bold text-sm flex items-center justify-center">
+                  <div className="h-20 flex items-center justify-start gap-3 p-4 rounded-xl bg-white/80 border border-border/50 shadow-sm backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-border group">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-blue to-brand-teal text-white font-bold text-sm flex items-center justify-center group-hover:shadow-md transition-shadow">
                       {marketplace.logo}
                     </div>
-                    <span className="text-muted-foreground font-medium">
+                    <span className="text-muted-foreground font-medium text-sm">
                       {marketplace.name}
                     </span>
                   </div>
