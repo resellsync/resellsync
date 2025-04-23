@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Check, BarChart, Users, Database, Calendar, Package, ShoppingCart } from 'lucide-react';
+import { ArrowRight, Check, BarChart, Users, Database, Calendar, Package, ShoppingCart, ZoomIn, Bell, Percent, TrendingUp, ScanLine, Zap, Clock } from 'lucide-react';
 import { 
   Carousel,
   CarouselContent,
@@ -12,6 +12,9 @@ import {
 import { useIsMobile } from '@/hooks/use-mobile';
 import { BarChart as ReBarChart, Bar, XAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import SectionFeatures from "./SectionFeatures";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 
 const trustPoints = [
   "No credit card required",
@@ -28,13 +31,19 @@ const marketplaces = [
 ];
 
 const analyticsData = [
-  { name: 'Mon', Listings: 30, Sales: 10 },
-  { name: 'Tue', Listings: 45, Sales: 16 },
-  { name: 'Wed', Listings: 38, Sales: 13 },
-  { name: 'Thu', Listings: 52, Sales: 21 },
-  { name: 'Fri', Listings: 61, Sales: 28 },
-  { name: 'Sat', Listings: 48, Sales: 22 },
-  { name: 'Sun', Listings: 36, Sales: 15 },
+  { name: 'Mon', Listings: 30, Sales: 10, Profit: 1200 },
+  { name: 'Tue', Listings: 45, Sales: 16, Profit: 1800 },
+  { name: 'Wed', Listings: 38, Sales: 13, Profit: 1500 },
+  { name: 'Thu', Listings: 52, Sales: 21, Profit: 2300 },
+  { name: 'Fri', Listings: 61, Sales: 28, Profit: 3100 },
+  { name: 'Sat', Listings: 48, Sales: 22, Profit: 2500 },
+  { name: 'Sun', Listings: 36, Sales: 15, Profit: 1700 },
+];
+
+const recentSales = [
+  { id: "S-3912", device: "iPhone 14 Pro", price: "$899", time: "2m ago", marketplace: "eBay" },
+  { id: "S-3911", device: "Galaxy S23", price: "$749", time: "8m ago", marketplace: "Swappa" },
+  { id: "S-3910", device: "Pixel 7", price: "$549", time: "15m ago", marketplace: "Backmarket" },
 ];
 
 const Hero = () => {
@@ -82,74 +91,180 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Content - Modern Dashboard Preview Mobile Friendly */}
+          {/* Right Content - Enhanced Dashboard Preview */}
           <div className="relative flex justify-center items-center">
             <div className="absolute -top-10 -left-10 w-40 h-40 bg-brand-blue/5 rounded-full blur-3xl"></div>
             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-teal/5 rounded-full blur-3xl"></div>
-            <div className="relative w-full max-w-[370px] rounded-2xl overflow-hidden shadow-2xl border bg-white">
+            
+            {/* Enhanced Dashboard Card */}
+            <div className="relative w-full max-w-[500px] rounded-2xl overflow-hidden shadow-2xl border bg-white">
+              {/* Live Demo Badge */}
+              <div className="absolute top-2 right-2 z-10">
+                <Badge variant="outline" className="bg-white/80 backdrop-blur-sm border-brand-teal/50 text-brand-teal animate-pulse">
+                  <span className="mr-1 h-2 w-2 rounded-full bg-brand-teal"></span> Live Demo
+                </Badge>
+              </div>
+              
               {/* Dashboard Header */}
-              <div className="px-6 py-4 border-b flex items-center justify-between">
+              <div className="px-6 py-4 border-b flex items-center justify-between bg-gradient-to-r from-white via-brand-blue/5 to-white">
                 <span className="font-semibold text-[18px] flex items-center gap-2">
                   <BarChart className="w-5 h-5 text-brand-blue" />
-                  Dashboard
+                  Phone Business Dashboard
                 </span>
-                <Calendar className="w-5 h-5 text-muted-foreground" />
-              </div>
-              {/* Stats Row */}
-              <div className="flex flex-wrap justify-between gap-3 px-6 py-4 bg-muted/40">
-                <div className="flex flex-col items-start">
-                  <span className="text-xs text-muted-foreground">Active Listings</span>
-                  <span className="font-semibold text-lg">247</span>
-                </div>
-                <div className="flex flex-col items-start">
-                  <span className="text-xs text-muted-foreground">Phones in Stock</span>
-                  <span className="font-semibold text-lg">182</span>
-                </div>
-                <div className="flex flex-col items-start">
-                  <span className="text-xs text-muted-foreground">Revenue</span>
-                  <span className="font-semibold text-lg">$7,850</span>
+                <div className="flex items-center gap-2">
+                  <HoverCard>
+                    <HoverCardTrigger>
+                      <Bell className="w-5 h-5 text-muted-foreground hover:text-brand-blue transition-colors cursor-pointer" />
+                    </HoverCardTrigger>
+                    <HoverCardContent className="w-80">
+                      <div className="text-sm font-medium">3 new notifications</div>
+                      <div className="text-xs text-muted-foreground mt-1">New order received, price alert, and inventory update</div>
+                    </HoverCardContent>
+                  </HoverCard>
+                  <Calendar className="w-5 h-5 text-muted-foreground" />
                 </div>
               </div>
+              
+              {/* Enhanced Stats Row */}
+              <div className="grid grid-cols-4 gap-3 px-6 py-4 bg-muted/30">
+                <div className="flex flex-col items-start">
+                  <span className="text-xs text-muted-foreground flex items-center">
+                    <Package className="w-3 h-3 mr-1" /> Active Listings
+                  </span>
+                  <div className="flex items-end gap-1">
+                    <span className="font-semibold text-lg">247</span>
+                    <span className="text-xs text-green-600 flex items-center">
+                      <TrendingUp className="h-3 w-3" />+12%
+                    </span>
+                  </div>
+                </div>
+                <div className="flex flex-col items-start">
+                  <span className="text-xs text-muted-foreground flex items-center">
+                    <ShoppingCart className="w-3 h-3 mr-1" /> Inventory
+                  </span>
+                  <div className="flex items-end gap-1">
+                    <span className="font-semibold text-lg">182</span>
+                    <span className="text-xs text-amber-500">-3%</span>
+                  </div>
+                </div>
+                <div className="flex flex-col items-start">
+                  <span className="text-xs text-muted-foreground flex items-center">
+                    <Database className="w-3 h-3 mr-1" /> Revenue
+                  </span>
+                  <div className="flex items-end gap-1">
+                    <span className="font-semibold text-lg">$7,850</span>
+                    <span className="text-xs text-green-600">+18%</span>
+                  </div>
+                </div>
+                <div className="flex flex-col items-start">
+                  <span className="text-xs text-muted-foreground flex items-center">
+                    <Percent className="w-3 h-3 mr-1" /> Profit Margin
+                  </span>
+                  <div className="flex items-end gap-1">
+                    <span className="font-semibold text-lg">32%</span>
+                    <span className="text-xs text-green-600">+5%</span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Quick Actions Row */}
+              <div className="px-6 pt-3 pb-1 flex items-center justify-between border-b border-gray-100">
+                <div className="text-sm font-medium text-muted-foreground">Quick Actions</div>
+                <div className="flex gap-2">
+                  <Button variant="outline" size="sm" className="h-7 text-xs group transition-all duration-300 hover:bg-brand-blue hover:text-white">
+                    <ScanLine className="w-3 h-3 mr-1 group-hover:text-white" />
+                    Scan IMEI
+                  </Button>
+                  <Button variant="outline" size="sm" className="h-7 text-xs group transition-all duration-300 hover:bg-brand-teal hover:text-white">
+                    <ZoomIn className="w-3 h-3 mr-1" />
+                    Find Phone
+                  </Button>
+                </div>
+              </div>
+              
               {/* Features & Analytics Section */}
-              <div className="px-3 py-4 space-y-4">
-                {/* Inventory Management Feature */}
-                <div className="flex gap-2 items-center">
-                  <Package className="w-6 h-6 text-brand-blue"/>
-                  <div>
-                    <div className="text-sm font-medium">Inventory Management</div>
-                    <div className="text-xs text-muted-foreground">Track phone stock, conditions, and values</div>
-                  </div>
-                </div>
-                {/* Sale Orders Overview Feature */}
-                <div className="flex gap-2 items-center">
-                  <ShoppingCart className="w-6 h-6 text-brand-teal"/>
-                  <div>
-                    <div className="text-sm font-medium">Sale Orders Overview</div>
-                    <div className="text-xs text-muted-foreground">View and manage recent orders efficiently</div>
-                  </div>
-                </div>
-                {/* Analytics Chart */}
-                <div className="rounded-xl bg-muted/70 p-2">
-                  <span className="block font-medium mb-2 text-sm text-muted-foreground">Weekly Listings & Sales</span>
-                  <div className="h-32 w-full">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <ReBarChart data={analyticsData} barSize={18}>
-                        <CartesianGrid strokeDasharray="3 3" stroke="#ececec" vertical={false} />
-                        <XAxis dataKey="name" tick={{ fontSize: 10 }} axisLine={false} tickLine={false} />
-                        <Tooltip 
-                          contentStyle={{
-                            background: "#fff",
-                            border: "1px solid #e5e7eb",
-                            borderRadius: 8,
-                            fontSize: 12
-                          }}
-                        />
-                        <Bar dataKey="Listings" fill="#35b7e7" radius={[4, 4, 0, 0]} />
-                        <Bar dataKey="Sales" fill="#47f4b1" radius={[4, 4, 0, 0]} />
-                      </ReBarChart>
-                    </ResponsiveContainer>
-                  </div>
-                </div>
+              <div className="px-3 py-2 space-y-3">
+                {/* Analytics Chart with Hover Effects */}
+                <Card className="border-none shadow-none bg-muted/40 hover:bg-muted/60 transition-colors">
+                  <CardContent className="p-3">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="block font-medium text-sm">Weekly Performance</span>
+                      <HoverCard>
+                        <HoverCardTrigger>
+                          <div className="text-xs text-brand-blue hover:underline cursor-help">See insights</div>
+                        </HoverCardTrigger>
+                        <HoverCardContent className="w-80">
+                          <div className="text-sm font-medium">Performance Insights</div>
+                          <div className="text-xs text-muted-foreground mt-1">Your sales conversion rate is 18% higher than last week. Listings on eBay perform best.</div>
+                        </HoverCardContent>
+                      </HoverCard>
+                    </div>
+                    <div className="h-36 w-full">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <ReBarChart data={analyticsData} barSize={16}>
+                          <CartesianGrid strokeDasharray="3 3" stroke="#ececec" vertical={false} />
+                          <XAxis dataKey="name" tick={{ fontSize: 10 }} axisLine={false} tickLine={false} />
+                          <Tooltip 
+                            contentStyle={{
+                              background: "#fff",
+                              border: "1px solid #e5e7eb",
+                              borderRadius: 8,
+                              fontSize: 12
+                            }}
+                          />
+                          <Bar dataKey="Listings" fill="#35b7e7" radius={[4, 4, 0, 0]} />
+                          <Bar dataKey="Sales" fill="#47f4b1" radius={[4, 4, 0, 0]} />
+                          <Bar dataKey="Profit" fill="#8B5CF6" radius={[4, 4, 0, 0]} />
+                        </ReBarChart>
+                      </ResponsiveContainer>
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                {/* Recent Sales Ticker */}
+                <Card className="border-none shadow-none hover:bg-muted/30 transition-colors">
+                  <CardContent className="p-3">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="block font-medium text-sm flex items-center">
+                        <Zap className="w-4 h-4 mr-1 text-amber-500" />
+                        Recent Sales
+                      </span>
+                      <Badge variant="outline" className="h-5 text-xs bg-green-50 text-green-700 border-green-200">Live Updates</Badge>
+                    </div>
+                    <div className="space-y-2 max-h-24 overflow-y-auto">
+                      {recentSales.map((sale) => (
+                        <div key={sale.id} className="flex justify-between items-center text-xs py-1 border-b border-gray-100 last:border-0">
+                          <div className="flex items-center gap-2">
+                            <div className="text-brand-blue font-mono">{sale.id}</div>
+                            <div className="font-medium">{sale.device}</div>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <div className="font-semibold">{sale.price}</div>
+                            <div className="text-muted-foreground">{sale.time}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                {/* Automation Card */}
+                <Card className="border-none shadow-none bg-gradient-to-r from-brand-blue/5 to-brand-teal/5 hover:from-brand-blue/10 hover:to-brand-teal/10 transition-all duration-300">
+                  <CardContent className="p-3">
+                    <div className="flex justify-between items-center">
+                      <span className="flex items-center text-sm font-medium">
+                        <Clock className="w-4 h-4 mr-1.5 text-brand-blue" />
+                        Automation Active
+                      </span>
+                      <Badge variant="outline" className="bg-brand-teal/10 text-brand-teal border-brand-teal/30">
+                        Time Saved: 4.2hrs
+                      </Badge>
+                    </div>
+                    <div className="mt-2 text-xs text-muted-foreground">
+                      3 cross-platform listings automated today
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </div>
