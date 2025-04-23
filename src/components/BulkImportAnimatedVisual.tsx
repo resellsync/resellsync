@@ -67,10 +67,30 @@ const dummyRows = [
     model: "iPhone 14",
     grade: "A",
     network: "Unlocked"
+  },
+  {
+    imei: "456789012345678",
+    brand: "Samsung",
+    model: "Galaxy S23",
+    grade: "A",
+    network: "Verizon"
+  },
+  {
+    imei: "987654321098765",
+    brand: "Google",
+    model: "Pixel 7 Pro",
+    grade: "A",
+    network: "Unlocked"
   }
 ];
 
 export default function BulkImportAnimatedVisual() {
+  // Function to handle pagination clicks
+  const handlePaginationClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // In a real app, you would handle actual pagination logic here
+  };
+
   return (
     <div className="w-full h-full bg-white rounded-xl shadow-lg border border-gray-200 flex flex-col">
       <div className="p-3 border-b border-gray-200 flex items-center justify-between bg-gray-50/80">
@@ -131,22 +151,22 @@ export default function BulkImportAnimatedVisual() {
         
         <div className="border-t border-gray-100 p-2 flex items-center justify-between bg-gray-50/50">
           <div className="text-xs text-muted-foreground">
-            Showing 7 devices
+            Showing {dummyRows.length} devices
           </div>
           <Pagination>
             <PaginationContent>
               <PaginationItem>
-                <PaginationLink href="#" className="h-8 w-8 p-0">
+                <PaginationLink onClick={handlePaginationClick} className="h-8 w-8 p-0">
                   <ChevronLeft className="h-4 w-4" />
                 </PaginationLink>
               </PaginationItem>
               <PaginationItem>
-                <PaginationLink href="#" className="h-8 w-8 p-0">
+                <PaginationLink onClick={handlePaginationClick} className="h-8 w-8 p-0">
                   1
                 </PaginationLink>
               </PaginationItem>
               <PaginationItem>
-                <PaginationLink href="#" className="h-8 w-8 p-0">
+                <PaginationLink onClick={handlePaginationClick} className="h-8 w-8 p-0">
                   <ChevronRight className="h-4 w-4" />
                 </PaginationLink>
               </PaginationItem>
