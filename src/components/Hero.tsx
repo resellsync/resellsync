@@ -244,8 +244,8 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Updated Trusted by Industry Leaders section with solid background */}
-      <div className="w-full bg-[#F1F0FB] py-8 md:py-12">
+      {/* Updated Trusted by Industry Leaders section with solid background and animation */}
+      <div className="w-full bg-[#F1F0FB] py-8 md:py-12 overflow-hidden">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl text-center mb-6 text-foreground font-semibold">
             Resellsync Integrates With Trusted Marketplaces
@@ -255,11 +255,14 @@ const Hero = () => {
               align: "start",
               loop: true,
               dragFree: true,
+              containScroll: false,
+              skipSnaps: true,
+              inViewThreshold: 0.7,
             }}
-            className="w-full max-w-5xl mx-auto"
+            className="w-full max-w-5xl mx-auto group"
           >
-            <CarouselContent className="py-4">
-              {marketplaces.map((marketplace, index) => (
+            <CarouselContent className="py-4 animate-[slide_60s_linear_infinite]">
+              {[...marketplaces, ...marketplaces].map((marketplace, index) => (
                 <CarouselItem key={index} className={isMobile ? "basis-1/2" : "basis-1/5"}>
                   <div className="h-20 flex items-center justify-start gap-3 p-4 rounded-xl bg-white/80 border border-border/50 shadow-sm backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-border group">
                     <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-blue to-brand-teal text-white font-bold text-sm flex items-center justify-center group-hover:shadow-md transition-shadow">
@@ -272,13 +275,6 @@ const Hero = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-
-            {!isMobile && (
-              <>
-                <CarouselPrevious className="left-0" />
-                <CarouselNext className="right-0" />
-              </>
-            )}
           </Carousel>
         </div>
       </div>
