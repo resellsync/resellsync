@@ -51,9 +51,7 @@ const Hero = () => {
   return (
     <>
       <div className="container-section min-h-[calc(100vh-5rem)] flex items-center pb-8">
-        {/* Hero Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center py-12">
-          {/* Left Content */}
           <div className="flex flex-col gap-6">
             <div className="inline-flex items-center rounded-full px-4 py-1 text-sm bg-muted text-muted-foreground">
               <span className="flex h-2 w-2 rounded-full bg-green-500 mr-2"></span>
@@ -79,7 +77,6 @@ const Hero = () => {
               </Button>
             </div>
 
-            {/* Trust Bar */}
             <div className="flex flex-col sm:flex-row flex-wrap gap-x-6 gap-y-2 mt-4">
               {trustPoints.map((point, index) => (
                 <div key={index} className="flex items-center gap-2 text-muted-foreground">
@@ -90,14 +87,11 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Content - Enhanced Dashboard Preview */}
           <div className="relative flex justify-center items-center">
             <div className="absolute -top-10 -left-10 w-40 h-40 bg-brand-blue/5 rounded-full blur-3xl"></div>
             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-teal/5 rounded-full blur-3xl"></div>
             
-            {/* Enhanced Dashboard Card */}
             <div className="relative w-full max-w-[500px] rounded-2xl overflow-hidden shadow-2xl border bg-white">
-              {/* Dashboard Header */}
               <div className="px-6 py-4 border-b flex items-center justify-between bg-gradient-to-r from-white via-brand-blue/5 to-white">
                 <span className="font-semibold text-[18px] flex items-center gap-2">
                   <BarChart className="w-5 h-5 text-brand-blue" />
@@ -109,7 +103,6 @@ const Hero = () => {
                 </div>
               </div>
               
-              {/* Enhanced Stats Row */}
               <div className="grid grid-cols-4 gap-3 p-4 bg-muted/30">
                 <div className="flex flex-col items-start">
                   <span className="text-xs text-muted-foreground flex items-center">
@@ -151,7 +144,6 @@ const Hero = () => {
                 </div>
               </div>
               
-              {/* Quick Actions Row */}
               <div className="px-6 pt-2 pb-1 flex items-center justify-between border-b border-gray-100">
                 <div className="text-sm font-medium text-muted-foreground">Quick Actions</div>
                 <div className="flex gap-2">
@@ -166,9 +158,7 @@ const Hero = () => {
                 </div>
               </div>
               
-              {/* Features & Analytics Section */}
               <div className="px-3 py-2 space-y-2">
-                {/* Analytics Chart with Hover Effects */}
                 <Card className="border-none shadow-none bg-muted/40 hover:bg-muted/60 transition-colors">
                   <CardContent className="p-3">
                     <div className="flex justify-between items-center mb-2">
@@ -195,7 +185,6 @@ const Hero = () => {
                   </CardContent>
                 </Card>
                 
-                {/* Recent Sales Ticker */}
                 <Card className="border-none shadow-none hover:bg-muted/30 transition-colors">
                   <CardContent className="p-3">
                     <div className="flex justify-between items-center mb-2">
@@ -221,7 +210,6 @@ const Hero = () => {
                   </CardContent>
                 </Card>
                 
-                {/* Automation Card */}
                 <Card className="border-none shadow-none bg-gradient-to-r from-brand-blue/5 to-brand-teal/5 hover:from-brand-blue/10 hover:to-brand-teal/10 transition-all duration-300">
                   <CardContent className="p-3">
                     <div className="flex justify-between items-center">
@@ -244,12 +232,15 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Updated Trusted by Industry Leaders section with solid background and animation */}
-      <div className="w-full bg-[#F1F0FB] py-8 md:py-12 overflow-hidden">
+      <div className="w-full bg-[#F1F0FB] py-8 md:py-12 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl text-center mb-6 text-foreground font-semibold">
             Resellsync Integrates With Trusted Marketplaces
           </h2>
+          
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#F1F0FB] to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#F1F0FB] to-transparent z-10"></div>
+          
           <Carousel
             opts={{
               align: "start",
@@ -259,9 +250,9 @@ const Hero = () => {
               skipSnaps: true,
               inViewThreshold: 0.7,
             }}
-            className="w-full max-w-5xl mx-auto group"
+            className="w-[calc(100vw-2rem)] -mx-4 md:-mx-8 lg:-mx-16 relative group"
           >
-            <CarouselContent className="py-4 animate-[slide_60s_linear_infinite]">
+            <CarouselContent className="py-4 animate-[slide_40s_linear_infinite] group-hover:pause-animation">
               {[...marketplaces, ...marketplaces].map((marketplace, index) => (
                 <CarouselItem key={index} className={isMobile ? "basis-1/2" : "basis-1/5"}>
                   <div className="h-20 flex items-center justify-start gap-3 p-4 rounded-xl bg-white/80 border border-border/50 shadow-sm backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-border group">
@@ -279,7 +270,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Features Section */}
       <SectionFeatures />
     </>
   );
