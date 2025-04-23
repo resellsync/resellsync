@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Package, BarChart, RefreshCw, Globe, ShieldCheck, Clock, LineChart } from 'lucide-react';
+import { Package, BarChart, RefreshCw, Globe, ShieldCheck, Clock } from 'lucide-react';
 import DashboardInsights from './DashboardInsights';
 
 const features = [
@@ -33,11 +33,6 @@ const features = [
     icon: <Clock className="h-8 w-8 text-brand-green" />,
     title: "Time-Saving Automations",
     description: "Automate pricing, listing creation, and order processing to save hours of manual work every day."
-  },
-  {
-    icon: <LineChart className="h-8 w-8 text-brand-blue" />,
-    title: "Grow Smarter With a Powerful Dashboard",
-    description: "Monitor your business performance with real-time analytics, sales trends, and inventory insights all in one place. Make data-driven decisions to scale your business effectively."
   }
 ];
 
@@ -55,14 +50,14 @@ const Features = () => {
         {features.map((feature, index) => (
           <div 
             key={index} 
-            className={`feature-card ${feature.title === "Grow Smarter With a Powerful Dashboard" ? "col-span-full bg-white/50 backdrop-blur-sm" : ""}`}
+            className={`feature-card ${feature.title === "Grow Smarter With a Powerful Dashboard" ? "lg:col-span-3" : ""}`}
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             <div className="mb-4">{feature.icon}</div>
             <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
             <p className="text-muted-foreground">{feature.description}</p>
             {feature.title === "Grow Smarter With a Powerful Dashboard" && (
-              <div className="mt-8 overflow-hidden rounded-lg">
+              <div className="mt-8">
                 <DashboardInsights />
               </div>
             )}

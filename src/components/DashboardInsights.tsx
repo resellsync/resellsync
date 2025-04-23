@@ -4,8 +4,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { ChartContainer, ChartTooltip } from "@/components/ui/chart";
-import { Button } from "@/components/ui/button";
-import { Package, ChevronRight } from "lucide-react";
 
 const salesData = [
   { date: "Mon", sales: 12000 },
@@ -41,12 +39,12 @@ const DashboardInsights = () => {
   const [timeRange, setTimeRange] = useState("7d");
   
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full p-4">
-      {/* Performance Overview */}
-      <Card className="col-span-1 md:col-span-2 bg-white/80">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+      {/* Sales Over Time */}
+      <Card className="col-span-1 md:col-span-2">
         <CardHeader>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <CardTitle>Performance Overview</CardTitle>
+            <CardTitle>Sales Performance</CardTitle>
             <ToggleGroup type="single" value={timeRange} onValueChange={(value) => value && setTimeRange(value)}>
               <ToggleGroupItem value="7d">7 Days</ToggleGroupItem>
               <ToggleGroupItem value="30d">30 Days</ToggleGroupItem>
@@ -73,7 +71,7 @@ const DashboardInsights = () => {
                   }
                   return null;
                 }} />
-                <Line type="monotone" dataKey="sales" name="sales" stroke="var(--color-sales)" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="sales" name="sales" stroke="var(--color-sales)" strokeWidth={2} />
               </LineChart>
             </ChartContainer>
           </div>
@@ -81,14 +79,9 @@ const DashboardInsights = () => {
       </Card>
 
       {/* Top Selling Devices */}
-      <Card className="bg-white/80">
+      <Card>
         <CardHeader>
-          <CardTitle className="flex items-center justify-between">
-            <span>Top Selling Devices</span>
-            <Button variant="ghost" size="icon">
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </CardTitle>
+          <CardTitle>Top Selling Devices</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="h-[250px]">
@@ -108,14 +101,9 @@ const DashboardInsights = () => {
       </Card>
 
       {/* Marketplace Performance */}
-      <Card className="bg-white/80">
+      <Card>
         <CardHeader>
-          <CardTitle className="flex items-center justify-between">
-            <span>Marketplace Performance</span>
-            <Button variant="ghost" size="icon">
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </CardTitle>
+          <CardTitle>Marketplace Performance</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="h-[250px]">
