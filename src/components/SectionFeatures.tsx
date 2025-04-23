@@ -1,10 +1,9 @@
-
 import React from "react";
 import { FileInput, Database, RefreshCw, Package, Inbox, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BulkImportAnimatedVisual from "./BulkImportAnimatedVisual";
 import DashboardPreview from "./DashboardPreview";
-import DashboardInsights from "./DashboardInsights"; // Add this import
+import DashboardInsights from "./DashboardInsights";
 import OrdersDashboardPreview from "./OrdersDashboardPreview";
 
 const features = [
@@ -86,14 +85,17 @@ const SectionFeatures = () => (
         </div>
       ))}
     </div>
-    <div className="text-center mt-16">
-      <div className="text-lg font-medium mb-3">
-        Ready to streamline and scale your phone reselling business?
+    <div className="relative mt-24 rounded-2xl bg-gradient-to-br from-brand-blue/10 via-brand-teal/10 to-brand-green/5 p-8">
+      <div className="absolute inset-0 bg-white/40 backdrop-blur-sm rounded-2xl" />
+      <div className="relative flex flex-col items-center gap-4">
+        <div className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-brand-blue to-brand-teal bg-clip-text text-transparent">
+          Ready to streamline and scale your phone reselling business?
+        </div>
+        <Button size="lg" className="group shadow-lg hover:shadow-xl transition-all duration-300" aria-label="Book Free Demo">
+          Book Free Demo
+          <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+        </Button>
       </div>
-      <Button size="lg" className="group" aria-label="Try Resellsync Free">
-        Try It Free
-        <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-      </Button>
     </div>
   </section>
 );
