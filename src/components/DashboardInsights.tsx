@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
@@ -26,7 +25,6 @@ const DashboardInsights = () => {
         <div className="text-sm text-muted-foreground">Last 7 days</div>
       </div>
       <div className="overflow-x-auto p-4">
-        {/* Chart Section */}
         <div className="h-48 w-full mb-4">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart 
@@ -34,7 +32,7 @@ const DashboardInsights = () => {
               margin={{ 
                 top: 10, 
                 right: 10, 
-                left: 0,  // Changed from 10 to 0 to shift chart left
+                left: -5,
                 bottom: 5 
               }}
             >
@@ -88,9 +86,7 @@ const DashboardInsights = () => {
           </ResponsiveContainer>
         </div>
 
-        {/* Key Metrics Grid */}
         <div className="grid grid-cols-3 gap-4 mt-4">
-          {/* Revenue */}
           <div className="bg-gray-50 rounded-lg p-4 text-center">
             <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-1">
               <DollarSign className="w-4 h-4 text-brand-teal" />
@@ -100,7 +96,6 @@ const DashboardInsights = () => {
             <div className="text-xs text-green-600">+12% from last week</div>
           </div>
 
-          {/* Units */}
           <div className="bg-gray-50 rounded-lg p-4 text-center">
             <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-1">
               <Package className="w-4 h-4 text-brand-blue" />
@@ -110,7 +105,6 @@ const DashboardInsights = () => {
             <div className="text-xs text-green-600">+8% from last week</div>
           </div>
 
-          {/* Inventory */}
           <div className="bg-gray-50 rounded-lg p-4 text-center">
             <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-1">
               <Box className="w-4 h-4 text-brand-green" />
@@ -126,4 +120,3 @@ const DashboardInsights = () => {
 };
 
 export default DashboardInsights;
-
