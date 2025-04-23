@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Package, BarChart, RefreshCw, Globe, ShieldCheck, Clock } from 'lucide-react';
 import DashboardInsights from './DashboardInsights';
@@ -30,8 +31,8 @@ const features = [
   },
   {
     icon: <Clock className="h-8 w-8 text-brand-green" />,
-    title: "Time-Saving Automations",
-    description: "Automate pricing, listing creation, and order processing to save hours of manual work every day."
+    title: "Grow Smarter With a Powerful Dashboard",
+    description: "View sales trends, inventory levels, and top-performing devices in real time. Make data-driven decisions with clear insights into your phone business performance."
   }
 ];
 
@@ -49,7 +50,7 @@ const Features = () => {
         {features.map((feature, index) => (
           <div 
             key={index} 
-            className="feature-card"
+            className={`feature-card ${feature.title === "Grow Smarter With a Powerful Dashboard" ? "col-span-1 lg:col-span-3" : ""}`}
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             <div className="mb-4">{feature.icon}</div>
