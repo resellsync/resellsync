@@ -1,6 +1,6 @@
 
-import React, { useEffect, useState } from "react";
-import { FileInput, Square } from "lucide-react";
+import React from "react";
+import { FileInput, Square, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -16,6 +16,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
+import { Pagination, PaginationContent, PaginationItem, PaginationLink } from "@/components/ui/pagination";
 
 const dummyRows = [
   {
@@ -38,14 +39,40 @@ const dummyRows = [
     model: "Pixel 6",
     grade: "A",
     network: "Verizon"
+  },
+  {
+    imei: "356938035678901",
+    brand: "Apple",
+    model: "iPhone 12",
+    grade: "A",
+    network: "AT&T"
+  },
+  {
+    imei: "490127856734567",
+    brand: "Samsung",
+    model: "Galaxy S22",
+    grade: "A",
+    network: "Unlocked"
+  },
+  {
+    imei: "867530912345678",
+    brand: "Google",
+    model: "Pixel 7",
+    grade: "B",
+    network: "T-Mobile"
+  },
+  {
+    imei: "123456789012345",
+    brand: "Apple",
+    model: "iPhone 14",
+    grade: "A",
+    network: "Unlocked"
   }
 ];
 
 export default function BulkImportAnimatedVisual() {
-  const [shownRows, setShownRows] = useState(3); // Show all rows by default
-  
   return (
-    <div className="w-full h-full bg-white rounded-xl shadow-lg border border-gray-200">
+    <div className="w-full h-full bg-white rounded-xl shadow-lg border border-gray-200 flex flex-col">
       <div className="p-3 border-b border-gray-200 flex items-center justify-between bg-gray-50/80">
         <div className="flex items-center gap-2">
           <DropdownMenu>
@@ -67,38 +94,65 @@ export default function BulkImportAnimatedVisual() {
         </div>
       </div>
 
-      <div className="w-full">
-        <Table>
-          <TableHeader>
-            <TableRow className="hover:bg-transparent">
-              <TableHead className="w-10">
-                <Square className="h-3.5 w-3.5" />
-              </TableHead>
-              <TableHead className="text-xs">IMEI</TableHead>
-              <TableHead className="text-xs">Brand</TableHead>
-              <TableHead className="text-xs">Model</TableHead>
-              <TableHead className="text-xs">Grade</TableHead>
-              <TableHead className="text-xs">Network</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {dummyRows.map((row, i) => (
-              <TableRow 
-                key={row.imei}
-                className="hover:bg-transparent"
-              >
-                <TableCell className="py-2">
+      <div className="flex-1 flex flex-col">
+        <div className="flex-1">
+          <Table>
+            <TableHeader>
+              <TableRow className="hover:bg-transparent">
+                <TableHead className="w-10">
                   <Square className="h-3.5 w-3.5" />
-                </TableCell>
-                <TableCell className="font-mono text-xs py-2">{row.imei}</TableCell>
-                <TableCell className="text-xs py-2">{row.brand}</TableCell>
-                <TableCell className="text-xs py-2">{row.model}</TableCell>
-                <TableCell className="text-xs py-2">{row.grade}</TableCell>
-                <TableCell className="text-xs py-2">{row.network}</TableCell>
+                </TableHead>
+                <TableHead className="text-xs">IMEI</TableHead>
+                <TableHead className="text-xs">Brand</TableHead>
+                <TableHead className="text-xs">Model</TableHead>
+                <TableHead className="text-xs">Grade</TableHead>
+                <TableHead className="text-xs">Network</TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+            <TableBody>
+              {dummyRows.map((row, i) => (
+                <TableRow 
+                  key={row.imei}
+                  className="hover:bg-transparent"
+                >
+                  <TableCell className="py-2">
+                    <Square className="h-3.5 w-3.5" />
+                  </TableCell>
+                  <TableCell className="font-mono text-xs py-2">{row.imei}</TableCell>
+                  <TableCell className="text-xs py-2">{row.brand}</TableCell>
+                  <TableCell className="text-xs py-2">{row.model}</TableCell>
+                  <TableCell className="text-xs py-2">{row.grade}</TableCell>
+                  <TableCell className="text-xs py-2">{row.network}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+        
+        <div className="border-t border-gray-100 p-2 flex items-center justify-between bg-gray-50/50">
+          <div className="text-xs text-muted-foreground">
+            Showing 7 devices
+          </div>
+          <Pagination>
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationLink href="#" className="h-8 w-8 p-0">
+                  <ChevronLeft className="h-4 w-4" />
+                </PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#" className="h-8 w-8 p-0">
+                  1
+                </PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#" className="h-8 w-8 p-0">
+                  <ChevronRight className="h-4 w-4" />
+                </PaginationLink>
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        </div>
       </div>
     </div>
   );
