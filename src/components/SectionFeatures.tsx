@@ -1,8 +1,10 @@
+
 import React from "react";
 import { FileInput, Database, RefreshCw, Package, Inbox, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BulkImportAnimatedVisual from "./BulkImportAnimatedVisual";
 import DashboardPreview from "./DashboardPreview";
+import DashboardInsights from "./DashboardInsights"; // Add this import
 import OrdersDashboardPreview from "./OrdersDashboardPreview";
 
 const features = [
@@ -60,7 +62,11 @@ const SectionFeatures = () => (
           }`}
         >
           <div className="flex-1 w-full min-w-0 flex items-center justify-center">
-            {feat.visual ? feat.visual : (
+            {feat.visual ? feat.visual : feat.title === "Grow Smarter With a Powerful Dashboard" ? (
+              <div className="w-full">
+                <DashboardInsights />
+              </div>
+            ) : (
               <div
                 className={`rounded-2xl shadow-md ${feat.imgClass ? feat.imgClass : ""} flex flex-col items-center justify-center w-full aspect-[4/3]`}
                 aria-label={feat.alt}
