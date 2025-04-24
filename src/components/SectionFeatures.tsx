@@ -38,7 +38,7 @@ const features = [
   {
     title: "Grow Smarter With a Powerful Dashboard",
     desc: "View sales trends, inventory levels, and top-performing devices by day, week, or month. Our dashboard gives you the clarity to take control and scale your phone business with confidence. Know what's working, what's moving, and where to focus next.",
-    icon: <Inbox className="w-16 h-16 text-brand-teal mx-auto" aria-hidden="true" />,
+    visual: <DashboardInsights />,
     alt: "Dashboard and Analytics Illustration",
     imgClass: "bg-gradient-to-br from-brand-teal/10 to-brand-blue/10",
   },
@@ -61,20 +61,7 @@ const SectionFeatures = () => (
           }`}
         >
           <div className="flex-1 w-full min-w-0 flex items-center justify-center">
-            {feat.visual ? feat.visual : feat.title === "Grow Smarter With a Powerful Dashboard" ? (
-              <div className="w-full">
-                <DashboardInsights />
-              </div>
-            ) : (
-              <div
-                className={`rounded-2xl shadow-md ${feat.imgClass ? feat.imgClass : ""} flex flex-col items-center justify-center w-full aspect-[4/3]`}
-                aria-label={feat.alt}
-                role="img"
-              >
-                {feat.icon}
-                <span className="sr-only">{feat.alt}</span>
-              </div>
-            )}
+            {feat.visual}
           </div>
           <div className="flex-1 w-full min-w-0 flex items-center">
             <div>

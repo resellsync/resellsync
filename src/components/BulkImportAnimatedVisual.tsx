@@ -59,7 +59,7 @@ const DEVICES = [
 export default function BulkImportAnimatedVisual() {
   return (
     <div className="w-full h-[360px] bg-white rounded-xl shadow-lg border border-gray-200 flex flex-col">
-      <div className="p-3 border-b border-gray-200 flex items-center justify-between bg-gray-50/80">
+      <div className="h-14 px-4 border-b border-gray-200 flex items-center justify-between bg-gray-50/80">
         <div className="flex items-center gap-2">
           <Button variant="outline" size="sm" className="gap-1.5">
             Import Devices
@@ -75,19 +75,19 @@ export default function BulkImportAnimatedVisual() {
         </div>
       </div>
 
-      <div className="flex-1 flex flex-col overflow-x-hidden">
+      <div className="flex-1 flex flex-col">
         <div className="flex-1">
           <Table>
             <TableHeader>
               <TableRow className="hover:bg-transparent">
-                <TableHead className="w-8">
+                <TableHead className="w-8 h-10">
                   <Square className="h-3.5 w-3.5" />
                 </TableHead>
-                <TableHead className="text-xs w-32">IMEI</TableHead>
-                <TableHead className="text-xs w-28">Brand</TableHead>
-                <TableHead className="text-xs">Model</TableHead>
-                <TableHead className="text-xs w-16">Grade</TableHead>
-                <TableHead className="text-xs w-28">Network</TableHead>
+                <TableHead className="text-xs w-36 h-10">IMEI</TableHead>
+                <TableHead className="text-xs w-28 h-10">Brand</TableHead>
+                <TableHead className="text-xs w-32 h-10">Model</TableHead>
+                <TableHead className="text-xs w-20 h-10">Grade</TableHead>
+                <TableHead className="text-xs w-28 h-10">Network</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -96,21 +96,21 @@ export default function BulkImportAnimatedVisual() {
                   key={device.imei}
                   className="hover:bg-transparent"
                 >
-                  <TableCell className="py-2 px-2">
+                  <TableCell className="py-2 px-4">
                     <Square className="h-3.5 w-3.5" />
                   </TableCell>
-                  <TableCell className="font-mono text-xs py-2 px-2">{device.imei}</TableCell>
-                  <TableCell className="text-xs py-2 px-2">{device.brand}</TableCell>
-                  <TableCell className="text-xs py-2 px-2">{device.model}</TableCell>
-                  <TableCell className="text-xs py-2 px-2">{device.grade}</TableCell>
-                  <TableCell className="text-xs py-2 px-2">{device.network}</TableCell>
+                  <TableCell className="font-mono text-xs py-2 px-4">{device.imei}</TableCell>
+                  <TableCell className="text-xs py-2 px-4">{device.brand}</TableCell>
+                  <TableCell className="text-xs py-2 px-4">{device.model}</TableCell>
+                  <TableCell className="text-xs py-2 px-4">{device.grade}</TableCell>
+                  <TableCell className="text-xs py-2 px-4">{device.network}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
         </div>
         
-        <div className="border-t border-gray-100 p-2 flex items-center justify-between bg-gray-50/50">
+        <div className="h-14 border-t border-gray-100 px-4 flex items-center justify-between bg-gray-50/50">
           <div className="text-xs text-muted-foreground">
             Showing {DEVICES.length} devices
           </div>

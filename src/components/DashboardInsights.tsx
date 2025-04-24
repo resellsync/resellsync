@@ -19,13 +19,13 @@ const DashboardInsights = () => {
   const [timeRange, setTimeRange] = useState("7d");
   
   return (
-    <div className="w-full h-full bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-      <div className="p-4 border-b border-gray-200 flex items-center justify-between bg-gray-50">
-        <div className="font-semibold text-gray-900 text-lg">Sales Overview</div>
+    <div className="w-full h-[360px] bg-white rounded-xl shadow-lg border border-gray-200 flex flex-col">
+      <div className="px-4 h-14 border-b border-gray-200 flex items-center justify-between bg-gray-50">
+        <div className="font-semibold text-gray-900">Sales Overview</div>
         <div className="text-sm text-muted-foreground">Last 7 days</div>
       </div>
-      <div className="overflow-x-auto p-4">
-        <div className="h-48 w-full mb-4">
+      <div className="flex-1 p-4 flex flex-col gap-4">
+        <div className="flex-1 min-h-0">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart 
               data={salesData} 
@@ -86,31 +86,31 @@ const DashboardInsights = () => {
           </ResponsiveContainer>
         </div>
 
-        <div className="grid grid-cols-3 gap-4 mt-4">
-          <div className="bg-gray-50 rounded-lg p-4 text-center">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="bg-gray-50 rounded-lg p-3 text-center">
             <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-1">
               <DollarSign className="w-4 h-4 text-brand-teal" />
               Revenue
             </div>
-            <div className="text-xl font-semibold">$120,000</div>
+            <div className="text-lg font-semibold">$120,000</div>
             <div className="text-xs text-green-600">+12% from last week</div>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-4 text-center">
+          <div className="bg-gray-50 rounded-lg p-3 text-center">
             <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-1">
               <Package className="w-4 h-4 text-brand-blue" />
               Units Sold
             </div>
-            <div className="text-xl font-semibold">347</div>
+            <div className="text-lg font-semibold">347</div>
             <div className="text-xs text-green-600">+8% from last week</div>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-4 text-center">
+          <div className="bg-gray-50 rounded-lg p-3 text-center">
             <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-1">
               <Box className="w-4 h-4 text-brand-green" />
               In Stock
             </div>
-            <div className="text-xl font-semibold">1,234</div>
+            <div className="text-lg font-semibold">1,234</div>
             <div className="text-xs text-red-500">-3% from last week</div>
           </div>
         </div>
