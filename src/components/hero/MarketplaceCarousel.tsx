@@ -1,3 +1,4 @@
+
 import { 
   Carousel,
   CarouselContent,
@@ -40,12 +41,12 @@ export const MarketplaceCarousel = () => {
           >
             <CarouselContent className="py-2 animate-[slide_40s_linear_infinite] group-hover:pause-animation">
               {[...marketplaces, ...marketplaces].map((marketplace, index) => (
-                <CarouselItem key={index} className={isMobile ? "basis-1/2" : "basis-1/5"}>
-                  <div className="h-16 flex items-center justify-start gap-3 p-3 mx-2 rounded-xl bg-white/95 border border-border/40 shadow-sm backdrop-blur transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-border group">
-                    <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-brand-blue to-brand-teal text-white font-bold text-xs flex items-center justify-center group-hover:shadow-md transition-shadow">
+                <CarouselItem key={index} className={isMobile ? "basis-1/3" : "basis-1/6"}>
+                  <div className="h-14 flex items-center justify-center gap-2 p-2 mx-1 rounded-xl bg-white/95 border border-border/30 shadow-sm backdrop-blur transition-all duration-300 hover:scale-105 hover:shadow-md hover:border-border/50 group">
+                    <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-brand-blue to-brand-teal text-white font-bold text-xs flex items-center justify-center group-hover:shadow-md transition-shadow">
                       {marketplace.logo}
                     </div>
-                    <span className="text-muted-foreground font-medium text-sm">
+                    <span className="text-muted-foreground font-medium text-xs">
                       {marketplace.name}
                     </span>
                   </div>
