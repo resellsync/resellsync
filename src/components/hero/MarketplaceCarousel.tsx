@@ -5,14 +5,8 @@ import {
   CarouselItem,
 } from '@/components/ui/carousel';
 import { useIsMobile } from '@/hooks/use-mobile';
-
-const marketplaces = [
-  { name: "eBay", logo: "EB" },
-  { name: "Backmarket", logo: "BM" },
-  { name: "Reebelo", logo: "RB" },
-  { name: "Swappa", logo: "SW" },
-  { name: "Mercari", logo: "MC" }
-];
+import { marketplaces } from './data/marketplaceData';
+import { MarketplaceCard } from './MarketplaceCard';
 
 export const MarketplaceCarousel = () => {
   const isMobile = useIsMobile();
@@ -42,14 +36,10 @@ export const MarketplaceCarousel = () => {
             <CarouselContent className="py-2 animate-[slide_40s_linear_infinite] group-hover:pause-animation">
               {[...marketplaces, ...marketplaces].map((marketplace, index) => (
                 <CarouselItem key={index} className={isMobile ? "basis-1/3" : "basis-1/6"}>
-                  <div className="h-14 flex items-center justify-center gap-2 p-2 mx-1 rounded-xl bg-white/95 border border-border/30 shadow-sm backdrop-blur transition-all duration-300 hover:scale-105 hover:shadow-md hover:border-border/50 group">
-                    <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-brand-blue to-brand-teal text-white font-bold text-xs flex items-center justify-center group-hover:shadow-md transition-shadow">
-                      {marketplace.logo}
-                    </div>
-                    <span className="text-muted-foreground font-medium text-xs">
-                      {marketplace.name}
-                    </span>
-                  </div>
+                  <MarketplaceCard
+                    name={marketplace.name}
+                    logo={marketplace.logo}
+                  />
                 </CarouselItem>
               ))}
             </CarouselContent>
@@ -59,3 +49,4 @@ export const MarketplaceCarousel = () => {
     </div>
   );
 };
+
