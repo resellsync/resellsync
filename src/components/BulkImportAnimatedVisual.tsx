@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { FileInput, Square, ChevronLeft, ChevronRight, Search } from "lucide-react";
+import React from "react";
+import { Search, Square } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import {
   Table,
   TableBody,
@@ -9,16 +10,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-  DropdownMenuItem,
-} from "@/components/ui/dropdown-menu";
-import { Pagination, PaginationContent, PaginationItem, PaginationLink } from "@/components/ui/pagination";
 
-const dummyRows = [
+const DEVICES = [
   {
     imei: "353700024123456",
     brand: "Apple",
@@ -64,72 +57,53 @@ const dummyRows = [
 ];
 
 export default function BulkImportAnimatedVisual() {
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const handlePaginationClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    // In a real app, you would handle actual pagination logic here
-  };
-
   return (
-    <div className="w-full h-full bg-white rounded-xl shadow-lg border border-gray-200 flex flex-col">
+    <div className="w-full h-[360px] bg-white rounded-xl shadow-lg border border-gray-200 flex flex-col">
       <div className="p-3 border-b border-gray-200 flex items-center justify-between bg-gray-50/80">
         <div className="flex items-center gap-2">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm" className="gap-1.5">
-                <FileInput className="h-3.5 w-3.5" />
-                Import Devices
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start">
-              <DropdownMenuItem>Import from CSV</DropdownMenuItem>
-              <DropdownMenuItem>Import from Excel</DropdownMenuItem>
-              <DropdownMenuItem>Scan Devices</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Button variant="outline" size="sm" className="gap-1.5">
+            Import Devices
+          </Button>
         </div>
         <div className="relative w-64">
           <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
-          <Input
+          <Input 
             type="text"
             placeholder="Search IMEI or Model"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-8 h-8 text-xs"
           />
         </div>
       </div>
 
-      <div className="flex-1 flex flex-col min-h-0">
-        <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 flex flex-col overflow-x-hidden">
+        <div className="flex-1">
           <Table>
             <TableHeader>
               <TableRow className="hover:bg-transparent">
-                <TableHead className="w-10">
+                <TableHead className="w-8">
                   <Square className="h-3.5 w-3.5" />
                 </TableHead>
-                <TableHead className="text-xs">IMEI</TableHead>
-                <TableHead className="text-xs">Brand</TableHead>
+                <TableHead className="text-xs w-32">IMEI</TableHead>
+                <TableHead className="text-xs w-28">Brand</TableHead>
                 <TableHead className="text-xs">Model</TableHead>
-                <TableHead className="text-xs">Grade</TableHead>
-                <TableHead className="text-xs">Network</TableHead>
+                <TableHead className="text-xs w-16">Grade</TableHead>
+                <TableHead className="text-xs w-28">Network</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {dummyRows.map((row, i) => (
+              {DEVICES.map((device) => (
                 <TableRow 
-                  key={row.imei}
+                  key={device.imei}
                   className="hover:bg-transparent"
                 >
-                  <TableCell className="py-2">
+                  <TableCell className="py-2 px-2">
                     <Square className="h-3.5 w-3.5" />
                   </TableCell>
-                  <TableCell className="font-mono text-xs py-2">{row.imei}</TableCell>
-                  <TableCell className="text-xs py-2">{row.brand}</TableCell>
-                  <TableCell className="text-xs py-2">{row.model}</TableCell>
-                  <TableCell className="text-xs py-2">{row.grade}</TableCell>
-                  <TableCell className="text-xs py-2">{row.network}</TableCell>
+                  <TableCell className="font-mono text-xs py-2 px-2">{device.imei}</TableCell>
+                  <TableCell className="text-xs py-2 px-2">{device.brand}</TableCell>
+                  <TableCell className="text-xs py-2 px-2">{device.model}</TableCell>
+                  <TableCell className="text-xs py-2 px-2">{device.grade}</TableCell>
+                  <TableCell className="text-xs py-2 px-2">{device.network}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -138,27 +112,13 @@ export default function BulkImportAnimatedVisual() {
         
         <div className="border-t border-gray-100 p-2 flex items-center justify-between bg-gray-50/50">
           <div className="text-xs text-muted-foreground">
-            Showing {dummyRows.length} devices
+            Showing {DEVICES.length} devices
           </div>
-          <Pagination>
-            <PaginationContent>
-              <PaginationItem>
-                <PaginationLink onClick={handlePaginationClick} className="h-8 w-8 p-0">
-                  <ChevronLeft className="h-4 w-4" />
-                </PaginationLink>
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationLink onClick={handlePaginationClick} className="h-8 w-8 p-0">
-                  1
-                </PaginationLink>
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationLink onClick={handlePaginationClick} className="h-8 w-8 p-0">
-                  <ChevronRight className="h-4 w-4" />
-                </PaginationLink>
-              </PaginationItem>
-            </PaginationContent>
-          </Pagination>
+          <div className="flex items-center gap-2">
+            <button className="p-2 hover:bg-gray-50 rounded-lg">&larr;</button>
+            <span className="text-xs">1</span>
+            <button className="p-2 hover:bg-gray-50 rounded-lg">&rarr;</button>
+          </div>
         </div>
       </div>
     </div>

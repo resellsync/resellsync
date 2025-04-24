@@ -17,7 +17,7 @@ const features = [
         </div>
       </>
     ),
-    icon: <BulkImportAnimatedVisual />,
+    visual: <BulkImportAnimatedVisual />,
     alt: "Animated CSV or scanner import interface and inventory dashboard mockup for Resellsync",
     imgClass: "",
   },

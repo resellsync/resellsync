@@ -174,25 +174,11 @@ const DashboardPreview = () => {
           <div className="text-xs text-muted-foreground">
             Showing {mockDevices.length} devices
           </div>
-          <Pagination>
-            <PaginationContent>
-              <PaginationItem>
-                <PaginationLink onClick={handlePaginationClick} className="h-8 w-8 p-0">
-                  <ChevronLeft className="h-4 w-4" />
-                </PaginationLink>
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationLink onClick={handlePaginationClick} className="h-8 w-8 p-0">
-                  1
-                </PaginationLink>
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationLink onClick={handlePaginationClick} className="h-8 w-8 p-0">
-                  <ChevronRight className="h-4 w-4" />
-                </PaginationLink>
-              </PaginationItem>
-            </PaginationContent>
-          </Pagination>
+          <div className="flex items-center gap-2">
+            <button className="p-2 hover:bg-gray-50 rounded-lg">&larr;</button>
+            <span className="text-xs">1</span>
+            <button className="p-2 hover:bg-gray-50 rounded-lg">&rarr;</button>
+          </div>
         </div>
       </div>
     </div>
