@@ -1,4 +1,3 @@
-
 import { 
   Carousel,
   CarouselContent,
@@ -35,7 +34,7 @@ export const MarketplaceCarousel = () => {
           >
             <CarouselContent className="py-2 animate-[slide_40s_linear_infinite] group-hover:pause-animation">
               {[...marketplaces, ...marketplaces].map((marketplace, index) => (
-                <CarouselItem key={index} className={isMobile ? "basis-1/3" : "basis-1/6"}>
+                <CarouselItem key={index} className={isMobile ? "basis-1/4" : "basis-1/8"}>
                   <MarketplaceCard
                     name={marketplace.name}
                     logo={marketplace.logo}
@@ -49,4 +48,3 @@ export const MarketplaceCarousel = () => {
     </div>
   );
 };
-
