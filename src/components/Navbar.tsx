@@ -1,7 +1,7 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Logo } from './Logo';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,10 +11,7 @@ const Navbar = () => {
       <div className="container-section py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <a href="#" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-brand-blue to-brand-teal rounded-md"></div>
-              <span className="text-xl font-bold text-foreground">ResellSync</span>
-            </a>
+            <Logo variant="full" />
           </div>
           
           {/* Desktop Navigation */}

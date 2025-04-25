@@ -19,7 +19,7 @@ const marketplaces = [
     features: ["Product catalog sync", "Automated fulfillment", "Warranty tracking", "Rating management"]
   },
   {
-    name: "Swappie",
+    name: "Swappa",
     logo: "SW",
     features: ["Condition grading sync", "Real-time inventory", "Order processing", "Returns handling"]
   }
