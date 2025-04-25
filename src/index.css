@@ -4,35 +4,65 @@
 
 @layer base {
   :root {
-    --background: 200 33% 98%;
-    --foreground: 200 43% 15%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 7%;
 
     --card: 0 0% 100%;
-    --card-foreground: 200 43% 15%;
+    --card-foreground: 0 0% 7%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 200 43% 15%;
+    --popover-foreground: 0 0% 7%;
 
-    --primary: 194 87% 38%;
+    --primary: 0 0% 9%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 175 83% 32%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
 
-    --muted: 200 24% 93%;
-    --muted-foreground: 200 19% 40%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 175 83% 32%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 200 24% 90%;
-    --input: 200 24% 90%;
-    --ring: 194 87% 38%;
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 0 0% 7%;
 
     --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 7%;
+
+    --secondary: 0 0% 13%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 13%;
+    --muted-foreground: 0 0% 63%;
+
+    --accent: 0 0% 13%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 13%;
+    --input: 0 0% 13%;
+    --ring: 0 0% 83%;
   }
 }
 
@@ -42,11 +72,11 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold tracking-tight;
+    @apply font-semibold tracking-tight text-foreground;
   }
   
   h1 {
@@ -68,15 +98,15 @@
   }
   
   .gradient-heading {
-    @apply bg-gradient-to-r from-brand-blue via-brand-teal to-brand-green bg-clip-text text-transparent;
+    @apply text-foreground;
   }
   
   .feature-card {
-    @apply p-6 rounded-xl bg-white shadow-md hover:shadow-lg transition-shadow duration-300 border border-border;
+    @apply p-6 rounded-xl bg-card shadow-md hover:shadow-lg transition-shadow duration-300 border border-border;
   }
   
   .pricing-card {
-    @apply p-8 rounded-xl bg-white shadow-lg border border-border flex flex-col h-full;
+    @apply p-8 rounded-xl bg-card shadow-lg border border-border flex flex-col h-full;
   }
 }
 

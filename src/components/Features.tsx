@@ -5,22 +5,22 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const features = [
   {
-    icon: <Package className="h-8 w-8 text-brand-blue" />,
+    icon: <Package className="h-8 w-8 text-primary" />,
     title: "Inventory Management",
     description: "Track phone inventory, conditions, and pricing all in one place with detailed reporting and analytics.",
-    gradient: "from-brand-blue/20 to-brand-blue/0"
+    gradient: "from-primary/20 to-primary/0"
   },
   {
-    icon: <RefreshCw className="h-8 w-8 text-brand-teal" />,
+    icon: <RefreshCw className="h-8 w-8 text-primary" />,
     title: "Multi-Channel Sync",
     description: "Automatically sync listings across eBay, Backmarket, Reebelo and more with real-time inventory updates.",
-    gradient: "from-brand-teal/20 to-brand-teal/0"
+    gradient: "from-primary/20 to-primary/0"
   },
   {
-    icon: <BarChart className="h-8 w-8 text-brand-green" />,
+    icon: <BarChart className="h-8 w-8 text-primary" />,
     title: "Sales Analytics",
     description: "Gain insights into your best-performing products, profit margins, and market trends to make data-driven decisions.",
-    gradient: "from-brand-green/20 to-brand-green/0"
+    gradient: "from-primary/20 to-primary/0"
   }
 ];
 
@@ -37,7 +37,7 @@ const Features = () => {
       <motion.div 
         className="absolute inset-0 opacity-30"
         style={{
-          background: "radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.1) 0%, rgba(56, 189, 248, 0) 50%)",
+          background: "radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0) 50%)",
           y,
         }}
       />
@@ -55,8 +55,11 @@ const Features = () => {
             whileInView={{ scale: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <h2 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-brand-blue via-brand-teal to-brand-green">
-              Powerful Features for Phone Resellers
+            <h2 className="text-5xl font-bold mb-6 text-foreground relative">
+              <span className="relative z-10">Powerful Features</span>
+              <br />
+              <span className="relative z-10">for Phone Resellers</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 blur-2xl -z-0" />
             </h2>
           </motion.div>
           <p className="max-w-2xl mx-auto text-muted-foreground text-lg">
