@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { Twitter, Facebook, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
+import { Logo } from './Logo';
 
 const Footer = () => {
   return (
@@ -8,9 +8,8 @@ const Footer = () => {
       <div className="container-section py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-16">
           <div className="md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-brand-blue to-brand-teal rounded-md"></div>
-              <span className="text-xl font-bold text-foreground">ResellSync</span>
+            <div className="mb-4">
+              <Logo variant="full" />
             </div>
             <p className="text-muted-foreground mb-6">
               Streamlining phone reselling businesses with powerful inventory and marketplace management tools.
