@@ -1,70 +1,124 @@
-
 import React from 'react';
-import { Package, BarChart, RefreshCw, Globe, ShieldCheck, Clock } from 'lucide-react';
-import DashboardInsights from './DashboardInsights';
+import { Package, BarChart, RefreshCw } from 'lucide-react';
+import { AnimatedBeamDemo } from "./ui/animated-beam-demo";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const features = [
   {
     icon: <Package className="h-8 w-8 text-brand-blue" />,
     title: "Inventory Management",
-    description: "Track phone inventory, conditions, and pricing all in one place with detailed reporting and analytics."
+    description: "Track phone inventory, conditions, and pricing all in one place with detailed reporting and analytics.",
+    gradient: "from-brand-blue/20 to-brand-blue/0"
   },
   {
     icon: <RefreshCw className="h-8 w-8 text-brand-teal" />,
     title: "Multi-Channel Sync",
-    description: "Automatically sync listings across eBay, Backmarket, Reebelo and more with real-time inventory updates."
+    description: "Automatically sync listings across eBay, Backmarket, Reebelo and more with real-time inventory updates.",
+    gradient: "from-brand-teal/20 to-brand-teal/0"
   },
   {
     icon: <BarChart className="h-8 w-8 text-brand-green" />,
     title: "Sales Analytics",
-    description: "Gain insights into your best-performing products, profit margins, and market trends to make data-driven decisions."
-  },
-  {
-    icon: <Globe className="h-8 w-8 text-brand-blue" />,
-    title: "Global Marketplace Support",
-    description: "Expand your reach with support for international marketplaces and shipping integrations."
-  },
-  {
-    icon: <ShieldCheck className="h-8 w-8 text-brand-teal" />,
-    title: "Fraud Protection",
-    description: "Minimize risks with built-in buyer verification and transaction security features."
-  },
-  {
-    icon: <Clock className="h-8 w-8 text-brand-green" />,
-    title: "Time-Saving Automations",
-    description: "Automate pricing, listing creation, and order processing to save hours of manual work every day."
+    description: "Gain insights into your best-performing products, profit margins, and market trends to make data-driven decisions.",
+    gradient: "from-brand-green/20 to-brand-green/0"
   }
 ];
 
 const Features = () => {
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.9, 1], [0, 1, 1, 0]);
+
   return (
-    <div id="features" className="container-section bg-muted">
-      <div className="text-center mb-16">
-        <h2 className="gradient-heading mb-4">Powerful Features for Phone Resellers</h2>
-        <p className="max-w-2xl mx-auto text-muted-foreground text-lg">
-          Everything you need to manage your inventory, streamline listings, and grow your business.
-        </p>
-      </div>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {features.map((feature, index) => (
-          <div 
-            key={index} 
-            className={`feature-card ${feature.title === "Grow Smarter With a Powerful Dashboard" ? "lg:col-span-3" : ""}`}
-            style={{ animationDelay: `${index * 0.1}s` }}
+    <section id="features" className="relative py-32 overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-muted/20" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-[0.025] pointer-events-none" />
+      <motion.div 
+        className="absolute inset-0 opacity-30"
+        style={{
+          background: "radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.1) 0%, rgba(56, 189, 248, 0) 50%)",
+          y,
+        }}
+      />
+
+      <div className="container relative mx-auto px-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="text-center mb-20"
+        >
+          <motion.div
+            initial={{ scale: 0.95 }}
+            whileInView={{ scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
-            <div className="mb-4">{feature.icon}</div>
-            <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-            <p className="text-muted-foreground">{feature.description}</p>
-            {feature.title === "Grow Smarter With a Powerful Dashboard" && (
-              <div className="mt-8">
-                <DashboardInsights />
-              </div>
-            )}
-          </div>
-        ))}
+            <h2 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-brand-blue via-brand-teal to-brand-green">
+              Powerful Features for Phone Resellers
+            </h2>
+          </motion.div>
+          <p className="max-w-2xl mx-auto text-muted-foreground text-lg">
+            Everything you need to manage your inventory, streamline listings, and grow your business.
+          </p>
+        </motion.div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="space-y-12"
+          >
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: index * 0.2 }}
+                className="group relative"
+              >
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"
+                     style={{
+                       background: `radial-gradient(circle at 50% 50%, var(--${feature.gradient}) 0%, transparent 70%)`
+                     }}
+                />
+                <div className="flex items-start space-x-6 p-6 rounded-xl transition-colors duration-300">
+                  <motion.div 
+                    className="flex-shrink-0 p-3 rounded-full bg-white/10 shadow-sm backdrop-blur-sm border-2 border-white/20"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                  >
+                    {feature.icon}
+                  </motion.div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80">
+                      {feature.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            style={{ opacity }}
+            className="relative min-h-[500px] flex items-center justify-center"
+          >
+            <AnimatedBeamDemo />
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
