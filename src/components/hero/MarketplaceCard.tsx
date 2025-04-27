@@ -1,28 +1,35 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 
 interface MarketplaceCardProps {
   name: string;
   logo: string;
+  fallbackText?: string;
 }
 
-export const MarketplaceCard = ({ name, logo }: MarketplaceCardProps) => {
+export const MarketplaceCard = ({ name, logo, fallbackText }: MarketplaceCardProps) => {
+  const [imageError, setImageError] = useState(false);
   const isSvg = logo.endsWith('.svg');
+
+  const handleImageError = () => {
+    console.error(`Failed to load image for ${name}:`, logo);
+    setImageError(true);
+  };
 
   return (
     <div className="flex items-center justify-center w-[220px] h-[90px] bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-200">
-      {isSvg ? (
+      {isSvg && !imageError ? (
         <img 
           src={logo} 
           alt={`${name} logo`} 
           className="max-h-[70px] max-w-[180px] object-contain"
-          style={{ filter: 'brightness(1) contrast(1)' }}
+          onError={handleImageError}
         />
       ) : (
-        <div className="text-base font-semibold text-gray-800">
-          {logo}
+        <div className="text-xl font-semibold text-gray-800">
+          {fallbackText || name}
         </div>
       )}
     </div>
   );
 };
-
