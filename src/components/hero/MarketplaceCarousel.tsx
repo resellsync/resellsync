@@ -1,3 +1,4 @@
+
 import { 
   Carousel,
   CarouselContent,
@@ -34,9 +35,9 @@ export const MarketplaceCarousel = () => {
               containScroll: false,
               skipSnaps: true,
             }}
-            className="w-screen -ml-[calc((100vw-100%)/2)] relative"
+            className="w-full relative"
           >
-            <CarouselContent className="py-4 gap-[2px] animate-[slide_40s_linear_infinite]">
+            <CarouselContent className="py-4 gap-4 animate-[slide_40s_linear_infinite]">
               {[...marketplaces, ...marketplaces].map((marketplace, index) => (
                 <CarouselItem 
                   key={index} 
@@ -45,6 +46,7 @@ export const MarketplaceCarousel = () => {
                   <MarketplaceCard
                     name={marketplace.name}
                     logo={marketplace.logo}
+                    fallbackText={marketplace.fallbackText}
                   />
                 </CarouselItem>
               ))}
@@ -55,4 +57,3 @@ export const MarketplaceCarousel = () => {
     </div>
   );
 };
-

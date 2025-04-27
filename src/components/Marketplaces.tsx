@@ -1,26 +1,23 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { CheckCircle } from 'lucide-react';
+import { marketplaces } from './hero/data/marketplaceData';
 
-const marketplaces = [
+const marketplaceFeatures = [
   {
     name: "eBay",
-    logo: "EB",
     features: ["Bulk listing creation", "Real-time inventory sync", "Order management", "Automated feedback"]
   },
   {
     name: "Backmarket",
-    logo: "BM",
     features: ["Quality grade mapping", "Pricing optimization", "Return management", "Performance analytics"]
   },
   {
     name: "Reebelo",
-    logo: "RB",
     features: ["Product catalog sync", "Automated fulfillment", "Warranty tracking", "Rating management"]
   },
   {
     name: "Swappa",
-    logo: "SW",
     features: ["Condition grading sync", "Real-time inventory", "Order processing", "Returns handling"]
   }
 ];
@@ -37,25 +34,33 @@ const Marketplaces = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {marketplaces.map((marketplace, index) => (
-          <div 
-            key={index} 
-            className="bg-white rounded-xl p-6 shadow-md border border-border hover:shadow-lg transition-shadow duration-300"
-          >
-            <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-lg bg-gradient-to-br from-brand-blue to-brand-teal text-white font-bold text-xl">
-              {marketplace.logo}
+        {marketplaceFeatures.map((marketplace, index) => {
+          const marketplaceData = marketplaces.find(m => m.name === marketplace.name);
+          
+          return (
+            <div 
+              key={index} 
+              className="bg-white rounded-xl p-6 shadow-md border border-border hover:shadow-lg transition-shadow duration-300"
+            >
+              <div className="flex items-center justify-center h-16 mb-6">
+                <MarketplaceLogo 
+                  name={marketplace.name} 
+                  logo={marketplaceData?.logo || ''} 
+                  fallbackText={marketplaceData?.fallbackText || marketplace.name}
+                />
+              </div>
+              <h3 className="text-xl font-semibold text-center mb-4">{marketplace.name}</h3>
+              <ul className="space-y-2">
+                {marketplace.features.map((feature, featureIndex) => (
+                  <li key={featureIndex} className="flex items-start">
+                    <CheckCircle className="h-5 w-5 text-brand-teal shrink-0 mr-2 mt-0.5" />
+                    <span className="text-muted-foreground">{feature}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <h3 className="text-xl font-semibold text-center mb-4">{marketplace.name}</h3>
-            <ul className="space-y-2">
-              {marketplace.features.map((feature, featureIndex) => (
-                <li key={featureIndex} className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-brand-teal shrink-0 mr-2 mt-0.5" />
-                  <span className="text-muted-foreground">{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+          );
+        })}
       </div>
       
       <div className="mt-16 text-center">
@@ -64,6 +69,33 @@ const Marketplaces = () => {
         </p>
       </div>
     </div>
+  );
+};
+
+// Helper component for marketplace logos
+const MarketplaceLogo = ({ name, logo, fallbackText }: { name: string; logo: string; fallbackText: string }) => {
+  const [imageError, setImageError] = useState(false);
+
+  const handleImageError = () => {
+    console.error(`Failed to load marketplace logo for ${name}:`, logo);
+    setImageError(true);
+  };
+
+  return (
+    <>
+      {!imageError && logo ? (
+        <img
+          src={logo}
+          alt={`${name} logo`}
+          className="max-h-12 max-w-[180px] object-contain"
+          onError={handleImageError}
+        />
+      ) : (
+        <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-gradient-to-br from-brand-blue to-brand-teal text-white font-bold text-xl">
+          {fallbackText.substring(0, 2)}
+        </div>
+      )}
+    </>
   );
 };
 

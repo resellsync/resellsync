@@ -9,7 +9,6 @@ interface MarketplaceCardProps {
 
 export const MarketplaceCard = ({ name, logo, fallbackText }: MarketplaceCardProps) => {
   const [imageError, setImageError] = useState(false);
-  const isSvg = logo.endsWith('.svg');
 
   const handleImageError = () => {
     console.error(`Failed to load image for ${name}:`, logo);
@@ -18,7 +17,7 @@ export const MarketplaceCard = ({ name, logo, fallbackText }: MarketplaceCardPro
 
   return (
     <div className="flex items-center justify-center w-[220px] h-[90px] bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-200">
-      {isSvg && !imageError ? (
+      {!imageError ? (
         <img 
           src={logo} 
           alt={`${name} logo`} 
