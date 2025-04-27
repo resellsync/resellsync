@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { CheckCircle } from 'lucide-react';
 import { marketplaces } from './hero/data/marketplaceData';
@@ -49,7 +48,6 @@ const Marketplaces = () => {
                   fallbackText={marketplaceData?.fallbackText || marketplace.name}
                 />
               </div>
-              <h3 className="text-xl font-semibold text-center mb-4">{marketplace.name}</h3>
               <ul className="space-y-2">
                 {marketplace.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start">
