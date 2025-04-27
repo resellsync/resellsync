@@ -1,33 +1,32 @@
-
 export const marketplaces = [
   { 
     name: "eBay", 
-    logo: "/eBay Logo Horizontal.svg",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/eBay-Logo-Horizontal.svg",
     fallbackText: "eBay"
   },
   { 
     name: "Backmarket", 
-    logo: "/BackMarket logo horizontal.svg",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/BackMarket-logo-horizontal.svg",
     fallbackText: "Backmarket"
   },
   { 
     name: "Reebelo", 
-    logo: "/Reebelo Logo horizontal.svg",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Reebelo-Logo-horizontal.svg",
     fallbackText: "Reebelo"
   },
   { 
     name: "Swappa", 
-    logo: "/Swappa Horizontal Logo.svg",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Swappa-Horizontal-Logo.svg",
     fallbackText: "Swappa"
   },
   { 
     name: "ShipStation", 
-    logo: "/ShipStation Horizontal Logo.svg",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/ShipStation-Horizontal-Logo.svg",
     fallbackText: "ShipStation"
   },
   { 
     name: "Mercari", 
-    logo: "/Mercari Horizontal Logo.svg",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Mercari-Horizontal-Logo.svg",
     fallbackText: "Mercari"
   }
 ] as const;
