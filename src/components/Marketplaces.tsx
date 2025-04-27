@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CheckCircle } from 'lucide-react';
 import { marketplaces } from './hero/data/marketplaceData';
 
@@ -75,6 +75,13 @@ const Marketplaces = () => {
 // Helper component for marketplace logos
 const MarketplaceLogo = ({ name, logo, fallbackText }: { name: string; logo: string; fallbackText: string }) => {
   const [imageError, setImageError] = useState(false);
+  const [imageSrc, setImageSrc] = useState(logo);
+
+  useEffect(() => {
+    // Reset error state when logo prop changes
+    setImageError(false);
+    setImageSrc(logo);
+  }, [logo]);
 
   const handleImageError = () => {
     console.error(`Failed to load marketplace logo for ${name}:`, logo);
@@ -85,7 +92,7 @@ const MarketplaceLogo = ({ name, logo, fallbackText }: { name: string; logo: str
     <>
       {!imageError && logo ? (
         <img
-          src={logo}
+          src={imageSrc}
           alt={`${name} logo`}
           className="max-h-12 max-w-[180px] object-contain"
           onError={handleImageError}
