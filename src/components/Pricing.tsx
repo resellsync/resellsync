@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
+import { ScrollReveal } from './ui/ScrollReveal';
 
 const pricingPlans = [
   {
@@ -65,43 +65,42 @@ const Pricing = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {pricingPlans.map((plan, index) => (
-          <div 
-            key={index} 
-            className={`pricing-card ${plan.popular ? 'relative border-brand-teal shadow-xl' : ''}`}
-          >
-            {plan.popular && (
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-teal text-white px-4 py-1 rounded-full text-sm font-medium">
-                Most Popular
-              </div>
-            )}
-            
-            <div>
-              <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-              <div className="flex items-end mb-4">
-                <span className="text-4xl font-bold">{plan.price}</span>
-                {plan.price !== "Custom" && <span className="text-muted-foreground ml-1">/month</span>}
-              </div>
-              <p className="text-muted-foreground mb-6">{plan.description}</p>
-            </div>
-            
-            <div className="mt-auto">
-              <ul className="space-y-3 mb-8">
-                {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex">
-                    <Check className="h-5 w-5 text-brand-teal shrink-0 mr-2 mt-0.5" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
+          <ScrollReveal key={index}>
+            <div className={`pricing-card ${plan.popular ? 'relative border-brand-teal shadow-xl' : ''}`}>
+              {plan.popular && (
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-teal text-white px-4 py-1 rounded-full text-sm font-medium">
+                  Most Popular
+                </div>
+              )}
               
-              <Button 
-                className="w-full" 
-                variant={plan.popular ? "default" : "outline"}
-              >
-                {plan.buttonText}
-              </Button>
+              <div>
+                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+                <div className="flex items-end mb-4">
+                  <span className="text-4xl font-bold">{plan.price}</span>
+                  {plan.price !== "Custom" && <span className="text-muted-foreground ml-1">/month</span>}
+                </div>
+                <p className="text-muted-foreground mb-6">{plan.description}</p>
+              </div>
+              
+              <div className="mt-auto">
+                <ul className="space-y-3 mb-8">
+                  {plan.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex">
+                      <Check className="h-5 w-5 text-brand-teal shrink-0 mr-2 mt-0.5" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <Button 
+                  className="w-full" 
+                  variant={plan.popular ? "default" : "outline"}
+                >
+                  {plan.buttonText}
+                </Button>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         ))}
       </div>
       

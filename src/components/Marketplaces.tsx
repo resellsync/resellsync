@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { CheckCircle } from 'lucide-react';
 import { marketplaces } from './hero/data/marketplaceData';
+import { ScrollReveal } from './ui/ScrollReveal';
 
 const marketplaceFeatures = [
   {
@@ -37,26 +38,25 @@ const Marketplaces = () => {
           const marketplaceData = marketplaces.find(m => m.name === marketplace.name);
           
           return (
-            <div 
-              key={index} 
-              className="bg-white rounded-xl p-6 shadow-md border border-border hover:shadow-lg transition-shadow duration-300"
-            >
-              <div className="flex items-center justify-center h-16 mb-6">
-                <MarketplaceLogo 
-                  name={marketplace.name} 
-                  logo={marketplaceData?.logo || ''} 
-                  fallbackText={marketplaceData?.fallbackText || marketplace.name}
-                />
+            <ScrollReveal key={index}>
+              <div className="bg-white rounded-xl p-6 shadow-md border border-border hover:shadow-lg transition-shadow duration-300">
+                <div className="flex items-center justify-center h-16 mb-6">
+                  <MarketplaceLogo 
+                    name={marketplace.name} 
+                    logo={marketplaceData?.logo || ''} 
+                    fallbackText={marketplaceData?.fallbackText || marketplace.name}
+                  />
+                </div>
+                <ul className="space-y-2">
+                  {marketplace.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-start">
+                      <CheckCircle className="h-5 w-5 text-brand-teal shrink-0 mr-2 mt-0.5" />
+                      <span className="text-muted-foreground">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-2">
-                {marketplace.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-brand-teal shrink-0 mr-2 mt-0.5" />
-                    <span className="text-muted-foreground">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            </ScrollReveal>
           );
         })}
       </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Package, BarChart, RefreshCw } from 'lucide-react';
 import { AnimatedBeamDemo } from "./ui/animated-beam-demo";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { ScrollReveal } from './ui/ScrollReveal';
 
 const features = [
   {
@@ -76,37 +77,32 @@ const Features = () => {
             className="space-y-12"
           >
             {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: index * 0.2 }}
-                className="group relative"
-              >
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"
-                     style={{
-                       background: `radial-gradient(circle at 50% 50%, var(--${feature.gradient}) 0%, transparent 70%)`
-                     }}
-                />
-                <div className="flex items-start space-x-6 p-6 rounded-xl transition-colors duration-300">
-                  <motion.div 
-                    className="flex-shrink-0 p-3 rounded-full bg-white/10 shadow-sm backdrop-blur-sm border-2 border-white/20"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 10 }}
-                  >
-                    {feature.icon}
-                  </motion.div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80">
-                      {feature.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {feature.description}
-                    </p>
+              <ScrollReveal key={index}>
+                <div className="group relative">
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"
+                       style={{
+                         background: `radial-gradient(circle at 50% 50%, var(--${feature.gradient}) 0%, transparent 70%)`
+                       }}
+                  />
+                  <div className="flex items-start space-x-6 p-6 rounded-xl transition-colors duration-300">
+                    <motion.div 
+                      className="flex-shrink-0 p-3 rounded-full bg-white/10 shadow-sm backdrop-blur-sm border-2 border-white/20"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                    >
+                      {feature.icon}
+                    </motion.div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80">
+                        {feature.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </motion.div>
+              </ScrollReveal>
             ))}
           </motion.div>
           

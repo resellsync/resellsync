@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   Accordion,
@@ -6,6 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { ScrollReveal } from './ui/ScrollReveal';
 
 const faqs = [
   {
@@ -47,14 +47,16 @@ const FAQ = () => {
       <div className="max-w-3xl mx-auto">
         <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger className="text-lg font-medium text-left">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
+            <ScrollReveal key={index}>
+              <AccordionItem value={`item-${index}`}>
+                <AccordionTrigger className="text-lg font-medium text-left">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            </ScrollReveal>
           ))}
         </Accordion>
       </div>

@@ -6,6 +6,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { ScrollReveal } from "./ScrollReveal";
 
 interface Testimonial {
   company: string;
@@ -41,35 +42,36 @@ export const TestimonialCarousel = React.forwardRef<HTMLDivElement, TestimonialC
         >
           <CarouselContent>
             {testimonials.map((testimonial) => (
-              <CarouselItem
-                key={testimonial.company + testimonial.name}
-                className="flex flex-col items-center cursor-grab basis-full md:basis-1/3"
-              >
-                <div className="mb-7 relative h-8 w-32 flex items-center justify-center">
-                  <img
-                    src={`${companyLogoPath}${testimonial.company}.svg`}
-                    alt={`${testimonial.company} logo`}
-                    className="object-contain h-8 w-32"
-                    draggable={false}
-                  />
-                </div>
-                <p className="max-w-xl text-balance text-center text-xl sm:text-2xl text-foreground">
-                  {testimonial.review}
-                </p>
-                <h5 className="mt-5 font-medium text-muted-foreground">
-                  {testimonial.name}
-                </h5>
-                <h5 className="mt-1.5 font-medium text-foreground/40">
-                  {testimonial.role}
-                </h5>
-                <div className="mt-5 relative size-12 rounded-full overflow-hidden bg-muted">
-                  <img
-                    src={testimonial.avatar.startsWith('http') ? testimonial.avatar : `${avatarPath}${testimonial.avatar}`}
-                    alt={testimonial.name}
-                    className="object-cover w-12 h-12"
-                  />
-                </div>
-              </CarouselItem>
+              <ScrollReveal key={testimonial.company + testimonial.name}>
+                <CarouselItem
+                  className="flex flex-col items-center cursor-grab basis-full md:basis-1/3"
+                >
+                  <div className="mb-7 relative h-8 w-32 flex items-center justify-center">
+                    <img
+                      src={`${companyLogoPath}${testimonial.company}.svg`}
+                      alt={`${testimonial.company} logo`}
+                      className="object-contain h-8 w-32"
+                      draggable={false}
+                    />
+                  </div>
+                  <p className="max-w-xl text-balance text-center text-xl sm:text-2xl text-foreground">
+                    {testimonial.review}
+                  </p>
+                  <h5 className="mt-5 font-medium text-muted-foreground">
+                    {testimonial.name}
+                  </h5>
+                  <h5 className="mt-1.5 font-medium text-foreground/40">
+                    {testimonial.role}
+                  </h5>
+                  <div className="mt-5 relative size-12 rounded-full overflow-hidden bg-muted">
+                    <img
+                      src={testimonial.avatar.startsWith('http') ? testimonial.avatar : `${avatarPath}${testimonial.avatar}`}
+                      alt={testimonial.name}
+                      className="object-cover w-12 h-12"
+                    />
+                  </div>
+                </CarouselItem>
+              </ScrollReveal>
             ))}
           </CarouselContent>
         </Carousel>
