@@ -78,9 +78,8 @@ const Features = () => {
               >
                 <div className="h-full group rounded-2xl bg-white border border-gray-100 shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                   <div className="relative p-6 flex flex-col h-full">
-                    {/* Card decorative elements */}
+                    {/* Card decorative elements - removed opacity from bottom left */}
                     <div className="absolute -right-12 -top-12 w-32 h-32 rounded-full bg-gradient-to-br from-gray-100 to-gray-50 blur-md" />
-                    <div className="absolute -left-10 -bottom-10 w-28 h-28 rounded-full bg-gradient-to-tl from-gray-100 to-gray-50 blur-xl" />
                     
                     <div className={`relative flex items-center justify-center w-12 h-12 rounded-xl mb-5 bg-gradient-to-br ${benefit.gradient} shadow-lg`}>
                       {benefit.icon}
