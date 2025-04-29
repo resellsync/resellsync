@@ -8,25 +8,25 @@ import { motion } from 'framer-motion';
 const marketplaceFeatures = [
   {
     name: "eBay",
-    logo: "/logos/Ebay Logo.svg",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Ebay-Logo.svg",
     description: "List and manage your inventory on the world's largest online marketplace for used electronics.",
     features: ["Bulk listing creation", "Real-time inventory sync", "Order management", "Automated feedback"]
   },
   {
     name: "Backmarket",
-    logo: "/logos/Backmarket logo.svg",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Backmarket-logo.svg",
     description: "Expand your reach on the leading marketplace for refurbished electronics in Europe and the US.",
     features: ["Quality grade mapping", "Pricing optimization", "Return management", "Performance analytics"]
   },
   {
     name: "Reebelo",
-    logo: "/logos/Reebelo Logo.svg",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Reebelo-Logo.svg",
     description: "Connect to this fast-growing marketplace for sustainable tech across Asia-Pacific region.",
     features: ["Product catalog sync", "Automated fulfillment", "Warranty tracking", "Rating management"]
   },
   {
     name: "Swappa",
-    logo: "/logos/Swappa Logo.svg",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Swappa-Logo.svg",
     description: "Sell directly to consumers on this user-to-user marketplace for gently used technology.",
     features: ["Condition grading sync", "Real-time inventory", "Order processing", "Returns handling"]
   }
@@ -36,19 +36,19 @@ const marketplaceFeatures = [
 const toolIntegrations = [
   {
     name: "ShipStation",
-    logo: "/logos/Shipstation Logo.svg",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Shipstation-Logo.svg",
     description: "Automate your shipping process with label creation, tracking updates, and carrier integrations.",
     features: ["Automated label printing", "Shipment tracking", "Multi-carrier support"]
   },
   {
     name: "Google Sheets",
-    logo: "/logos/Google Sheet Logo.svg",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Google-Sheet-Logo.svg",
     description: "Import and export inventory data easily to Google Sheets for offline management and analysis.",
     features: ["Bulk import/export", "Automated backups", "Custom report templates"]
   },
   {
     name: "Access ResellSync API",
-    logo: "/logos/resellsync logo.svg",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/resellsync-logo.svg",
     description: "Access your inventory data programmatically via our secure API for custom integrations.",
     features: ["RESTful endpoints", "Secure access", "Real-time updates"]
   }
