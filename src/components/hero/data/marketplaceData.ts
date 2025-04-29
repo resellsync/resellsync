@@ -6,12 +6,12 @@ export const marketplaces = [
   },
   { 
     name: "Backmarket", 
-    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/BackMarket-logo-horizontal.svg",
+    logo: "/logos/BackMarket logo horizontal.svg",
     fallbackText: "Backmarket"
   },
   { 
     name: "Reebelo", 
-    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Reebelo-Logo-horizontal.svg",
+    logo: "/logos/Reebelo Logo horizontal.svg",
     fallbackText: "Reebelo"
   },
   { 
