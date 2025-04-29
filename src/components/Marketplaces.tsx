@@ -1,8 +1,11 @@
+
 import React, { useState, useEffect } from 'react';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Package, FileSpreadsheet, Truck, Database, Link } from 'lucide-react';
 import { marketplaces } from './hero/data/marketplaceData';
 import { ScrollReveal } from './ui/ScrollReveal';
+import { motion } from 'framer-motion';
 
+// Define our marketplaces for the first section
 const marketplaceFeatures = [
   {
     name: "eBay",
@@ -22,53 +25,33 @@ const marketplaceFeatures = [
   }
 ];
 
-const Marketplaces = () => {
-  return (
-    <div id="marketplaces" className="container-section">
-      <div className="text-center mb-16">
-        <h2 className="gradient-heading mb-4">Sync With Leading Marketplaces</h2>
-        <p className="max-w-2xl mx-auto text-muted-foreground text-lg">
-          Connect your inventory with the most popular platforms for refurbished phones
-          and manage everything from a single dashboard.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {marketplaceFeatures.map((marketplace, index) => {
-          const marketplaceData = marketplaces.find(m => m.name === marketplace.name);
-          
-          return (
-            <ScrollReveal key={index}>
-              <div className="bg-white rounded-xl p-6 shadow-md border border-border hover:shadow-lg transition-shadow duration-300">
-                <div className="flex items-center justify-center h-16 mb-6">
-                  <MarketplaceLogo 
-                    name={marketplace.name} 
-                    logo={marketplaceData?.logo || ''} 
-                    fallbackText={marketplaceData?.fallbackText || marketplace.name}
-                  />
-                </div>
-                <ul className="space-y-2">
-                  {marketplace.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-brand-teal shrink-0 mr-2 mt-0.5" />
-                      <span className="text-muted-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </ScrollReveal>
-          );
-        })}
-      </div>
-      
-      <div className="mt-16 text-center">
-        <p className="text-muted-foreground mb-4">
-          More marketplace integrations coming soon - Vinted, Amazon, and more!
-        </p>
-      </div>
-    </div>
-  );
-};
+// Define our tools and integrations for the second section
+const toolIntegrations = [
+  {
+    name: "ShipStation",
+    icon: <Truck className="h-5 w-5 text-brand-blue" />,
+    description: "Automate your shipping process with label creation, tracking updates, and carrier integrations.",
+    features: ["Automated label printing", "Shipment tracking", "Multi-carrier support"]
+  },
+  {
+    name: "Google Sheets",
+    icon: <FileSpreadsheet className="h-5 w-5 text-green-600" />,
+    description: "Import and export inventory data easily to Google Sheets for offline management and analysis.",
+    features: ["Bulk import/export", "Automated backups", "Custom report templates"]
+  },
+  {
+    name: "Zapier",
+    icon: <Link className="h-5 w-5 text-orange-500" />,
+    description: "Connect ResellSync to thousands of apps without any code using Zapier's powerful automation.",
+    features: ["Custom workflows", "Trigger-based automation", "3000+ app connections"]
+  },
+  {
+    name: "Database API",
+    icon: <Database className="h-5 w-5 text-purple-600" />,
+    description: "Access your inventory data programmatically via our secure API for custom integrations.",
+    features: ["RESTful endpoints", "Secure access", "Real-time updates"]
+  }
+];
 
 // Helper component for marketplace logos
 const MarketplaceLogo = ({ name, logo, fallbackText }: { name: string; logo: string; fallbackText: string }) => {
@@ -76,7 +59,6 @@ const MarketplaceLogo = ({ name, logo, fallbackText }: { name: string; logo: str
   const [imageSrc, setImageSrc] = useState(logo);
 
   useEffect(() => {
-    // Reset error state when logo prop changes
     setImageError(false);
     setImageSrc(logo);
   }, [logo]);
@@ -101,6 +83,150 @@ const MarketplaceLogo = ({ name, logo, fallbackText }: { name: string; logo: str
         </div>
       )}
     </>
+  );
+};
+
+const Marketplaces = () => {
+  return (
+    <div id="marketplaces" className="container-section">
+      <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
+          <span className="inline-block px-4 py-1.5 mb-4 rounded-full text-sm font-medium bg-gradient-to-r from-brand-blue/20 to-brand-teal/20 text-brand-blue">
+            Powerful Integrations
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-brand-teal">
+            Connect Your Entire Sales Ecosystem
+          </h2>
+          <p className="max-w-2xl mx-auto text-muted-foreground text-lg">
+            ResellSync integrates with leading marketplaces and tools to create a seamless workflow
+            for your phone reselling business.
+          </p>
+        </motion.div>
+      </div>
+
+      {/* Two column layout with decorative elements */}
+      <div className="relative">
+        {/* Background decorative elements */}
+        <div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-blue-100/30 blur-3xl -z-10" />
+        <div className="absolute bottom-20 right-10 w-72 h-72 rounded-full bg-teal-100/30 blur-3xl -z-10" />
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
+          {/* Marketplaces Column */}
+          <div className="space-y-8">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="mb-8"
+            >
+              <h3 className="text-2xl font-semibold mb-2 flex items-center">
+                <Package className="mr-2 text-brand-blue" /> 
+                Marketplace Integrations
+              </h3>
+              <p className="text-muted-foreground">
+                List and sell your refurbished phones across multiple platforms with real-time inventory sync.
+              </p>
+            </motion.div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {marketplaceFeatures.map((marketplace, index) => {
+                const marketplaceData = marketplaces.find(m => m.name === marketplace.name);
+                
+                return (
+                  <ScrollReveal key={index}>
+                    <div className="h-full bg-white rounded-xl p-6 shadow-md border border-border hover:shadow-lg transition-shadow duration-300">
+                      <div className="flex items-center justify-center h-16 mb-4">
+                        <MarketplaceLogo 
+                          name={marketplace.name} 
+                          logo={marketplaceData?.logo || ''} 
+                          fallbackText={marketplaceData?.fallbackText || marketplace.name}
+                        />
+                      </div>
+                      <ul className="space-y-2">
+                        {marketplace.features.map((feature, featureIndex) => (
+                          <li key={featureIndex} className="flex items-start">
+                            <CheckCircle className="h-4 w-4 text-brand-teal shrink-0 mr-2 mt-0.5" />
+                            <span className="text-muted-foreground text-sm">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </ScrollReveal>
+                );
+              })}
+            </div>
+          </div>
+          
+          {/* Tools Column */}
+          <div className="space-y-8">
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="mb-8"
+            >
+              <h3 className="text-2xl font-semibold mb-2 flex items-center">
+                <Link className="mr-2 text-brand-teal" />
+                Tools & Services
+              </h3>
+              <p className="text-muted-foreground">
+                Enhance your workflow with powerful tools that connect seamlessly with ResellSync.
+              </p>
+            </motion.div>
+            
+            <div className="space-y-6">
+              {toolIntegrations.map((tool, index) => (
+                <ScrollReveal key={index}>
+                  <motion.div 
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.1 }}
+                  >
+                    <div className="bg-white rounded-xl p-6 shadow-md border border-border hover:shadow-lg transition-shadow duration-300">
+                      <div className="flex items-center mb-4">
+                        <div className="h-12 w-12 rounded-lg bg-gray-100 flex items-center justify-center mr-4">
+                          {tool.icon}
+                        </div>
+                        <h4 className="text-lg font-semibold">{tool.name}</h4>
+                      </div>
+                      <p className="text-muted-foreground mb-4">{tool.description}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {tool.features.map((feature, fIndex) => (
+                          <span key={fIndex} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">
+                            {feature}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </div>
+        
+        <div className="mt-16 text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            <p className="text-muted-foreground mb-4">
+              More integrations coming soon - Vinted, Amazon, and more!
+            </p>
+          </motion.div>
+        </div>
+      </div>
+    </div>
   );
 };
 
