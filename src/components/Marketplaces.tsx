@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { CheckCircle, Package, FileSpreadsheet, Truck, Database, Link } from 'lucide-react';
+import { CheckCircle, Package, FileSpreadsheet, Truck, Database, Link, ShoppingCart, Store } from 'lucide-react';
 import { marketplaces } from './hero/data/marketplaceData';
 import { ScrollReveal } from './ui/ScrollReveal';
 import { motion } from 'framer-motion';
@@ -9,18 +9,26 @@ import { motion } from 'framer-motion';
 const marketplaceFeatures = [
   {
     name: "eBay",
+    icon: <ShoppingCart className="h-5 w-5 text-brand-blue" />,
+    description: "List and manage your inventory on the world's largest online marketplace for used electronics.",
     features: ["Bulk listing creation", "Real-time inventory sync", "Order management", "Automated feedback"]
   },
   {
     name: "Backmarket",
+    icon: <Store className="h-5 w-5 text-green-600" />,
+    description: "Expand your reach on the leading marketplace for refurbished electronics in Europe and the US.",
     features: ["Quality grade mapping", "Pricing optimization", "Return management", "Performance analytics"]
   },
   {
     name: "Reebelo",
+    icon: <Package className="h-5 w-5 text-purple-600" />,
+    description: "Connect to this fast-growing marketplace for sustainable tech across Asia-Pacific region.",
     features: ["Product catalog sync", "Automated fulfillment", "Warranty tracking", "Rating management"]
   },
   {
     name: "Swappa",
+    icon: <CheckCircle className="h-5 w-5 text-orange-500" />,
+    description: "Sell directly to consumers on this user-to-user marketplace for gently used technology.",
     features: ["Condition grading sync", "Real-time inventory", "Order processing", "Returns handling"]
   }
 ];
@@ -134,32 +142,34 @@ const Marketplaces = () => {
               </p>
             </motion.div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {marketplaceFeatures.map((marketplace, index) => {
-                const marketplaceData = marketplaces.find(m => m.name === marketplace.name);
-                
-                return (
-                  <ScrollReveal key={index}>
-                    <div className="h-full bg-white rounded-xl p-6 shadow-md border border-border hover:shadow-lg transition-shadow duration-300">
-                      <div className="flex items-center justify-center h-16 mb-4">
-                        <MarketplaceLogo 
-                          name={marketplace.name} 
-                          logo={marketplaceData?.logo || ''} 
-                          fallbackText={marketplaceData?.fallbackText || marketplace.name}
-                        />
+            <div className="space-y-6">
+              {marketplaceFeatures.map((marketplace, index) => (
+                <ScrollReveal key={index}>
+                  <motion.div 
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.1 }}
+                  >
+                    <div className="bg-white rounded-xl p-6 shadow-md border border-border hover:shadow-lg transition-shadow duration-300">
+                      <div className="flex items-center mb-4">
+                        <div className="h-12 w-12 rounded-lg bg-gray-100 flex items-center justify-center mr-4">
+                          {marketplace.icon}
+                        </div>
+                        <h4 className="text-lg font-semibold">{marketplace.name}</h4>
                       </div>
-                      <ul className="space-y-2">
-                        {marketplace.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-start">
-                            <CheckCircle className="h-4 w-4 text-brand-teal shrink-0 mr-2 mt-0.5" />
-                            <span className="text-muted-foreground text-sm">{feature}</span>
-                          </li>
+                      <p className="text-muted-foreground mb-4">{marketplace.description}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {marketplace.features.map((feature, fIndex) => (
+                          <span key={fIndex} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">
+                            {feature}
+                          </span>
                         ))}
-                      </ul>
+                      </div>
                     </div>
-                  </ScrollReveal>
-                );
-              })}
+                  </motion.div>
+                </ScrollReveal>
+              ))}
             </div>
           </div>
           
