@@ -36,7 +36,7 @@ const marketplaceFeatures = [
 const toolIntegrations = [
   {
     name: "ShipStation",
-    icon: <Truck className="h-5 w-5 text-brand-blue" />,
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/ShipStation-Horizontal-Logo.svg",
     description: "Automate your shipping process with label creation, tracking updates, and carrier integrations.",
     features: ["Automated label printing", "Shipment tracking", "Multi-carrier support"]
   },
@@ -211,9 +211,19 @@ const Marketplaces = () => {
                   >
                     <div className="bg-white rounded-xl p-6 shadow-md border border-border hover:shadow-lg transition-shadow duration-300">
                       <div className="flex items-center mb-4">
-                        <div className="h-16 w-16 rounded-lg bg-gray-100 flex items-center justify-center mr-4">
-                          {React.cloneElement(tool.icon, { className: 'h-10 w-10 text-inherit' })}
-                        </div>
+                        {tool.logo ? (
+                          <div className="h-16 w-16 rounded-lg bg-gray-100 flex items-center justify-center mr-4">
+                            <img
+                              src={tool.logo}
+                              alt={`${tool.name} logo`}
+                              className="w-full h-full object-contain rounded-lg"
+                            />
+                          </div>
+                        ) : (
+                          <div className="h-16 w-16 rounded-lg bg-gray-100 flex items-center justify-center mr-4">
+                            {React.cloneElement(tool.icon, { className: 'h-10 w-10 text-inherit' })}
+                          </div>
+                        )}
                         <h4 className="text-lg font-semibold">{tool.name}</h4>
                       </div>
                       <p className="text-muted-foreground mb-4">{tool.description}</p>
