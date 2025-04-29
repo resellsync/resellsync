@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 const marketplaceFeatures = [
   {
     name: "eBay",
-    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Ebay-Logo.svg",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Ebay Logo.svg",
     description: "List and manage your inventory on the world's largest online marketplace for used electronics.",
     features: ["Bulk listing creation", "Real-time inventory sync", "Order management", "Automated feedback"]
   },
@@ -36,19 +36,19 @@ const marketplaceFeatures = [
 const toolIntegrations = [
   {
     name: "ShipStation",
-    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Shipstation-Logo.svg",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Shipstation Logo.svg",
     description: "Automate your shipping process with label creation, tracking updates, and carrier integrations.",
     features: ["Automated label printing", "Shipment tracking", "Multi-carrier support"]
   },
   {
     name: "Google Sheets",
-    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Google-Sheet-Logo.svg",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Google Sheet Logo.svg",
     description: "Import and export inventory data easily to Google Sheets for offline management and analysis.",
     features: ["Bulk import/export", "Automated backups", "Custom report templates"]
   },
   {
     name: "Access ResellSync API",
-    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/resellsync-logo.svg",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/resellsync logo.svg",
     description: "Access your inventory data programmatically via our secure API for custom integrations.",
     features: ["RESTful endpoints", "Secure access", "Real-time updates"]
   }
