@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CheckCircle, Package, FileSpreadsheet, Truck, Database, Link, ShoppingCart, Store } from 'lucide-react';
+import { CheckCircle, Package, Truck, Database, Link } from 'lucide-react';
 import { marketplaces } from './hero/data/marketplaceData';
 import { ScrollReveal } from './ui/ScrollReveal';
 import { motion } from 'framer-motion';
@@ -8,25 +8,25 @@ import { motion } from 'framer-motion';
 const marketplaceFeatures = [
   {
     name: "eBay",
-    icon: <ShoppingCart className="h-5 w-5 text-brand-blue" />,
+    logo: "/logos/Ebay Logo.svg",
     description: "List and manage your inventory on the world's largest online marketplace for used electronics.",
     features: ["Bulk listing creation", "Real-time inventory sync", "Order management", "Automated feedback"]
   },
   {
     name: "Backmarket",
-    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Backmarket-logo.svg",
+    logo: "/logos/Backmarket logo.svg",
     description: "Expand your reach on the leading marketplace for refurbished electronics in Europe and the US.",
     features: ["Quality grade mapping", "Pricing optimization", "Return management", "Performance analytics"]
   },
   {
     name: "Reebelo",
-    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Reebelo-Logo.svg",
+    logo: "/logos/Reebelo Logo.svg",
     description: "Connect to this fast-growing marketplace for sustainable tech across Asia-Pacific region.",
     features: ["Product catalog sync", "Automated fulfillment", "Warranty tracking", "Rating management"]
   },
   {
     name: "Swappa",
-    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Swappa-Logo.svg",
+    logo: "/logos/Swappa Logo.svg",
     description: "Sell directly to consumers on this user-to-user marketplace for gently used technology.",
     features: ["Condition grading sync", "Real-time inventory", "Order processing", "Returns handling"]
   }
@@ -36,25 +36,19 @@ const marketplaceFeatures = [
 const toolIntegrations = [
   {
     name: "ShipStation",
-    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/ShipStation-Horizontal-Logo.svg",
+    logo: "/logos/Shipstation Logo.svg",
     description: "Automate your shipping process with label creation, tracking updates, and carrier integrations.",
     features: ["Automated label printing", "Shipment tracking", "Multi-carrier support"]
   },
   {
     name: "Google Sheets",
-    icon: <FileSpreadsheet className="h-5 w-5 text-green-600" />,
+    logo: "/logos/Google Sheet Logo.svg",
     description: "Import and export inventory data easily to Google Sheets for offline management and analysis.",
     features: ["Bulk import/export", "Automated backups", "Custom report templates"]
   },
   {
-    name: "Zapier",
-    icon: <Link className="h-5 w-5 text-orange-500" />,
-    description: "Connect ResellSync to thousands of apps without any code using Zapier's powerful automation.",
-    features: ["Custom workflows", "Trigger-based automation", "3000+ app connections"]
-  },
-  {
-    name: "Database API",
-    icon: <Database className="h-5 w-5 text-purple-600" />,
+    name: "Access ResellSync API",
+    logo: "/logos/resellsync logo.svg",
     description: "Access your inventory data programmatically via our secure API for custom integrations.",
     features: ["RESTful endpoints", "Secure access", "Real-time updates"]
   }
@@ -152,19 +146,13 @@ const Marketplaces = () => {
                   >
                     <div className="bg-white rounded-xl p-6 shadow-md border border-border hover:shadow-lg transition-shadow duration-300">
                       <div className="flex items-center mb-4">
-                        {marketplace.logo ? (
-                          <div className="h-16 w-16 rounded-lg bg-gray-100 flex items-center justify-center mr-4">
-                            <img
-                              src={marketplace.logo}
-                              alt={`${marketplace.name} logo`}
-                              className="w-full h-full object-contain rounded-lg"
-                            />
-                          </div>
-                        ) : (
-                          <div className="h-16 w-16 rounded-lg bg-gray-100 flex items-center justify-center mr-4">
-                            {React.cloneElement(marketplace.icon, { className: 'h-10 w-10 text-inherit' })}
-                          </div>
-                        )}
+                        <div className="h-16 w-16 rounded-lg bg-white flex items-center justify-center mr-4">
+                          <img
+                            src={marketplace.logo}
+                            alt={`${marketplace.name} logo`}
+                            className="w-full h-full object-contain rounded-lg"
+                          />
+                        </div>
                         <h4 className="text-lg font-semibold">{marketplace.name}</h4>
                       </div>
                       <p className="text-muted-foreground mb-4">{marketplace.description}</p>
@@ -211,19 +199,13 @@ const Marketplaces = () => {
                   >
                     <div className="bg-white rounded-xl p-6 shadow-md border border-border hover:shadow-lg transition-shadow duration-300">
                       <div className="flex items-center mb-4">
-                        {tool.logo ? (
-                          <div className="h-16 w-16 rounded-lg bg-gray-100 flex items-center justify-center mr-4">
-                            <img
-                              src={tool.logo}
-                              alt={`${tool.name} logo`}
-                              className="w-full h-full object-contain rounded-lg"
-                            />
-                          </div>
-                        ) : (
-                          <div className="h-16 w-16 rounded-lg bg-gray-100 flex items-center justify-center mr-4">
-                            {React.cloneElement(tool.icon, { className: 'h-10 w-10 text-inherit' })}
-                          </div>
-                        )}
+                        <div className="h-16 w-16 rounded-lg bg-white flex items-center justify-center mr-4">
+                          <img
+                            src={tool.logo}
+                            alt={`${tool.name} logo`}
+                            className="w-full h-full object-contain rounded-lg"
+                          />
+                        </div>
                         <h4 className="text-lg font-semibold">{tool.name}</h4>
                       </div>
                       <p className="text-muted-foreground mb-4">{tool.description}</p>
