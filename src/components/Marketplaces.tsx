@@ -14,19 +14,19 @@ const marketplaceFeatures = [
   },
   {
     name: "Backmarket",
-    logo: "/logos/Backmarket logo.svg",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Backmarket-logo.svg",
     description: "Expand your reach on the leading marketplace for refurbished electronics in Europe and the US.",
     features: ["Quality grade mapping", "Pricing optimization", "Return management", "Performance analytics"]
   },
   {
     name: "Reebelo",
-    logo: "/logos/Reebelo Logo.svg",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Reebelo-Logo.svg",
     description: "Connect to this fast-growing marketplace for sustainable tech across Asia-Pacific region.",
     features: ["Product catalog sync", "Automated fulfillment", "Warranty tracking", "Rating management"]
   },
   {
     name: "Swappa",
-    logo: "/logos/Swappa Logo.svg",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Swappa-Logo.svg",
     description: "Sell directly to consumers on this user-to-user marketplace for gently used technology.",
     features: ["Condition grading sync", "Real-time inventory", "Order processing", "Returns handling"]
   }
