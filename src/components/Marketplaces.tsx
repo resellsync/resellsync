@@ -29,6 +29,12 @@ const marketplaceFeatures = [
     logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Swappa-Logo.svg",
     description: "Sell directly to consumers on this user-to-user marketplace for gently used technology.",
     features: ["Condition grading sync", "Real-time inventory", "Order processing", "Returns handling"]
+  },
+  {
+    name: "Walmart",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos//Walmart%20Logo.svg",
+    description: "Reach millions of customers on one of the largest retail marketplaces in the US. Sync your inventory and manage orders seamlessly.",
+    features: ["Walmart-specific listing tools", "Real-time inventory sync", "Order management", "Performance analytics"]
   }
 ];
 
@@ -144,8 +150,8 @@ const Marketplaces = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.1 }}
                   >
-                    <div className="bg-white rounded-xl p-6 shadow-md border border-[#CACFD6] hover:shadow-lg transition-shadow duration-300">
-                      <div className="flex items-center mb-4">
+                    <div className="bg-white rounded-xl p-4 shadow-md border border-[#CACFD6] hover:shadow-lg transition-shadow duration-300">
+                      <div className="flex items-center mb-3">
                         <div className="h-16 w-16 rounded-lg bg-white flex items-center justify-center mr-4">
                           <img
                             src={marketplace.logo}

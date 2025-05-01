@@ -1,4 +1,3 @@
-
 import { 
   Carousel,
   CarouselContent,
@@ -37,8 +36,8 @@ export const MarketplaceCarousel = () => {
             }}
             className="w-full relative"
           >
-            <CarouselContent className="py-4 gap-4 animate-[slide_40s_linear_infinite]">
-              {[...marketplaces, ...marketplaces].map((marketplace, index) => (
+            <CarouselContent className="py-4 gap-4 animate-slide-infinite">
+              {[...marketplaces, ...marketplaces, ...marketplaces, ...marketplaces].map((marketplace, index) => (
                 <CarouselItem 
                   key={index} 
                   className="basis-1/2 md:basis-1/3 lg:basis-1/5"

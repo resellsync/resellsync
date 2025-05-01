@@ -28,5 +28,10 @@ export const marketplaces = [
     name: "Mercari", 
     logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Mercari-Horizontal-Logo.svg",
     fallbackText: "Mercari"
+  },
+  {
+    name: "Walmart",
+    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos//Walmart%20Horizontal%20Logo.svg",
+    fallbackText: "Walmart"
   }
 ] as const;
