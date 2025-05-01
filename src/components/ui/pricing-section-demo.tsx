@@ -92,7 +92,7 @@ export const TIERS = [
       "1 user account",
       "All core features"
     ],
-    cta: "Get started",
+    cta: "Join the Waitlist",
     popular: false,
   },
   {
@@ -109,7 +109,7 @@ export const TIERS = [
       "2 user accounts",
       "All core features"
     ],
-    cta: "Get started",
+    cta: "Join the Waitlist",
     popular: true,
   },
   {
@@ -126,7 +126,7 @@ export const TIERS = [
       "5 user accounts",
       "All core features"
     ],
-    cta: "Get started",
+    cta: "Join the Waitlist",
     popular: false,
   },
   {
@@ -143,7 +143,7 @@ export const TIERS = [
       "Unlimited users",
       "Custom integrations & support"
     ],
-    cta: "Contact Us"
+    cta: "Join the Waitlist"
   },
 ];
 

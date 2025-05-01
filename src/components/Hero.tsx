@@ -26,13 +26,10 @@ const Hero = () => {
               and automate your entire workflow — so you can grow faster.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mt-2">
+            <div className="mt-2">
               <Button size="lg" className="group bg-[#0A090C] text-white border-0 hover:bg-[#222]">
-                Start Your Free Trial
+                Join the Waitlist
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button variant="outline" size="lg" className="border-[#0A090C] text-[#0A090C] bg-white hover:bg-[#F9F9F9]">
-                Watch Demo
               </Button>
             </div>
 

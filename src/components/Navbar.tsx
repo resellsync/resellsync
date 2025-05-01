@@ -22,9 +22,8 @@ const Navbar = () => {
             <a href="#faq" className="text-muted-foreground hover:text-foreground transition-colors">FAQ</a>
           </div>
           
-          <div className="hidden md:flex items-center gap-4">
-            <Button variant="outline">Log In</Button>
-            <Button>Start Free Trial</Button>
+          <div className="hidden md:flex items-center">
+            <Button>Join the Waitlist</Button>
           </div>
           
           {/* Mobile menu button */}
@@ -68,9 +67,8 @@ const Navbar = () => {
               >
                 FAQ
               </a>
-              <div className="flex flex-col gap-2 mt-2">
-                <Button variant="outline" className="w-full">Log In</Button>
-                <Button className="w-full">Start Free Trial</Button>
+              <div className="mt-2">
+                <Button className="w-full">Join the Waitlist</Button>
               </div>
             </div>
           </div>
