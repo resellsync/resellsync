@@ -1,24 +1,25 @@
+
 import React from 'react';
 import { TestimonialCarousel } from "@/components/ui/testimonial-carousel";
 
 const testimonials = [
   {
     company: "TechResell",
-    avatar: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=facearea&w=256&h=256",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=facearea&w=256&h=256",
     name: "Michael Johnson",
     role: "CEO, TechResell",
     review: "The automated inventory system has transformed our operations. We've reduced manual data entry by 80% and eliminated listing errors completely.",
   },
   {
     company: "MobilePro",
-    avatar: "https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=facearea&w=256&h=256",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=facearea&w=256&h=256",
     name: "Sarah Williams",
     role: "Operations Director, MobilePro",
     review: "The platform's automation features have revolutionized our workflow. We now save 15+ hours weekly and our inventory is always perfectly synchronized.",
   },
   {
     company: "DeviceHub",
-    avatar: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=facearea&w=256&h=256",
+    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=facearea&w=256&h=256",
     name: "David Chen",
     role: "Founder, DeviceHub",
     review: "The analytics dashboard has been a game-changer. We've optimized our pricing strategy and seen a 25% increase in profit margins.",
