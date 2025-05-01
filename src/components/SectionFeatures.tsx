@@ -45,7 +45,7 @@ const features = [
 ];
 
 const SectionFeatures = () => (
-  <section className="container-section max-w-7xl mx-auto pb-20" aria-label="Resellsync features">
+  <section id="features" className="container-section max-w-7xl mx-auto pb-20" aria-label="Resellsync features">
     <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 gradient-heading">
       What You Can Do With Resellsync
     </h2>
