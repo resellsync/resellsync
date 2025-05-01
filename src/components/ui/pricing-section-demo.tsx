@@ -39,12 +39,13 @@ export function PricingSection({
         </div>
       </div>
 
-      <div className="grid w-full max-w-6xl gap-8 sm:grid-cols-2 xl:grid-cols-4">
-        {tiers.map((tier) => (
+      <div className="grid w-full max-w-6xl gap-12 sm:grid-cols-2 xl:grid-cols-4">
+        {tiers.map((tier, idx) => (
           <PricingCard
             key={tier.name}
             tier={tier}
             paymentFrequency={selectedFrequency}
+            large={tier.id === 'custom'}
           />
         ))}
       </div>
@@ -56,71 +57,69 @@ export const PAYMENT_FREQUENCIES = ["monthly", "yearly"];
 
 export const TIERS = [
   {
-    id: "individuals",
-    name: "Individuals",
+    id: "starter",
+    name: "Starter",
     price: {
-      monthly: "Free",
-      yearly: "Free",
+      monthly: 99,
+      yearly: 89,
     },
-    description: "For your hobby projects",
+    description: "For new or small resellers",
     features: [
-      "Free email alerts",
-      "3-minute checks",
-      "Automatic data enrichment",
-      "10 monitors",
-      "Up to 3 seats",
+      "2 marketplaces",
+      "100 orders per month",
+      "1 user account",
+      "All core features"
     ],
     cta: "Get started",
+    popular: false,
   },
   {
-    id: "teams",
-    name: "Teams",
+    id: "growth",
+    name: "Growth",
     price: {
-      monthly: 90,
-      yearly: 75,
+      monthly: 179,
+      yearly: 159,
     },
-    description: "Great for small businesses",
+    description: "For growing businesses",
     features: [
-      "Unlimited phone calls",
-      "30 second checks",
-      "Single-user account",
-      "20 monitors",
-      "Up to 6 seats",
+      "5 marketplaces",
+      "350 orders per month",
+      "2 user accounts",
+      "All core features"
     ],
     cta: "Get started",
     popular: true,
   },
   {
-    id: "organizations",
-    name: "Organizations",
+    id: "pro",
+    name: "Pro",
     price: {
-      monthly: 120,
-      yearly: 100,
+      monthly: 349,
+      yearly: 319,
     },
-    description: "Great for large businesses",
+    description: "For high-volume sellers",
     features: [
-      "Unlimited phone calls",
-      "15 second checks",
-      "Single-user account",
-      "50 monitors",
-      "Up to 10 seats",
+      "All marketplaces",
+      "1000 orders per month",
+      "5 user accounts",
+      "All core features"
     ],
     cta: "Get started",
+    popular: false,
   },
   {
-    id: "enterprise",
-    name: "Enterprise",
+    id: "custom",
+    name: "Custom",
     price: {
       monthly: "Custom",
       yearly: "Custom",
     },
-    description: "For multiple teams",
+    description: "For enterprises with custom needs",
     features: [
-      "Everything in Organizations",
-      "Up to 5 team members",
-      "100 monitors",
-      "15 status pages",
-      "200+ integrations",
+      "Unlimited marketplaces",
+      "Unlimited orders",
+      "Unlimited users",
+      "Custom integrations & support"
     ],
     cta: "Contact Us",
     highlighted: true,
@@ -129,10 +128,7 @@ export const TIERS = [
 
 export function PricingSectionDemo() {
   return (
-    <div className="relative flex justify-center items-center w-full mt-8 scale-90">
-      <div className="absolute inset-0 -z-10">
-        <div className="h-full w-full bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:35px_35px] opacity-30 [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
-      </div>
+    <div className="flex justify-center items-center w-full mt-0">
       <PricingSection
         title="Simple Pricing"
         subtitle="Choose the best plan for your needs"
