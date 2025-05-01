@@ -27,8 +27,9 @@ const marketplaceFeatures = [
   {
     name: "Swappa",
     logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Swappa-Logo.svg",
-    description: "Sell directly to consumers on this user-to-user marketplace for gently used technology.",
-    features: ["Condition grading sync", "Real-time inventory", "Order processing", "Returns handling"]
+    description: "Integration in progress. Soon you'll be able to sync and manage your Swappa listings with ResellSync!",
+    features: ["Coming soon: Real-time sync", "Coming soon: Order management", "Coming soon: Analytics"],
+    comingSoon: true
   },
   {
     name: "Walmart",
@@ -122,17 +123,17 @@ const Marketplaces = () => {
         <div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-[#CACFD61A] blur-3xl -z-10" />
         <div className="absolute bottom-20 right-10 w-72 h-72 rounded-full bg-[#CACFD61A] blur-3xl -z-10" />
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {/* Marketplaces Column */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="mb-8"
+              className="mb-6"
             >
-              <h3 className="text-2xl font-semibold mb-2 flex items-center text-[#0A090C]">
+              <h3 className="text-2xl font-semibold mb-1 flex items-center text-[#0A090C]">
                 <Package className="mr-2 text-[#009A53]" /> 
                 Marketplace Integrations
               </h3>
@@ -141,7 +142,7 @@ const Marketplaces = () => {
               </p>
             </motion.div>
             
-            <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {marketplaceFeatures.map((marketplace, index) => (
                 <ScrollReveal key={index}>
                   <motion.div 
@@ -150,25 +151,37 @@ const Marketplaces = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.1 }}
                   >
-                    <div className="bg-white rounded-xl p-4 shadow-md border border-[#CACFD6] hover:shadow-lg transition-shadow duration-300">
-                      <div className="flex items-center mb-3">
-                        <div className="h-16 w-16 rounded-lg bg-white flex items-center justify-center mr-4">
-                          <img
-                            src={marketplace.logo}
-                            alt={`${marketplace.name} logo`}
-                            className="w-full h-full object-contain rounded-lg"
-                          />
+                    <div className={`rounded-xl relative p-3 shadow-md border max-w-sm mx-auto flex flex-col justify-between h-full 
+                      ${marketplace.comingSoon 
+                        ? 'bg-yellow-50 border-yellow-400 border-2 border-dashed opacity-80' 
+                        : 'bg-white border-[#CACFD6] hover:shadow-lg transition-shadow duration-300'}
+                    `}>
+                      <div>
+                        <div className="flex items-center mb-2">
+                          <div className="h-16 w-16 rounded-lg bg-white flex items-center justify-center mr-3">
+                            <img
+                              src={marketplace.logo}
+                              alt={`${marketplace.name} logo`}
+                              className="w-full h-full object-contain rounded-lg"
+                            />
+                          </div>
+                          <h4 className="text-lg font-semibold text-[#0A090C]">{marketplace.name}</h4>
                         </div>
-                        <h4 className="text-lg font-semibold text-[#0A090C]">{marketplace.name}</h4>
+                        <p className="text-[#0A090C] opacity-70 mb-2 text-sm">{marketplace.description}</p>
                       </div>
-                      <p className="text-[#0A090C] opacity-70 mb-4">{marketplace.description}</p>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1 mt-2">
                         {marketplace.features.map((feature, fIndex) => (
-                          <span key={fIndex} className="text-xs bg-[#F9F9F9] text-[#0A090C] opacity-70 px-2 py-1 rounded-full border border-[#CACFD6]">
+                          <span key={fIndex} className="text-xs bg-[#F9F9F9] text-[#0A090C] opacity-70 px-2 py-0.5 rounded-full border border-[#CACFD6]">
                             {feature}
                           </span>
                         ))}
                       </div>
+                      {marketplace.comingSoon && (
+                        <span className="absolute top-2 right-2 flex items-center gap-1 bg-yellow-400 text-white text-xs font-semibold px-3 py-1 rounded-full shadow border border-yellow-500">
+                          <svg xmlns='http://www.w3.org/2000/svg' className='h-4 w-4' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 8v4l2 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z' /></svg>
+                          Coming Soon
+                        </span>
+                      )}
                     </div>
                   </motion.div>
                 </ScrollReveal>

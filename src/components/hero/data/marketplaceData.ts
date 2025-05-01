@@ -15,11 +15,6 @@ export const marketplaces = [
     fallbackText: "Reebelo"
   },
   { 
-    name: "Swappa", 
-    logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/Swappa-Horizontal-Logo.svg",
-    fallbackText: "Swappa"
-  },
-  { 
     name: "ShipStation", 
     logo: "https://hlpakrakaoyhohjppxkg.supabase.co/storage/v1/object/public/marketplace-logos/ShipStation-Horizontal-Logo.svg",
     fallbackText: "ShipStation"
