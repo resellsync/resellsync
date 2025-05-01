@@ -1,5 +1,7 @@
+
 import * as React from "react";
 import { cn } from "@/lib/utils";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"; 
 import {
   Carousel,
   CarouselApi,
@@ -44,13 +46,13 @@ export const TestimonialCarousel = React.forwardRef<HTMLDivElement, TestimonialC
             {testimonials.map((testimonial) => (
               <ScrollReveal key={testimonial.company + testimonial.name}>
                 <CarouselItem
-                  className="flex flex-col items-center cursor-grab basis-full md:basis-1/3"
+                  className="flex flex-col items-center cursor-grab basis-full md:basis-1/3 group"
                 >
-                  <div className="mb-7 relative h-8 w-32 flex items-center justify-center">
+                  <div className="mb-7 relative h-10 w-36 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-lg p-5 shadow-sm border border-gray-100 transition-all duration-300 group-hover:shadow-md">
                     <img
                       src={`${companyLogoPath}${testimonial.company}.svg`}
                       alt={`${testimonial.company} logo`}
-                      className="object-contain h-8 w-32"
+                      className="object-contain h-8 max-w-full"
                       draggable={false}
                     />
                   </div>
@@ -63,12 +65,14 @@ export const TestimonialCarousel = React.forwardRef<HTMLDivElement, TestimonialC
                   <h5 className="mt-1.5 font-medium text-foreground/40">
                     {testimonial.role}
                   </h5>
-                  <div className="mt-5 relative size-12 rounded-full overflow-hidden bg-muted">
-                    <img
-                      src={testimonial.avatar.startsWith('http') ? testimonial.avatar : `${avatarPath}${testimonial.avatar}`}
-                      alt={testimonial.name}
-                      className="object-cover w-12 h-12"
-                    />
+                  <div className="mt-5 relative">
+                    <Avatar className="size-14 border-2 border-white shadow-md transition-transform duration-300 group-hover:scale-105">
+                      <AvatarImage 
+                        src={testimonial.avatar.startsWith('http') ? testimonial.avatar : `${avatarPath}${testimonial.avatar}`}
+                        alt={testimonial.name}
+                      />
+                      <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                    </Avatar>
                   </div>
                 </CarouselItem>
               </ScrollReveal>
@@ -82,8 +86,8 @@ export const TestimonialCarousel = React.forwardRef<HTMLDivElement, TestimonialC
               <button
                 key={index}
                 className={cn(
-                  "size-1.5 rounded-full transition-all",
-                  index === current ? "bg-primary" : "bg-primary/35"
+                  "size-2 rounded-full transition-all",
+                  index === current ? "bg-[#009A53] scale-125" : "bg-[#009A53]/35"
                 )}
                 onClick={() => api?.scrollTo(index)}
                 aria-label={`Go to slide ${index + 1}`}
