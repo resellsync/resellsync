@@ -1,4 +1,3 @@
-
 "use client"
 
 import * as React from "react"
@@ -52,21 +51,25 @@ export function PricingSection({
       </motion.div>
 
       <div className="grid w-full max-w-6xl gap-8 sm:grid-cols-2 xl:grid-cols-4 px-6">
-        {tiers.map((tier, idx) => (
-          <motion.div
-            key={tier.name}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: idx * 0.1 }}
-          >
-            <PricingCard
-              tier={tier}
-              paymentFrequency={selectedFrequency}
-              large={tier.id === 'custom'}
-            />
-          </motion.div>
-        ))}
+        {tiers.map((tier, idx) => {
+          const isCustom = tier.id === 'custom';
+          const cardTier = isCustom ? { ...tier, popular: false, highlighted: false } : tier;
+          return (
+            <motion.div
+              key={tier.name}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+            >
+              <PricingCard
+                tier={cardTier}
+                paymentFrequency={selectedFrequency}
+                large={tier.id === 'growth' ? true : false}
+              />
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   )
@@ -96,7 +99,7 @@ export const TIERS = [
     id: "growth",
     name: "Growth",
     price: {
-      monthly: 179,
+      monthly: 189,
       yearly: 159,
     },
     description: "For growing businesses",
@@ -140,8 +143,7 @@ export const TIERS = [
       "Unlimited users",
       "Custom integrations & support"
     ],
-    cta: "Contact Us",
-    highlighted: true,
+    cta: "Contact Us"
   },
 ];
 

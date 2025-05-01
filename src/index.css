@@ -135,3 +135,17 @@
 .animate-slide-infinite {
   animation: slide-infinite 15s linear infinite;
 }
+
+@keyframes hero-badge-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-hero-badge-fade-in {
+  animation: hero-badge-fade-in 1s cubic-bezier(0.4,0,0.2,1) both;
+}

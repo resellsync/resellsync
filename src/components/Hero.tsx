@@ -12,8 +12,8 @@ const Hero = () => {
       <div className="container-section min-h-[calc(100vh-5rem)] flex items-center pb-8 bg-[#F9F9F9]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center py-12">
           <div className="flex flex-col gap-6">
-            <div className="inline-flex items-center rounded-full px-4 py-1.5 text-sm bg-[#E8F0FE] text-[#1C49E4] font-medium">
-              <span className="flex h-2 w-2 rounded-full bg-[#00D46B] mr-2"></span>
+            <div className="inline-flex items-center w-auto max-w-fit rounded-full px-2.5 py-1 text-xs font-medium bg-gradient-to-r from-[#FFF3D1] to-[#F5C16C] text-[#111] shadow-md transition-all duration-500 animate-hero-badge-fade-in">
+              <span className="flex h-1.5 w-1.5 rounded-full bg-[#FFD700] mr-2"></span>
               The #1 platform for phone resellers
             </div>
 
