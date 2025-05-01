@@ -27,11 +27,11 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <div className="bg-gradient-to-b from-white to-muted py-24">
+    <div className="bg-[#F9F9F9] py-24">
       <div className="container-section py-0">
         <div className="text-center mb-16">
-          <h2 className="gradient-heading mb-4">Trusted by Phone Resellers</h2>
-          <p className="max-w-2xl mx-auto text-muted-foreground text-lg">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#0A090C]">Trusted by Phone Resellers</h2>
+          <p className="max-w-2xl mx-auto text-[#0A090C] opacity-80 text-lg">
             Hear what our customers have to say about how ResellSync has helped them grow their businesses.
           </p>
         </div>

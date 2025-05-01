@@ -36,10 +36,10 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <div id="faq" className="container-section bg-muted">
+    <div id="faq" className="container-section bg-[#F9F9F9]">
       <div className="text-center mb-16">
-        <h2 className="gradient-heading mb-4">Frequently Asked Questions</h2>
-        <p className="max-w-2xl mx-auto text-muted-foreground text-lg">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#0A090C]">Frequently Asked Questions</h2>
+        <p className="max-w-2xl mx-auto text-[#0A090C] opacity-80 text-lg">
           Have questions about ResellSync? Find answers to common questions below.
         </p>
       </div>
@@ -49,10 +49,10 @@ const FAQ = () => {
           {faqs.map((faq, index) => (
             <ScrollReveal key={index}>
               <AccordionItem value={`item-${index}`}>
-                <AccordionTrigger className="text-lg font-medium text-left">
+                <AccordionTrigger className="text-lg font-medium text-left text-[#0A090C]">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
+                <AccordionContent className="text-[#0A090C] opacity-70">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -62,12 +62,12 @@ const FAQ = () => {
       </div>
       
       <div className="mt-12 text-center">
-        <p className="text-muted-foreground mb-2">
+        <p className="text-[#0A090C] opacity-60 mb-2">
           Still have questions?
         </p>
         <a 
           href="#" 
-          className="text-brand-blue hover:text-brand-teal font-medium transition-colors"
+          className="text-[#009A53] hover:underline font-medium transition-colors"
         >
           Contact our support team
         </a>

@@ -4,23 +4,23 @@ import { ArrowRight } from 'lucide-react';
 
 const CTA = () => {
   return (
-    <div className="bg-white">
-      <div className="container-section py-20">
-        <div className="text-center text-foreground max-w-3xl mx-auto">
-          <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Phone Reselling Business?</h2>
-          <p className="text-lg opacity-90 mb-8">
+    <div className="bg-[#F9F9F9]">
+      <div className="section-spacing">
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold mb-6 text-[#0A090C]">Ready to Transform Your Phone Reselling Business?</h2>
+          <p className="text-lg opacity-80 mb-8 text-[#0A090C]">
             Join thousands of resellers who are saving time, reducing errors, and growing their business with ResellSync.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-            <Button size="lg" className="group">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <Button size="lg" className="group bg-[#0A090C] text-white border-0 hover:bg-[#222]">
               Start Your Free Trial
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button size="lg" variant="outline" className="border-brand-blue text-brand-blue hover:bg-brand-blue/10">
+            <Button size="lg" variant="outline" className="border-[#009A53] text-[#009A53] bg-white hover:bg-[#D6F5E6]">
               Schedule a Demo
             </Button>
           </div>
-          <p className="mt-6 text-sm opacity-80 text-muted-foreground">
+          <p className="text-sm opacity-70 text-[#0A090C]">
             No credit card required • 14-day free trial • Cancel anytime
           </p>
         </div>

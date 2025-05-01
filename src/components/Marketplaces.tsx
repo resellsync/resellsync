@@ -97,13 +97,13 @@ const Marketplaces = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <span className="inline-block px-4 py-1.5 mb-4 rounded-full text-sm font-medium bg-gradient-to-r from-brand-blue/20 to-brand-teal/20 text-brand-blue">
+          <span className="inline-block px-4 py-1.5 mb-4 rounded-full text-sm font-medium bg-[#D6F5E6] text-[#009A53]">
             Powerful Integrations
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-brand-teal">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#0A090C]">
             Connect Your Entire Sales Ecosystem
           </h2>
-          <p className="max-w-2xl mx-auto text-muted-foreground text-lg">
+          <p className="max-w-2xl mx-auto text-[#0A090C] opacity-80 text-lg">
             ResellSync integrates with leading marketplaces and tools to create a seamless workflow
             for your phone reselling business.
           </p>
@@ -113,8 +113,8 @@ const Marketplaces = () => {
       {/* Two column layout with decorative elements */}
       <div className="relative">
         {/* Background decorative elements */}
-        <div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-blue-100/30 blur-3xl -z-10" />
-        <div className="absolute bottom-20 right-10 w-72 h-72 rounded-full bg-teal-100/30 blur-3xl -z-10" />
+        <div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-[#CACFD61A] blur-3xl -z-10" />
+        <div className="absolute bottom-20 right-10 w-72 h-72 rounded-full bg-[#CACFD61A] blur-3xl -z-10" />
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
           {/* Marketplaces Column */}
@@ -126,11 +126,11 @@ const Marketplaces = () => {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="mb-8"
             >
-              <h3 className="text-2xl font-semibold mb-2 flex items-center">
-                <Package className="mr-2 text-brand-blue" /> 
+              <h3 className="text-2xl font-semibold mb-2 flex items-center text-[#0A090C]">
+                <Package className="mr-2 text-[#009A53]" /> 
                 Marketplace Integrations
               </h3>
-              <p className="text-muted-foreground">
+              <p className="text-[#0A090C] opacity-70">
                 List and sell your refurbished phones across multiple platforms with real-time inventory sync.
               </p>
             </motion.div>
@@ -144,7 +144,7 @@ const Marketplaces = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.1 }}
                   >
-                    <div className="bg-white rounded-xl p-6 shadow-md border border-border hover:shadow-lg transition-shadow duration-300">
+                    <div className="bg-white rounded-xl p-6 shadow-md border border-[#CACFD6] hover:shadow-lg transition-shadow duration-300">
                       <div className="flex items-center mb-4">
                         <div className="h-16 w-16 rounded-lg bg-white flex items-center justify-center mr-4">
                           <img
@@ -153,12 +153,12 @@ const Marketplaces = () => {
                             className="w-full h-full object-contain rounded-lg"
                           />
                         </div>
-                        <h4 className="text-lg font-semibold">{marketplace.name}</h4>
+                        <h4 className="text-lg font-semibold text-[#0A090C]">{marketplace.name}</h4>
                       </div>
-                      <p className="text-muted-foreground mb-4">{marketplace.description}</p>
+                      <p className="text-[#0A090C] opacity-70 mb-4">{marketplace.description}</p>
                       <div className="flex flex-wrap gap-2">
                         {marketplace.features.map((feature, fIndex) => (
-                          <span key={fIndex} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">
+                          <span key={fIndex} className="text-xs bg-[#F9F9F9] text-[#0A090C] opacity-70 px-2 py-1 rounded-full border border-[#CACFD6]">
                             {feature}
                           </span>
                         ))}
@@ -179,11 +179,11 @@ const Marketplaces = () => {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="mb-8"
             >
-              <h3 className="text-2xl font-semibold mb-2 flex items-center">
-                <Link className="mr-2 text-brand-teal" />
+              <h3 className="text-2xl font-semibold mb-2 flex items-center text-[#0A090C]">
+                <Link className="mr-2 text-[#009A53]" />
                 Tools & Services
               </h3>
-              <p className="text-muted-foreground">
+              <p className="text-[#0A090C] opacity-70">
                 Enhance your workflow with powerful tools that connect seamlessly with ResellSync.
               </p>
             </motion.div>
@@ -197,7 +197,7 @@ const Marketplaces = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.1 }}
                   >
-                    <div className="bg-white rounded-xl p-6 shadow-md border border-border hover:shadow-lg transition-shadow duration-300">
+                    <div className="bg-white rounded-xl p-6 shadow-md border border-[#CACFD6] hover:shadow-lg transition-shadow duration-300">
                       <div className="flex items-center mb-4">
                         <div className="h-16 w-16 rounded-lg bg-white flex items-center justify-center mr-4">
                           <img
@@ -206,12 +206,12 @@ const Marketplaces = () => {
                             className="w-full h-full object-contain rounded-lg"
                           />
                         </div>
-                        <h4 className="text-lg font-semibold">{tool.name}</h4>
+                        <h4 className="text-lg font-semibold text-[#0A090C]">{tool.name}</h4>
                       </div>
-                      <p className="text-muted-foreground mb-4">{tool.description}</p>
+                      <p className="text-[#0A090C] opacity-70 mb-4">{tool.description}</p>
                       <div className="flex flex-wrap gap-2">
                         {tool.features.map((feature, fIndex) => (
-                          <span key={fIndex} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">
+                          <span key={fIndex} className="text-xs bg-[#F9F9F9] text-[#0A090C] opacity-70 px-2 py-1 rounded-full border border-[#CACFD6]">
                             {feature}
                           </span>
                         ))}
@@ -231,7 +231,7 @@ const Marketplaces = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <p className="text-muted-foreground mb-4">
+            <p className="text-[#0A090C] opacity-60 mb-4">
               More integrations coming soon - Vinted, Amazon, and more!
             </p>
           </motion.div>

@@ -8,20 +8,19 @@ import Pricing from '@/components/Pricing';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[#F9F9F9]">
       <Navbar />
       <main>
         <Hero />
-        <ScrollReveal><Features /></ScrollReveal>
-        <ScrollReveal><Marketplaces /></ScrollReveal>
-        <ScrollReveal><Testimonials /></ScrollReveal>
-        <ScrollReveal><Pricing /></ScrollReveal>
-        <ScrollReveal><FAQ /></ScrollReveal>
-        <ScrollReveal><CTA /></ScrollReveal>
+        <Features />
+        <Marketplaces />
+        <Testimonials />
+        <Pricing />
+        <FAQ />
+        <CTA />
       </main>
       <Footer />
     </div>
