@@ -1,7 +1,8 @@
-
 import * as React from "react";
-import { Check } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export type PricingTier = {
   id: string;
@@ -10,6 +11,7 @@ export type PricingTier = {
   description: string;
   features: string[];
   cta: string;
+  ctaLink: string;
   popular?: boolean;
   highlighted?: boolean;
 };
@@ -60,19 +62,19 @@ export function PricingCard({ tier, paymentFrequency, large }: PricingCardProps)
           </motion.li>
         ))}
       </ul>
-      <button
-        className={`w-full rounded-lg py-3 px-5 font-semibold transition-all duration-300 text-base mt-auto relative overflow-hidden
-          ${isPopular 
-            ? "bg-[#0A090C] text-white hover:bg-[#1a1a1a] shadow-lg hover:shadow-xl" 
-            : "border-2 border-[#009A53] text-[#009A53] bg-white hover:bg-[#F0FDF4]"}
-          ${large ? "py-4 text-lg" : ""}
-        `}
-      >
-        <span className="relative z-10">{tier.cta}</span>
-        {isPopular && (
-          <span className="absolute inset-0 bg-gradient-to-r from-[#0A090C] to-[#333] opacity-0 hover:opacity-100 transition-opacity duration-300"></span>
+      <Button
+        size="lg"
+        className={cn(
+          "w-full group",
+          tier.popular && "bg-[#0A090C] text-white hover:bg-[#222]"
         )}
-      </button>
+        asChild
+      >
+        <a href={tier.ctaLink} target="_blank" rel="noopener noreferrer">
+          {tier.cta}
+          <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+        </a>
+      </Button>
     </motion.div>
   );
 }

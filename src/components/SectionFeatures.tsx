@@ -78,9 +78,11 @@ const SectionFeatures = () => (
         <div className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-brand-blue to-brand-teal bg-clip-text text-transparent">
           Ready to streamline and scale your phone reselling business?
         </div>
-        <Button size="lg" className="group shadow-lg hover:shadow-xl transition-all duration-300" aria-label="Join the Waitlist">
-          Join the Waitlist
-          <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+        <Button size="lg" className="group" asChild>
+          <a href="https://tally.so/r/wggEKJ" target="_blank" rel="noopener noreferrer">
+            Join the Waitlist
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </a>
         </Button>
       </div>
     </div>

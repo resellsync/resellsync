@@ -22,9 +22,11 @@ const CTA = () => {
             Join thousands of resellers who are saving time, reducing errors, and growing their business with ResellSync.
           </p>
           <div className="flex justify-center mb-8">
-            <Button size="lg" className="group bg-gradient-to-r from-[#0A090C] to-[#333] text-white border-0 hover:from-[#222] hover:to-[#444] shadow-lg hover:shadow-xl transition-all">
-              <span>Join the Waitlist</span>
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            <Button size="lg" className="group" asChild>
+              <a href="https://tally.so/r/wggEKJ" target="_blank" rel="noopener noreferrer">
+                Join the Waitlist
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
             </Button>
           </div>
           <p className="text-sm opacity-70 text-[#0A090C]">

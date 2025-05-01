@@ -26,10 +26,12 @@ const Hero = () => {
               and automate your entire workflow — so you can grow faster.
             </p>
 
-            <div className="mt-2">
-              <Button size="lg" className="group bg-[#0A090C] text-white border-0 hover:bg-[#222]">
-                Join the Waitlist
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="group" asChild>
+                <a href="https://tally.so/r/wggEKJ" target="_blank" rel="noopener noreferrer">
+                  Join the Waitlist
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
               </Button>
             </div>
 

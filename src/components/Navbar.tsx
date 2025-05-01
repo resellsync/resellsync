@@ -23,7 +23,9 @@ const Navbar = () => {
           </div>
           
           <div className="hidden md:flex items-center">
-            <Button>Join the Waitlist</Button>
+            <Button asChild>
+              <a href="https://tally.so/r/wggEKJ" target="_blank" rel="noopener noreferrer">Join the Waitlist</a>
+            </Button>
           </div>
           
           {/* Mobile menu button */}
@@ -68,7 +70,9 @@ const Navbar = () => {
                 FAQ
               </a>
               <div className="mt-2">
-                <Button className="w-full">Join the Waitlist</Button>
+                <Button className="w-full" asChild>
+                  <a href="https://tally.so/r/wggEKJ" target="_blank" rel="noopener noreferrer">Join the Waitlist</a>
+                </Button>
               </div>
             </div>
           </div>

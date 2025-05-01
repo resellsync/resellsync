@@ -93,6 +93,7 @@ export const TIERS = [
       "All core features"
     ],
     cta: "Join the Waitlist",
+    ctaLink: "https://tally.so/r/wggEKJ",
     popular: false,
   },
   {
@@ -110,6 +111,7 @@ export const TIERS = [
       "All core features"
     ],
     cta: "Join the Waitlist",
+    ctaLink: "https://tally.so/r/wggEKJ",
     popular: true,
   },
   {
@@ -127,6 +129,7 @@ export const TIERS = [
       "All core features"
     ],
     cta: "Join the Waitlist",
+    ctaLink: "https://tally.so/r/wggEKJ",
     popular: false,
   },
   {
@@ -143,7 +146,8 @@ export const TIERS = [
       "Unlimited users",
       "Custom integrations & support"
     ],
-    cta: "Join the Waitlist"
+    cta: "Join the Waitlist",
+    ctaLink: "https://tally.so/r/wggEKJ"
   },
 ];
 

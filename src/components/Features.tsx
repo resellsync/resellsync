@@ -102,9 +102,11 @@ const Features = () => {
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.5 }}
           className="mt-16 text-center"
         >
-          <Button variant="default" size="lg" className="bg-[#0A090C] text-white hover:bg-[#222] group shadow-lg transition-all duration-300 rounded-xl px-8 border-0">
-            Join the Waitlist
-            <ArrowRight className="ml-2 h-5 w-5 text-white group-hover:translate-x-1 transition-transform duration-300" />
+          <Button variant="default" size="lg" className="bg-[#0A090C] text-white hover:bg-[#222] group shadow-lg transition-all duration-300 rounded-xl px-8 border-0" asChild>
+            <a href="https://tally.so/r/wggEKJ" target="_blank" rel="noopener noreferrer">
+              Join the Waitlist
+              <ArrowRight className="ml-2 h-5 w-5 text-white group-hover:translate-x-1 transition-transform duration-300" />
+            </a>
           </Button>
         </motion.div>
       </div>
