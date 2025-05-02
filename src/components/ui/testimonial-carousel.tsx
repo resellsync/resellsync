@@ -51,16 +51,22 @@ export const TestimonialCarousel = React.forwardRef<HTMLDivElement, TestimonialC
                 >
                   <motion.div 
                     whileHover={{ scale: 1.05, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
-                    className="mb-7 relative h-12 w-40 flex items-center justify-center bg-white rounded-lg p-5 shadow-sm border border-gray-100 transition-all duration-300"
+                    className="mb-7 relative h-16 w-44 flex items-center justify-center bg-white rounded-lg p-4 shadow-md border border-gray-100 transition-all duration-300 overflow-hidden group-hover:shadow-lg"
                   >
                     <img
                       src={`${companyLogoPath}${testimonial.company}.svg`}
                       alt={`${testimonial.company} logo`}
-                      className="object-contain h-8 max-w-full"
+                      className="object-contain h-10 max-w-full"
+                      onError={(e) => {
+                        // Fallback to a generic company icon if image fails to load
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
+                        target.src = "/logos/placeholder.svg";
+                      }}
                       draggable={false}
                     />
                   </motion.div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 max-w-md transition-all duration-300 group-hover:shadow-md">
+                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 max-w-md transition-all duration-300 group-hover:shadow-md hover:border-gray-200">
                     <p className="text-balance text-center text-lg sm:text-xl text-foreground">
                       "{testimonial.review}"
                     </p>
