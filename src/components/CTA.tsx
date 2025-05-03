@@ -2,21 +2,8 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { toast } from 'sonner';
 
 const CTA = () => {
-  useEffect(() => {
-    // Listen for Tally form submission
-    const handleTallySubmit = (event: MessageEvent) => {
-      if (event.data.tally && event.data.tally.type === 'tally:form:submitted') {
-        toast.success('Thank you for joining the waitlist! We will send you an email shortly.');
-      }
-    };
-
-    window.addEventListener('message', handleTallySubmit);
-    return () => window.removeEventListener('message', handleTallySubmit);
-  }, []);
-
   return (
     <div className="bg-gradient-to-b from-[#F9F9F9] to-white">
       <motion.div 

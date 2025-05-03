@@ -1,25 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { TrustPoints } from './hero/TrustPoints';
 import { MarketplaceCarousel } from './hero/MarketplaceCarousel';
 import { DashboardPreviewCard } from './hero/DashboardPreviewCard';
 import SectionFeatures from "./SectionFeatures";
-import { toast } from 'sonner';
 
 const Hero = () => {
-  useEffect(() => {
-    // Listen for Tally form submission
-    const handleTallySubmit = (event: MessageEvent) => {
-      if (event.data.tally && event.data.tally.type === 'tally:form:submitted') {
-        toast.success('Thank you for joining the waitlist! We will send you an email shortly.');
-      }
-    };
-
-    window.addEventListener('message', handleTallySubmit);
-    return () => window.removeEventListener('message', handleTallySubmit);
-  }, []);
-
   return (
     <>
       <div className="container-section min-h-[calc(100vh-5rem)] flex items-center pb-8 bg-[#F9F9F9]">
@@ -41,7 +28,7 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="group" asChild>
-                <a href="https://tally.so/embed/wggEKJ" target="_blank" rel="noopener noreferrer">
+                <a href="https://tally.so/r/wggEKJ" target="_blank" rel="noopener noreferrer">
                   Join the Waitlist
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
@@ -50,13 +37,15 @@ const Hero = () => {
 
             <TrustPoints />
           </div>
-          
-          <div className="relative">
+          <div className="relative flex justify-center items-center">
+            <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#CACFD61A] rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#CACFD61A] rounded-full blur-3xl"></div>
             <DashboardPreviewCard />
-            <MarketplaceCarousel />
           </div>
         </div>
       </div>
+
+      <MarketplaceCarousel />
       <SectionFeatures />
     </>
   );
