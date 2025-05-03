@@ -3,6 +3,7 @@ import { Check, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { toast } from 'sonner';
 
 export type PricingTier = {
   id: string;
@@ -24,6 +25,18 @@ interface PricingCardProps {
 
 export function PricingCard({ tier, paymentFrequency, large }: PricingCardProps) {
   const isPopular = tier.popular || tier.highlighted;
+
+  React.useEffect(() => {
+    // Listen for Tally form submission
+    const handleTallySubmit = (event: MessageEvent) => {
+      if (event.data.tally && event.data.tally.type === 'tally:form:submitted') {
+        toast.success('Thank you for joining the waitlist! We will send you an email shortly.');
+      }
+    };
+
+    window.addEventListener('message', handleTallySubmit);
+    return () => window.removeEventListener('message', handleTallySubmit);
+  }, []);
   
   return (
     <motion.div
@@ -70,7 +83,7 @@ export function PricingCard({ tier, paymentFrequency, large }: PricingCardProps)
         )}
         asChild
       >
-        <a href={tier.ctaLink} target="_blank" rel="noopener noreferrer">
+        <a href="https://tally.so/embed/wggEKJ" target="_blank" rel="noopener noreferrer">
           {tier.cta}
           <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </a>

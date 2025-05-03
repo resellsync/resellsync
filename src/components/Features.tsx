@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Rocket, ShieldCheck, Globe, TrendingUp, ArrowRight } from 'lucide-react';
 import { motion } from "framer-motion";
 import { Button } from '@/components/ui/button';
 import { ScrollReveal } from './ui/ScrollReveal';
+import { toast } from 'sonner';
 
 const benefits = [
   {
@@ -36,6 +37,18 @@ const benefits = [
 ];
 
 const Features = () => {
+  useEffect(() => {
+    // Listen for Tally form submission
+    const handleTallySubmit = (event: MessageEvent) => {
+      if (event.data.tally && event.data.tally.type === 'tally:form:submitted') {
+        toast.success('Thank you for joining the waitlist! We will send you an email shortly.');
+      }
+    };
+
+    window.addEventListener('message', handleTallySubmit);
+    return () => window.removeEventListener('message', handleTallySubmit);
+  }, []);
+
   return (
     <section id="benefits" className="relative section-spacing-lg overflow-hidden bg-[#F9F9F9]">
       {/* Background Effects */}
@@ -103,7 +116,7 @@ const Features = () => {
           className="mt-16 text-center"
         >
           <Button variant="default" size="lg" className="bg-[#0A090C] text-white hover:bg-[#222] group shadow-lg transition-all duration-300 rounded-xl px-8 border-0" asChild>
-            <a href="https://tally.so/r/wggEKJ" target="_blank" rel="noopener noreferrer">
+            <a href="https://tally.so/embed/wggEKJ" target="_blank" rel="noopener noreferrer">
               Join the Waitlist
               <ArrowRight className="ml-2 h-5 w-5 text-white group-hover:translate-x-1 transition-transform duration-300" />
             </a>

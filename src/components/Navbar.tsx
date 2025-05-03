@@ -1,10 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Logo } from './Logo';
+import { toast } from 'sonner';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    // Listen for Tally form submission
+    const handleTallySubmit = (event: MessageEvent) => {
+      if (event.data.tally && event.data.tally.type === 'tally:form:submitted') {
+        toast.success('Thank you for joining the waitlist! We will send you an email shortly.');
+      }
+    };
+
+    window.addEventListener('message', handleTallySubmit);
+    return () => window.removeEventListener('message', handleTallySubmit);
+  }, []);
 
   return (
     <nav className="bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
@@ -24,7 +37,7 @@ const Navbar = () => {
           
           <div className="hidden md:flex items-center">
             <Button asChild>
-              <a href="https://tally.so/r/wggEKJ" target="_blank" rel="noopener noreferrer">Join the Waitlist</a>
+              <a href="https://tally.so/embed/wggEKJ" target="_blank" rel="noopener noreferrer">Join the Waitlist</a>
             </Button>
           </div>
           
@@ -71,7 +84,7 @@ const Navbar = () => {
               </a>
               <div className="mt-2">
                 <Button className="w-full" asChild>
-                  <a href="https://tally.so/r/wggEKJ" target="_blank" rel="noopener noreferrer">Join the Waitlist</a>
+                  <a href="https://tally.so/embed/wggEKJ" target="_blank" rel="noopener noreferrer">Join the Waitlist</a>
                 </Button>
               </div>
             </div>
