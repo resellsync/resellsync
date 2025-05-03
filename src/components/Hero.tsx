@@ -28,7 +28,7 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="group" asChild>
-                <a href="https://tally.so/r/wggEKJ" target="_blank" rel="noopener noreferrer">
+                <a href="https://tally.so/r/wggEKJ?redirect=http://localhost:8080/thank-you" target="_blank" rel="noopener noreferrer">
                   Join the Waitlist
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
