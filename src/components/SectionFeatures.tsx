@@ -45,11 +45,11 @@ const features = [
 ];
 
 const SectionFeatures = () => (
-  <section id="features" className="container-section max-w-7xl mx-auto pb-20" aria-label="Resellsync features">
-    <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 gradient-heading">
+  <section id="features" className="container-section max-w-7xl mx-auto pb-20 bg-[#F9F9F9]" aria-label="Resellsync features">
+    <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 gradient-heading text-[#0A090C]">
       What You Can Do With Resellsync
     </h2>
-    <p className="text-muted-foreground text-center text-lg mb-16 max-w-2xl mx-auto">
+    <p className="text-[#0A090C] opacity-80 text-center text-lg mb-16 max-w-2xl mx-auto">
       Discover how Resellsync simplifies inventory management, automates listings, and helps phone resellers grow faster by connecting every part of their sales workflow in one intuitive platform.
     </p>
     <div className="flex flex-col gap-32">
@@ -64,21 +64,20 @@ const SectionFeatures = () => (
             {feat.visual}
           </div>
           <div className="flex-1 w-full min-w-0 flex items-center">
-            <div>
-              <h3 className="text-xl md:text-2xl font-semibold mb-4">{feat.title}</h3>
-              <p className="text-muted-foreground text-base">{feat.desc}</p>
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 w-full">
+              <h3 className="text-xl md:text-2xl font-semibold mb-4 text-[#0A090C]">{feat.title}</h3>
+              <p className="text-[#0A090C] opacity-80 text-base">{feat.desc}</p>
             </div>
           </div>
         </div>
       ))}
     </div>
-    <div className="relative mt-24 rounded-2xl bg-gradient-to-br from-brand-blue/10 via-brand-teal/10 to-brand-green/5 p-8">
-      <div className="absolute inset-0 bg-white/40 backdrop-blur-sm rounded-2xl" />
+    <div className="relative mt-24 rounded-2xl bg-white p-8 border border-gray-100">
       <div className="relative flex flex-col items-center gap-4">
-        <div className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-brand-blue to-brand-teal bg-clip-text text-transparent">
+        <div className="text-xl md:text-2xl font-semibold text-[#0A090C]">
           Ready to streamline and scale your phone reselling business?
         </div>
-        <Button size="lg" className="group" asChild>
+        <Button size="lg" className="group bg-[#0A090C] text-white border-0" asChild>
           <a href="https://tally.so/r/wggEKJ" target="_blank" rel="noopener noreferrer">
             Join the Waitlist
             <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

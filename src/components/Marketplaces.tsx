@@ -104,7 +104,8 @@ const Marketplaces = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <span className="inline-block px-4 py-1.5 mb-4 rounded-full text-sm font-medium bg-[#D6F5E6] text-[#009A53]">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 mb-4 rounded-full text-sm font-medium bg-gradient-to-r from-[#FFF3D1] to-[#F5C16C] text-[#111]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#FFD700]"></span>
             Powerful Integrations
           </span>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#0A090C]">
