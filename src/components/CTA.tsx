@@ -14,7 +14,7 @@ const CTA = () => {
         transition={{ duration: 0.7 }}
         className="section-spacing"
       >
-        <div className="text-center max-w-3xl mx-auto bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-lg p-10 border border-gray-100">
+        <div className="text-center max-w-3xl mx-auto bg-gradient-to-br from-brand-blue/15 via-brand-teal/15 to-brand-green/10 rounded-3xl shadow-lg p-10 border border-gray-100">
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#00995320] rounded-full blur-3xl -z-10"></div>
           <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#00995320] rounded-full blur-3xl -z-10"></div>
           
