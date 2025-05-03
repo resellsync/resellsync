@@ -1,3 +1,4 @@
+
 import React from "react";
 import { FileInput, Database, RefreshCw, Package, Inbox, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -75,7 +76,7 @@ const SectionFeatures = () => (
     <div className="relative mt-24 rounded-2xl bg-gradient-to-br from-brand-blue/10 via-brand-teal/10 to-brand-green/5 p-8">
       <div className="absolute inset-0 bg-white/40 backdrop-blur-sm rounded-2xl" />
       <div className="relative flex flex-col items-center gap-4">
-        <div className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-brand-blue to-brand-teal bg-clip-text text-transparent">
+        <div className="text-xl md:text-2xl font-semibold bg-gradient-to-br from-brand-blue via-brand-teal to-brand-green bg-clip-text text-transparent">
           Ready to streamline and scale your phone reselling business?
         </div>
         <Button size="lg" className="group" asChild>
