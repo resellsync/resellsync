@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Blog from './pages/blog';
 
 interface LogoProps {
   variant?: "full" | "symbol";
