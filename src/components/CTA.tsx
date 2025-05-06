@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -13,11 +14,11 @@ const CTA = () => {
         transition={{ duration: 0.7 }}
         className="section-spacing"
       >
-        <div className="text-center max-w-3xl mx-auto bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-lg p-10 border border-gray-100">
+        <div className="text-center max-w-3xl mx-auto bg-gradient-to-br from-brand-blue/10 via-brand-teal/5 to-brand-green/10 rounded-3xl shadow-lg p-10 border border-gray-100">
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#00995320] rounded-full blur-3xl -z-10"></div>
           <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#00995320] rounded-full blur-3xl -z-10"></div>
           
-          <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-[#0A090C] to-[#333] bg-clip-text text-transparent">Ready to Transform Your Phone Reselling Business?</h2>
+          <h2 className="text-4xl font-bold mb-6 bg-gradient-to-br from-brand-blue via-brand-teal to-brand-green bg-clip-text text-transparent">Ready to Transform Your Phone Reselling Business?</h2>
           <p className="text-lg opacity-80 mb-8 text-[#0A090C]">
             Join thousands of resellers who are saving time, reducing errors, and growing their business with ResellSync.
           </p>
