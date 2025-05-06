@@ -74,7 +74,7 @@ const SectionFeatures = () => (
     </div>
     <div className="relative mt-24 rounded-2xl bg-white p-8 border border-gray-100">
       <div className="relative flex flex-col items-center gap-4">
-        <div className="text-xl md:text-2xl font-semibold text-[#0A090C]">
+        <div className="text-xl md:text-2xl font-semibold bg-gradient-to-br from-brand-blue via-brand-teal to-brand-green bg-clip-text text-transparent">
           Ready to streamline and scale your phone reselling business?
         </div>
         <Button size="lg" className="group bg-[#0A090C] text-white border-0" asChild>
