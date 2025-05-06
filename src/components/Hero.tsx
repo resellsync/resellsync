@@ -18,6 +18,12 @@ const Hero = () => {
               The #1 platform for phone resellers
             </span>
 
+            <div className="relative flex flex-col items-center gap-4">
+              <div className="text-xl md:text-2xl font-semibold bg-gradient-to-br from-brand-blue via-brand-teal to-brand-green bg-clip-text text-transparent">
+                Ready to streamline and scale your phone reselling business?
+              </div>
+            </div>
+
             <h1 className="font-bold text-5xl md:text-6xl text-[#0A090C] font-sans">
               Take Your Phone Business to the Next Level
             </h1>
