@@ -1,4 +1,3 @@
-
 import React from "react";
 import { FileInput, Database, RefreshCw, Package, Inbox, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -73,17 +72,23 @@ const SectionFeatures = () => (
         </div>
       ))}
     </div>
-    <div className="relative mt-24 rounded-2xl bg-white p-8 border border-gray-100">
+    <div className="relative mt-24 rounded-2xl bg-white p-8 border border-gray-100 shadow-sm">
       <div className="relative flex flex-col items-center gap-4">
-        <div className="text-xl md:text-2xl font-semibold bg-gradient-to-br from-brand-blue via-brand-teal to-brand-green bg-clip-text text-transparent">
-          Ready to streamline and scale your phone reselling business?
+        <div className="text-3xl md:text-4xl font-bold text-[#0A090C] text-center">
+          Ready to Transform Your Phone Reselling Business?
         </div>
+        <p className="text-[#0A090C] opacity-80 text-center text-lg max-w-2xl mx-auto">
+          Join thousands of resellers who are saving time, reducing errors, and growing their business with ResellSync.
+        </p>
         <Button size="lg" className="group bg-[#0A090C] text-white border-0" asChild>
           <a href="https://tally.so/r/wggEKJ" target="_blank" rel="noopener noreferrer">
             Join the Waitlist
             <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </Button>
+        <p className="text-[#0A090C] opacity-60 text-center text-base mt-2">
+          Be among the first to experience the future of phone reselling
+        </p>
       </div>
     </div>
   </section>
