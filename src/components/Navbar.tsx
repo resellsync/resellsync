@@ -11,7 +11,9 @@ const Navbar = () => {
       <div className="container-section py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <Logo variant="full" />
+            <a href="#hero">
+              <Logo variant="full" />
+            </a>
           </div>
           
           {/* Desktop Navigation */}

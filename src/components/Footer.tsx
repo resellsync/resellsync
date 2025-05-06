@@ -36,8 +36,6 @@ const Footer = () => {
               <li><a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">Features</a></li>
               <li><a href="#marketplaces" className="text-muted-foreground hover:text-foreground transition-colors">Marketplaces</a></li>
               <li><a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Roadmap</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Release Notes</a></li>
             </ul>
           </div>
           
@@ -45,7 +43,6 @@ const Footer = () => {
             <h3 className="font-semibold mb-4">Company</h3>
             <ul className="space-y-3">
               <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">About Us</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Careers</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Blog</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Terms of Service</a></li>
@@ -55,19 +52,11 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Support</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Help Center</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Documentation</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Community Forum</a></li>
               <li>
                 <a href="#" className="text-muted-foreground hover:text-foreground transition-colors flex items-center">
                   <Mail size={16} className="mr-2" />
                   support@resellsync.com
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors flex items-center">
-                  <Phone size={16} className="mr-2" />
-                  (123) 456-7890
                 </a>
               </li>
             </ul>

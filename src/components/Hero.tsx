@@ -9,7 +9,7 @@ import SectionFeatures from "./SectionFeatures";
 const Hero = () => {
   return (
     <>
-      <div className="container-section min-h-[calc(100vh-5rem)] flex items-center pb-8 bg-[#F9F9F9]">
+      <div id="hero" className="container-section min-h-[calc(100vh-5rem)] flex items-center pb-8 bg-[#F9F9F9]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center py-12">
           <div className="flex flex-col gap-6">
             {/* Gold badge at the top of the hero section */}
