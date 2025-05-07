@@ -1,6 +1,5 @@
-
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import Blog from './pages/blog';
 
 interface LogoProps {
   variant?: "full" | "symbol";
@@ -15,13 +14,11 @@ export function Logo({ variant = "full", className = "" }: LogoProps) {
 
   return (
     <Link to="/" className={`${className} flex items-center`}>
-      <motion.svg
+      <svg
         xmlns="http://www.w3.org/2000/svg"
         style={style}
         viewBox="0 0 539.28 135.89"
         className="dark:invert"
-        whileHover={{ scale: 1.05 }}
-        transition={{ type: "spring", stiffness: 400, damping: 10 }}
       >
         <g>
           {variant === "full" && (
@@ -39,22 +36,10 @@ export function Logo({ variant = "full", className = "" }: LogoProps) {
               <rect x="511.04" y="79.25" width="10.55" height="10.3" fill="currentColor"/>
             </>
           )}
-          {/* Symbol is always shown with animation */}
-          <motion.path 
-            d="M94.96,25.88H24.09c-3.13,0-5.67,2.54-5.67,5.67v70.87c0,3.13,2.54,5.67,5.67,5.67h70.87c3.13,0,5.67-2.54,5.67-5.67V31.55c0-3.13-2.54-5.67-5.67-5.67ZM48.59,53.12c0-2.89.8-5.15,2.41-6.79,1.6-1.63,3.82-2.45,6.65-2.45h8.81v7.45h-7.31c-.54,0-1.01.19-1.41.57s-.59.87-.59,1.47v23h-8.56v-23.26ZM72.01,80.86c0,2.89-.8,5.15-2.41,6.79-1.6,1.63-3.82,2.45-6.65,2.45h-8.81v-7.45h7.31c.54,0,1.01-.19,1.41-.57s.59-.87.59-1.47v-23h8.56v23.26Z" 
-            fill="currentColor"
-            initial={{ pathLength: 0, fill: "rgba(0, 0, 0, 0)" }}
-            animate={{ 
-              pathLength: 1,
-              fill: "currentColor", 
-              transition: { 
-                pathLength: { duration: 1.5, ease: "easeInOut" },
-                fill: { duration: 1, ease: "easeInOut", delay: 1 }
-              }
-            }}
-          />
+          {/* Symbol is always shown */}
+          <path d="M94.96,25.88H24.09c-3.13,0-5.67,2.54-5.67,5.67v70.87c0,3.13,2.54,5.67,5.67,5.67h70.87c3.13,0,5.67-2.54,5.67-5.67V31.55c0-3.13-2.54-5.67-5.67-5.67ZM48.59,53.12c0-2.89.8-5.15,2.41-6.79,1.6-1.63,3.82-2.45,6.65-2.45h8.81v7.45h-7.31c-.54,0-1.01.19-1.41.57s-.59.87-.59,1.47v23h-8.56v-23.26ZM72.01,80.86c0,2.89-.8,5.15-2.41,6.79-1.6,1.63-3.82,2.45-6.65,2.45h-8.81v-7.45h7.31c.54,0,1.01-.19,1.41-.57s.59-.87.59-1.47v-23h8.56v23.26Z" fill="currentColor"/>
         </g>
-      </motion.svg>
+      </svg>
     </Link>
   );
-}
+} 
