@@ -42,7 +42,7 @@ const Hero = () => {
       transition: { 
         duration: 1.5,
         repeat: Infinity,
-        repeatType: "loop"
+        repeatType: "loop" // Fixed: Using a valid string literal instead of a generic string
       }
     }
   };
